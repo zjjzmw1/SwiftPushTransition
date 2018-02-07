@@ -14,9 +14,14 @@
 		BDC312BF202A983900AAE6E7 /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312BE202A983900AAE6E7 /* SecondVC.swift */; };
 		BDC312C2202A9A9800AAE6E7 /* PointTransitionPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312C1202A9A9800AAE6E7 /* PointTransitionPush.swift */; };
 		BDC312C4202A9ACA00AAE6E7 /* PointTransitionPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312C3202A9ACA00AAE6E7 /* PointTransitionPop.swift */; };
+		BDC312C9202AE58B00AAE6E7 /* ThirdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312C8202AE58B00AAE6E7 /* ThirdVC.swift */; };
+		D737D563D9F7A226CB7BF350 /* Pods_SwiftPushTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359DEC4899A3DCA457DF7A6F /* Pods_SwiftPushTransition.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		359DEC4899A3DCA457DF7A6F /* Pods_SwiftPushTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftPushTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E113BA7770220DC874F6643 /* Pods-SwiftPushTransition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftPushTransition.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftPushTransition/Pods-SwiftPushTransition.debug.xcconfig"; sourceTree = "<group>"; };
+		9A9240B0BBC18FB6FDF9B76D /* Pods-SwiftPushTransition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftPushTransition.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftPushTransition/Pods-SwiftPushTransition.release.xcconfig"; sourceTree = "<group>"; };
 		BDC312A5202A97AE00AAE6E7 /* SwiftPushTransition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftPushTransition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDC312A8202A97AE00AAE6E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDC312AF202A97AE00AAE6E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -26,6 +31,7 @@
 		BDC312BE202A983900AAE6E7 /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
 		BDC312C1202A9A9800AAE6E7 /* PointTransitionPush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTransitionPush.swift; sourceTree = "<group>"; };
 		BDC312C3202A9ACA00AAE6E7 /* PointTransitionPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTransitionPop.swift; sourceTree = "<group>"; };
+		BDC312C8202AE58B00AAE6E7 /* ThirdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D737D563D9F7A226CB7BF350 /* Pods_SwiftPushTransition.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E96650E128A0BEDBBEAF0B1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8E113BA7770220DC874F6643 /* Pods-SwiftPushTransition.debug.xcconfig */,
+				9A9240B0BBC18FB6FDF9B76D /* Pods-SwiftPushTransition.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		51FBF15AACB5AA0EE57614FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				359DEC4899A3DCA457DF7A6F /* Pods_SwiftPushTransition.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BDC3129C202A97AE00AAE6E7 = {
 			isa = PBXGroup;
 			children = (
 				BDC312A7202A97AE00AAE6E7 /* SwiftPushTransition */,
 				BDC312A6202A97AE00AAE6E7 /* Products */,
+				3E96650E128A0BEDBBEAF0B1 /* Pods */,
+				51FBF15AACB5AA0EE57614FB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +88,7 @@
 				BDC312BA202A981B00AAE6E7 /* BaseVC.swift */,
 				BDC312BC202A982C00AAE6E7 /* FirstVC.swift */,
 				BDC312BE202A983900AAE6E7 /* SecondVC.swift */,
+				BDC312C8202AE58B00AAE6E7 /* ThirdVC.swift */,
 				BDC312C0202A9A5600AAE6E7 /* 自定义转场动画 */,
 				BDC312AF202A97AE00AAE6E7 /* Assets.xcassets */,
 				BDC312B4202A97AE00AAE6E7 /* Info.plist */,
@@ -85,9 +112,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDC312B7202A97AE00AAE6E7 /* Build configuration list for PBXNativeTarget "SwiftPushTransition" */;
 			buildPhases = (
+				702F0304E95F7EB70BB0E28B /* [CP] Check Pods Manifest.lock */,
 				BDC312A1202A97AE00AAE6E7 /* Sources */,
 				BDC312A2202A97AE00AAE6E7 /* Frameworks */,
 				BDC312A3202A97AE00AAE6E7 /* Resources */,
+				882B370BBAE94670091385E0 /* [CP] Embed Pods Frameworks */,
+				2FBB601D5333658569EEFB76 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -143,6 +173,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2FBB601D5333658569EEFB76 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftPushTransition/Pods-SwiftPushTransition-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		702F0304E95F7EB70BB0E28B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftPushTransition-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		882B370BBAE94670091385E0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftPushTransition/Pods-SwiftPushTransition-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/LazyTransitions/LazyTransitions.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LazyTransitions.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftPushTransition/Pods-SwiftPushTransition-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BDC312A1202A97AE00AAE6E7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -151,6 +235,7 @@
 				BDC312BF202A983900AAE6E7 /* SecondVC.swift in Sources */,
 				BDC312BD202A982C00AAE6E7 /* FirstVC.swift in Sources */,
 				BDC312C4202A9ACA00AAE6E7 /* PointTransitionPop.swift in Sources */,
+				BDC312C9202AE58B00AAE6E7 /* ThirdVC.swift in Sources */,
 				BDC312C2202A9A9800AAE6E7 /* PointTransitionPush.swift in Sources */,
 				BDC312BB202A981B00AAE6E7 /* BaseVC.swift in Sources */,
 				BDC312A9202A97AE00AAE6E7 /* AppDelegate.swift in Sources */,
@@ -269,6 +354,7 @@
 		};
 		BDC312B8202A97AE00AAE6E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E113BA7770220DC874F6643 /* Pods-SwiftPushTransition.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -286,6 +372,7 @@
 		};
 		BDC312B9202A97AE00AAE6E7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A9240B0BBC18FB6FDF9B76D /* Pods-SwiftPushTransition.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

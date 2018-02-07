@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseVC: UIViewController,UIGestureRecognizerDelegate,UINavigationControllerDelegate {
+class BaseVC: UIViewController,UIGestureRecognizerDelegate, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
