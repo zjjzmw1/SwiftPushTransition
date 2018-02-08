@@ -9,56 +9,166 @@
 import UIKit
 
 class FiveVC: BaseVC {
-
+    /// 对联的图片
+    var duilianImageV: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.gray
         self.title = "第5页"
-
-        self.xiaxueAction()
+        // 下雪------------------------------animation
+//        Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { [weak self] (_) in
+//            self?.xiaxueAction()
+        Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(xiaxueAction), userInfo: nil, repeats: true)
+        // 对联添加
+        duilianImageV = UIImageView.init(frame: CGRect.init(x: 260, y: 300, width: 60, height: 200))
+        duilianImageV.backgroundColor = UIColor.red
+        view.addSubview(duilianImageV)
+        // 对联浮动------------------------------animation
+        self.duilianAction()
+        
+        // 上边扩散的动画
+        self.spreadAction()
+        
+        // 顶部2018摆动的动画
+        self.swingAction()
     }
 
     /// 下雪动画
-    func xiaxueAction() {
-        let rect = CGRect(x: 0.0, y: -70.0, width: view.bounds.width,
-                          height: 50.0)
-        let emitter = CAEmitterLayer()
-        emitter.frame = rect
-        view.layer.addSublayer(emitter)
-        //        emitter.emitterShape = kCAEmitterLayerRectangle
-        emitter.emitterShape = kCAEmitterLayerPoint
+    @objc func xiaxueAction() {
         
-        //kCAEmitterLayerPoint
-        //kCAEmitterLayerLine
-        //kCAEmitterLayerRectangle
-        
-        emitter.emitterPosition = CGPoint(x: rect.width/2, y: rect.height/2)
-        emitter.emitterSize = rect.size
-        
-        let emitterCell = CAEmitterCell()
-        emitterCell.contents = #imageLiteral(resourceName: "xh").scaleImageToWidth(30).cgImage
-        emitterCell.birthRate = 60  //每秒产生80个粒子
-        emitterCell.lifetime = 10    //存活1秒
-        emitterCell.lifetimeRange = 3.0
-        
-        emitter.emitterCells = [emitterCell]  //这里可以设置多种粒子 我们以一种为粒子
-        emitterCell.yAcceleration = 70.0  //给Y方向一个加速度
-        emitterCell.xAcceleration = 0 //x方向一个加速度
-        emitterCell.velocity = 20.0 //初始速度
-        emitterCell.emissionLongitude = CGFloat(-M_PI) //向左
-        emitterCell.velocityRange = 200.0   //随机速度 -200+20 --- 200+20
-        emitterCell.emissionRange = CGFloat(M_PI_2) //随机方向 -pi/2 --- pi/2
-                emitterCell.redRange = 0.3
-                emitterCell.greenRange = 0.3
-                emitterCell.blueRange = 0.3  //三个随机颜色
-        
-        emitterCell.scale = 0.8
-        emitterCell.scaleRange = 0.8  //0 - 1.6
-        //        emitterCell.scaleSpeed = -0.15  //逐渐变小
-        emitterCell.scaleSpeed = 0  //逐渐变小
-        
-        emitterCell.alphaRange = 0.95   //随机透明度
-        //        emitterCell.alphaSpeed = -0.15  //逐渐消失
-        emitterCell.alphaSpeed = 0  //逐渐消失
+        if self.view.subviews.count > 500 {
+            return
+        }
+        // 雪花的宽
+        var width = CGFloat(arc4random() % 20)
+        while width < 5 {
+            width = CGFloat(arc4random() % 20)
+        }
+        // 雪花的速度
+        var speed = CGFloat(arc4random() % 10)
+        while speed < 4 {
+            speed = CGFloat(arc4random() % 10)
+        }
+        // 雪花的y
+        let startY = -CGFloat(arc4random() % 100)
+        let startX = CGFloat(arc4random() % 400)
+        let endX = CGFloat(arc4random() % 400)
+        let imageV = UIImageView.init(frame: CGRect.init(x: startX, y: startY, width: width, height: width))
+        self.view.addSubview(imageV)
+        imageV.image = #imageLiteral(resourceName: "xh")
+        UIView.animate(withDuration: TimeInterval(speed), animations: {
+            imageV.frame = CGRect.init(x: endX, y: UIScreen.main.bounds.size.height + 20, width: width, height: width)
+            // 旋转
+            imageV.transform = imageV.transform.rotated(by: CGFloat(Double.pi))
+        }) { (isfinish) in
+            imageV.removeFromSuperview()
+        }
     }
 
+    // 对联动画
+    func duilianAction() {
+        let pathAnimation = CAKeyframeAnimation.init(keyPath: "position")
+        pathAnimation.calculationMode = kCAAnimationPaced;
+        pathAnimation.fillMode = kCAFillModeForwards
+        pathAnimation.repeatCount = MAXFLOAT
+        pathAnimation.autoreverses = true
+        pathAnimation.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseInEaseOut)
+        pathAnimation.duration = 5
+        let path = UIBezierPath.init(ovalIn: duilianImageV.frame.insetBy(dx: 5, dy: 5))
+        pathAnimation.path = path.cgPath
+//        duilianImageV.layer.add(pathAnimation, forKey: "pathAnimation")
+        
+        let momAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
+        momAnimation.fromValue = (-0.1)
+        momAnimation.toValue = (0.1)
+        momAnimation.duration = 0.5
+        momAnimation.repeatCount = MAXFLOAT
+        momAnimation.autoreverses = true
+        duilianImageV.layer.add(momAnimation, forKey: "animateLayer")
+        
+        let scaleX = CAKeyframeAnimation.init(keyPath: "transform.scale.x")
+        scaleX.values = [(1.0), (1.1), (1.0)]
+        scaleX.keyTimes = [(0.0), (0.5), (1.0)]
+        scaleX.repeatCount = MAXFLOAT
+        scaleX.autoreverses = true
+        scaleX.duration = 4
+        duilianImageV.layer.add(scaleX, forKey: "scaleX")
+        let scaleY = CAKeyframeAnimation.init(keyPath: "transform.scale.y")
+        scaleY.values = [(1.0), (1.1), (1.0)]
+        scaleY.keyTimes = [(0.0), (0.5), (1.0)]
+        scaleY.repeatCount = MAXFLOAT
+        scaleY.autoreverses = true
+        scaleY.duration = 4
+        duilianImageV.layer.add(scaleY, forKey: "scaleY")
+    }
+    
+    /// 顶部2018摆动的动画
+    func swingAction() {
+        var left = 40
+        for _ in 0 ... 10 {
+            let imageV = UIImageView.init(frame: CGRect.init(x: left, y: 64, width: 20, height: 160))
+            imageV.backgroundColor = UIColor.red
+            self.view.addSubview(imageV)
+            left += 40
+            let ani = baidongAction(fromValue: -Double.pi/(Double((arc4random()) % 10) + 8), toValue: Double.pi/(Double(Int(arc4random()) % 10) + 8))
+            imageV.layer.add(ani, forKey: nil)
+            
+            
+        }
+        
+        
+    }
+    
+    /// 摆动动画
+    func baidongAction(fromValue: Double, toValue: Double) -> CAAnimation {
+        let animation = CABasicAnimation.init(keyPath: "transform.rotation.z")
+        let timeD = Double(arc4random() % 5) + 1
+        animation.duration = timeD; // 持续时间
+        let mediaTiming = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animation.timingFunction = mediaTiming;
+        animation.repeatCount = MAXFLOAT; // 重复次数
+        animation.fromValue =  (fromValue)// 起始角度
+        animation.toValue = (toValue) // 终止角度
+        animation.autoreverses = true
+        return animation
+    }
+    
+    /// 扩散动画
+    func spreadAction() {
+        for _ in 0 ... 30 {
+            let left = CGFloat(arc4random() % 400)
+            let top = CGFloat(arc4random() % 50)
+            let imageV = UIImageView.init(frame: CGRect.init(x: left, y: 70 + top, width: 10, height: 10))
+            imageV.backgroundColor = UIColor.white
+            imageV.layer.masksToBounds = true
+            imageV.layer.cornerRadius = 5
+            self.view.addSubview(imageV)
+            let beginTime = CFTimeInterval(arc4random() % 10)/10.0
+            imageV.layer.add(self.startSpreadAnimation(beiginTime: beginTime), forKey: nil)
+        }
+    }
+    /// 扩散动画
+    func startSpreadAnimation(beiginTime: CFTimeInterval) -> CAAnimationGroup {
+        // 透明
+        let opacityAnimation = CABasicAnimation(keyPath: "opacity")
+        opacityAnimation.fromValue = 1.0  // 起始值
+        opacityAnimation.toValue = 0     // 结束值
+        // 扩散动画
+        let scaleAnimation = CABasicAnimation(keyPath: "transform")
+        let t = CATransform3DIdentity
+        scaleAnimation.fromValue = NSValue(caTransform3D: CATransform3DScale(t, 0.0, 0.0, 0.0))
+        scaleAnimation.toValue = NSValue(caTransform3D: CATransform3DScale(t, 6.0, 6.0, 0.0))
+        // 给CAShapeLayer添加组合动画
+        let groupAnimation = CAAnimationGroup()
+        groupAnimation.animations = [opacityAnimation,scaleAnimation]
+        groupAnimation.duration = 3   //持续时间
+        groupAnimation.autoreverses = false //循环效果
+        groupAnimation.repeatCount = MAXFLOAT
+        groupAnimation.beginTime = beiginTime
+//        pulseLayer.add(groupAnimation, forKey: nil)
+        return groupAnimation
+    }
+    
+    
 }
