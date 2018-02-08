@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD76894E202C41DF00E93FC6 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76894D202C41DF00E93FC6 /* WaveView.swift */; };
+		BD768950202C41FD00E93FC6 /* WaveImageV.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76894F202C41FD00E93FC6 /* WaveImageV.swift */; };
 		BDC312A9202A97AE00AAE6E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312A8202A97AE00AAE6E7 /* AppDelegate.swift */; };
 		BDC312B0202A97AE00AAE6E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDC312AF202A97AE00AAE6E7 /* Assets.xcassets */; };
 		BDC312BB202A981B00AAE6E7 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312BA202A981B00AAE6E7 /* BaseVC.swift */; };
@@ -27,6 +29,8 @@
 		359DEC4899A3DCA457DF7A6F /* Pods_SwiftPushTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftPushTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E113BA7770220DC874F6643 /* Pods-SwiftPushTransition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftPushTransition.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftPushTransition/Pods-SwiftPushTransition.debug.xcconfig"; sourceTree = "<group>"; };
 		9A9240B0BBC18FB6FDF9B76D /* Pods-SwiftPushTransition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftPushTransition.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftPushTransition/Pods-SwiftPushTransition.release.xcconfig"; sourceTree = "<group>"; };
+		BD76894D202C41DF00E93FC6 /* WaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
+		BD76894F202C41FD00E93FC6 /* WaveImageV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveImageV.swift; sourceTree = "<group>"; };
 		BDC312A5202A97AE00AAE6E7 /* SwiftPushTransition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftPushTransition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDC312A8202A97AE00AAE6E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDC312AF202A97AE00AAE6E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 		BDC312D9202BFA9700AAE6E7 /* 工具 */ = {
 			isa = PBXGroup;
 			children = (
+				BD76894D202C41DF00E93FC6 /* WaveView.swift */,
+				BD76894F202C41FD00E93FC6 /* WaveImageV.swift */,
 				BDC312D7202BFA9100AAE6E7 /* UIImage+Extension.swift */,
 			);
 			path = "工具";
@@ -271,6 +277,8 @@
 				BDC312D4202BEC9500AAE6E7 /* FourVC.swift in Sources */,
 				BDC312C4202A9ACA00AAE6E7 /* PointTransitionPop.swift in Sources */,
 				BDC312C9202AE58B00AAE6E7 /* ThirdVC.swift in Sources */,
+				BD768950202C41FD00E93FC6 /* WaveImageV.swift in Sources */,
+				BD76894E202C41DF00E93FC6 /* WaveView.swift in Sources */,
 				BDC312C2202A9A9800AAE6E7 /* PointTransitionPush.swift in Sources */,
 				BDC312BB202A981B00AAE6E7 /* BaseVC.swift in Sources */,
 				BDC312D8202BFA9100AAE6E7 /* UIImage+Extension.swift in Sources */,

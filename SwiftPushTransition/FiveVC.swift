@@ -21,7 +21,7 @@ class FiveVC: BaseVC {
 //            self?.xiaxueAction()
         Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(xiaxueAction), userInfo: nil, repeats: true)
         // 对联添加
-        duilianImageV = UIImageView.init(frame: CGRect.init(x: 260, y: 300, width: 60, height: 200))
+        duilianImageV = WaveImageV.init(frame: CGRect.init(x: 260, y: 300, width: 60, height: 200))
         duilianImageV.backgroundColor = UIColor.red
         view.addSubview(duilianImageV)
         // 对联浮动------------------------------animation
@@ -68,39 +68,34 @@ class FiveVC: BaseVC {
 
     // 对联动画
     func duilianAction() {
+        self.duilianImageV.frame = CGRect.init(x: 260, y: 310, width: 60, height: 20)
+        UIView.animate(withDuration: 1, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 10, options: .curveEaseInOut, animations: {
+            self.duilianImageV.frame = CGRect.init(x: 260, y: 310, width: 60, height: 200)
+        }) { (isFinished) in
+            
+        }
+        
         let pathAnimation = CAKeyframeAnimation.init(keyPath: "position")
         pathAnimation.calculationMode = kCAAnimationPaced;
         pathAnimation.fillMode = kCAFillModeForwards
         pathAnimation.repeatCount = MAXFLOAT
         pathAnimation.autoreverses = true
-        pathAnimation.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseInEaseOut)
+        pathAnimation.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionLinear)
         pathAnimation.duration = 5
-        let path = UIBezierPath.init(ovalIn: duilianImageV.frame.insetBy(dx: 5, dy: 5))
+        let path = UIBezierPath.init(ovalIn: duilianImageV.frame.insetBy(dx: 55, dy: 55))
         pathAnimation.path = path.cgPath
-//        duilianImageV.layer.add(pathAnimation, forKey: "pathAnimation")
-        
-        let momAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
-        momAnimation.fromValue = (-0.1)
-        momAnimation.toValue = (0.1)
-        momAnimation.duration = 0.5
-        momAnimation.repeatCount = MAXFLOAT
-        momAnimation.autoreverses = true
-        duilianImageV.layer.add(momAnimation, forKey: "animateLayer")
-        
-        let scaleX = CAKeyframeAnimation.init(keyPath: "transform.scale.x")
+        duilianImageV.layer.add(pathAnimation, forKey: "pathAnimation")
+
+        // 放大、缩小动画
+        let scaleX = CAKeyframeAnimation.init(keyPath: "transform.scale")
         scaleX.values = [(1.0), (1.1), (1.0)]
         scaleX.keyTimes = [(0.0), (0.5), (1.0)]
         scaleX.repeatCount = MAXFLOAT
         scaleX.autoreverses = true
         scaleX.duration = 4
         duilianImageV.layer.add(scaleX, forKey: "scaleX")
-        let scaleY = CAKeyframeAnimation.init(keyPath: "transform.scale.y")
-        scaleY.values = [(1.0), (1.1), (1.0)]
-        scaleY.keyTimes = [(0.0), (0.5), (1.0)]
-        scaleY.repeatCount = MAXFLOAT
-        scaleY.autoreverses = true
-        scaleY.duration = 4
-        duilianImageV.layer.add(scaleY, forKey: "scaleY")
+
+        
     }
     
     /// 顶部2018摆动的动画
