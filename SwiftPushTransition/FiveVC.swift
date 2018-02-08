@@ -86,16 +86,30 @@ class FiveVC: BaseVC {
         pathAnimation.path = path.cgPath
         duilianImageV.layer.add(pathAnimation, forKey: "pathAnimation")
 
+//        // 放大、缩小动画
+//        let scaleX = CAKeyframeAnimation.init(keyPath: "transform.scale")
+//        scaleX.values = [(1.0), (1.1), (1.0)]
+//        scaleX.keyTimes = [(0.0), (0.5), (1.0)]
+//        scaleX.repeatCount = MAXFLOAT
+//        scaleX.autoreverses = true
+//        scaleX.duration = 4
+//        duilianImageV.layer.add(scaleX, forKey: "scaleX")
         // 放大、缩小动画
-        let scaleX = CAKeyframeAnimation.init(keyPath: "transform.scale")
-        scaleX.values = [(1.0), (1.1), (1.0)]
+        let scaleX = CAKeyframeAnimation.init(keyPath: "transform.scale.x")
+        scaleX.values = [(1.0), (1.11), (1.0)]
         scaleX.keyTimes = [(0.0), (0.5), (1.0)]
         scaleX.repeatCount = MAXFLOAT
         scaleX.autoreverses = true
         scaleX.duration = 4
         duilianImageV.layer.add(scaleX, forKey: "scaleX")
-
-        
+        // 放大、缩小动画
+        let scaleY = CAKeyframeAnimation.init(keyPath: "transform.scale.y")
+        scaleY.values = [(1.0), (1.16), (1.0)]
+        scaleY.keyTimes = [(0.0), (0.8), (1.0)]
+        scaleY.repeatCount = MAXFLOAT
+        scaleY.autoreverses = true
+        scaleY.duration = 3
+        duilianImageV.layer.add(scaleY, forKey: "scaleY")
     }
     
     /// 顶部2018摆动的动画
