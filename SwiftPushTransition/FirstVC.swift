@@ -90,7 +90,7 @@ class FirstVC: BaseVC {
     @objc func goAction4() {
         let vc = FiveVC()
         isNeedCustomAnimation = false
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: false)
     }
 
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {

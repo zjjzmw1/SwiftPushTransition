@@ -105,33 +105,57 @@ class FiveVC: BaseVC {
     
     /// 顶部2018摆动的动画
     func swingAction() {
-        var left = 40
-        for _ in 0 ... 10 {
-            let imageV = UIImageView.init(frame: CGRect.init(x: left, y: 64, width: 20, height: 160))
+        var left = 0
+        let timeD = 1.5
+        for _ in 0 ... 7 {
+            left += Int((30 + arc4random() % 20))
+            let imageV = UIImageView.init(frame: CGRect.init(x: left, y: 60, width: 5, height: 160))
             imageV.backgroundColor = UIColor.red
             self.view.addSubview(imageV)
-            left += 40
-            let ani = baidongAction(fromValue: -Double.pi/(Double((arc4random()) % 10) + 8), toValue: Double.pi/(Double(Int(arc4random()) % 10) + 8))
-            imageV.layer.add(ani, forKey: nil)
+            let middleV = Double.pi/(Double(Int(arc4random()) % 10) + 15)
+            let ani = baidongAction(fromValue: -Double.pi/(Double((arc4random()) % 10) + 20), toValue: middleV, timeD: timeD, beginTime: timeD)
+            imageV.layer.add(ani, forKey: "ani")
             
-            
+            // 2018 需要飘动的多
+            let left2 = left + Int(arc4random() % 10) + 10
+            let imageV2 = UIImageView.init(frame: CGRect.init(x: left2, y: 60, width: 20, height: 160))
+            imageV2.backgroundColor = UIColor.blue
+            self.view.addSubview(imageV2)
+            let ani2 = baidongAction(fromValue: -Double.pi/(Double((arc4random()) % 10) + 10), toValue: middleV, timeD: timeD, beginTime: timeD)
+            imageV2.layer.add(ani2, forKey: "ani2")
+
         }
-        
-        
     }
     
     /// 摆动动画
-    func baidongAction(fromValue: Double, toValue: Double) -> CAAnimation {
+    func baidongAction(fromValue: Double, toValue: Double, timeD: Double, beginTime: Double) -> CAAnimation {
         let animation = CABasicAnimation.init(keyPath: "transform.rotation.z")
-        let timeD = Double(arc4random() % 5) + 1
         animation.duration = timeD; // 持续时间
-        let mediaTiming = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseInEaseOut)
+        let mediaTiming = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseOut)
         animation.timingFunction = mediaTiming;
-        animation.repeatCount = MAXFLOAT; // 重复次数
+        animation.beginTime = 0
+        animation.repeatCount = 0; // 重复次数
         animation.fromValue =  (fromValue)// 起始角度
         animation.toValue = (toValue) // 终止角度
-        animation.autoreverses = true
-        return animation
+        animation.autoreverses = false
+        
+        let animation2 = CABasicAnimation.init(keyPath: "transform.rotation.z")
+        animation2.duration = timeD; // 持续时间
+        let mediaTiming2 = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animation2.timingFunction = mediaTiming2;
+        animation2.beginTime = beginTime
+        animation2.repeatCount = 0; // 重复次数
+        animation2.fromValue =  (toValue)// 起始角度
+        animation2.toValue = (0) // 终止角度
+        animation2.autoreverses = false
+
+        let groupAnimation = CAAnimationGroup()
+        groupAnimation.animations = [animation,animation2]
+        groupAnimation.duration = timeD + timeD   //持续时间
+        groupAnimation.autoreverses = false //循环效果
+        groupAnimation.repeatCount = 0
+        groupAnimation.beginTime = 0
+        return groupAnimation
     }
     
     /// 扩散动画
