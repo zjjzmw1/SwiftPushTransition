@@ -18,6 +18,8 @@
 		BDC312CF202AF67800AAE6E7 /* swiftPushTransition.gif in Resources */ = {isa = PBXBuildFile; fileRef = BDC312CE202AF67800AAE6E7 /* swiftPushTransition.gif */; };
 		BDC312D2202BEB0300AAE6E7 /* CATransitionPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312D1202BEB0300AAE6E7 /* CATransitionPush.swift */; };
 		BDC312D4202BEC9500AAE6E7 /* FourVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312D3202BEC9500AAE6E7 /* FourVC.swift */; };
+		BDC312D6202BFA4B00AAE6E7 /* FiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312D5202BFA4B00AAE6E7 /* FiveVC.swift */; };
+		BDC312D8202BFA9100AAE6E7 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312D7202BFA9100AAE6E7 /* UIImage+Extension.swift */; };
 		D737D563D9F7A226CB7BF350 /* Pods_SwiftPushTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359DEC4899A3DCA457DF7A6F /* Pods_SwiftPushTransition.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,8 @@
 		BDC312CE202AF67800AAE6E7 /* swiftPushTransition.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = swiftPushTransition.gif; sourceTree = "<group>"; };
 		BDC312D1202BEB0300AAE6E7 /* CATransitionPush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATransitionPush.swift; sourceTree = "<group>"; };
 		BDC312D3202BEC9500AAE6E7 /* FourVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourVC.swift; sourceTree = "<group>"; };
+		BDC312D5202BFA4B00AAE6E7 /* FiveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveVC.swift; sourceTree = "<group>"; };
+		BDC312D7202BFA9100AAE6E7 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,8 @@
 				BDC312BE202A983900AAE6E7 /* SecondVC.swift */,
 				BDC312C8202AE58B00AAE6E7 /* ThirdVC.swift */,
 				BDC312D3202BEC9500AAE6E7 /* FourVC.swift */,
+				BDC312D5202BFA4B00AAE6E7 /* FiveVC.swift */,
+				BDC312D9202BFA9700AAE6E7 /* 工具 */,
 				BDC312CE202AF67800AAE6E7 /* swiftPushTransition.gif */,
 				BDC312C0202A9A5600AAE6E7 /* 自定义转场动画 */,
 				BDC312AF202A97AE00AAE6E7 /* Assets.xcassets */,
@@ -120,6 +126,14 @@
 				BDC312D1202BEB0300AAE6E7 /* CATransitionPush.swift */,
 			);
 			path = "push的动画方向修改";
+			sourceTree = "<group>";
+		};
+		BDC312D9202BFA9700AAE6E7 /* 工具 */ = {
+			isa = PBXGroup;
+			children = (
+				BDC312D7202BFA9100AAE6E7 /* UIImage+Extension.swift */,
+			);
+			path = "工具";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDC312D6202BFA4B00AAE6E7 /* FiveVC.swift in Sources */,
 				BDC312D2202BEB0300AAE6E7 /* CATransitionPush.swift in Sources */,
 				BDC312BF202A983900AAE6E7 /* SecondVC.swift in Sources */,
 				BDC312BD202A982C00AAE6E7 /* FirstVC.swift in Sources */,
@@ -258,6 +273,7 @@
 				BDC312C9202AE58B00AAE6E7 /* ThirdVC.swift in Sources */,
 				BDC312C2202A9A9800AAE6E7 /* PointTransitionPush.swift in Sources */,
 				BDC312BB202A981B00AAE6E7 /* BaseVC.swift in Sources */,
+				BDC312D8202BFA9100AAE6E7 /* UIImage+Extension.swift in Sources */,
 				BDC312A9202A97AE00AAE6E7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,6 +13,7 @@ class FirstVC: BaseVC {
     var btn: UIButton!
     var btn2: UIButton!
     var btn3: UIButton!
+    var btn4: UIButton!
     var startFrame = CGRect.init()
     // 下拉返回的效果需要
     fileprivate var transitioner = LazyTransitioner()
@@ -49,6 +50,14 @@ class FirstVC: BaseVC {
         btn3.setTitleColor(UIColor.white, for: .normal)
         btn3.backgroundColor = UIColor.red
         
+        btn4 = UIButton.init(frame: CGRect.init(x: 100, y: 420, width: 100, height: 100))
+        view.addSubview(btn4)
+        btn4.addTarget(self, action: #selector(goAction4), for: .touchUpInside)
+        btn4.setTitle("第5页", for: .normal)
+        btn4.layer.masksToBounds = true
+        btn4.layer.cornerRadius = 50
+        btn4.setTitleColor(UIColor.white, for: .normal)
+        btn4.backgroundColor = UIColor.red
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,16 +77,6 @@ class FirstVC: BaseVC {
         isNeedCustomAnimation = true
         startFrame = btn2.frame
         self.navigationController?.pushViewController(vc, animated: true)
-        
-//        transitioner.addTransition(forView: vc.view)
-//        transitioner.triggerTransitionAction = { [weak self] _ in
-//            _ = self?.navigationController?.popViewController(animated: true)
-//        }
-//        vc.didScrollCallback = { [weak self] scrollView in
-//            self?.transitioner.didScroll(scrollView)
-//        }
-//        navigationController?.delegate = transitioner
-
     }
 
     @objc func goAction3() {
@@ -86,6 +85,12 @@ class FirstVC: BaseVC {
         let transitionPush = CATransitionPush(aType: kCATransitionPush, aSubtype: kCATransitionFromTop)
         self.navigationController?.view.layer.add(transitionPush, forKey: kCATransition)
         self.navigationController?.pushViewController(vc, animated: false)
+    }
+    
+    @objc func goAction4() {
+        let vc = FiveVC()
+        isNeedCustomAnimation = false
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
