@@ -108,17 +108,23 @@ class FiveVC: BaseVC {
         var left = 0
         let timeD = 1.5
         for _ in 0 ... 7 {
+            let height = Int(100 + arc4random() % 80)
             left += Int((30 + arc4random() % 20))
-            let imageV = UIImageView.init(frame: CGRect.init(x: left, y: 60, width: 5, height: 160))
+            let imageV = UIImageView.init(frame: CGRect.init(x: left, y: 60, width: 5, height: height))
             imageV.backgroundColor = UIColor.red
             self.view.addSubview(imageV)
             let middleV = Double.pi/(Double(Int(arc4random()) % 10) + 15)
             let ani = baidongAction(fromValue: -Double.pi/(Double((arc4random()) % 10) + 20), toValue: middleV, timeD: timeD, beginTime: timeD)
             imageV.layer.add(ani, forKey: "ani")
+            let imgV = UIImageView.init(frame: CGRect.init(x: -2.5, y: imageV.frame.size.height - 5, width: imageV.frame.size.width * 2, height: 10))
+            imgV.layer.masksToBounds = true
+            imgV.layer.cornerRadius = 5
+            imgV.backgroundColor = UIColor.red
+            imageV.addSubview(imgV)
             
             // 2018 需要飘动的多
             let left2 = left + Int(arc4random() % 10) + 10
-            let imageV2 = UIImageView.init(frame: CGRect.init(x: left2, y: 60, width: 20, height: 160))
+            let imageV2 = UIImageView.init(frame: CGRect.init(x: left2, y: 60, width: 20, height: height))
             imageV2.backgroundColor = UIColor.blue
             self.view.addSubview(imageV2)
             let ani2 = baidongAction(fromValue: -Double.pi/(Double((arc4random()) % 10) + 10), toValue: middleV, timeD: timeD, beginTime: timeD)
