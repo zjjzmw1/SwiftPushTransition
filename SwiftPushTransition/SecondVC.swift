@@ -12,7 +12,6 @@ import LazyTransitions      // 下拉返回上页的动画--效果不错
 class SecondVC: BaseVC{
     /// 开始动画的frame --- 需要返回动画的时候就添加
     var startFrame = CGRect.init(x: 0, y: 0, width: 0, height: 0)
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "第二页"

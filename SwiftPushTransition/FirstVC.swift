@@ -12,9 +12,12 @@ import LazyTransitions
 class FirstVC: BaseVC {
     var btn: UIButton!
     var btn2: UIButton!
+    var btn3: UIButton!
     var startFrame = CGRect.init()
     // 下拉返回的效果需要
     fileprivate var transitioner = LazyTransitioner()
+    /// 是否需要自定义动画
+    var isNeedCustomAnimation   =   true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +40,15 @@ class FirstVC: BaseVC {
         btn2.setTitleColor(UIColor.white, for: .normal)
         btn2.backgroundColor = UIColor.red
 
+        btn3 = UIButton.init(frame: CGRect.init(x: 100, y: 320, width: 100, height: 100))
+        view.addSubview(btn3)
+        btn3.addTarget(self, action: #selector(goAction3), for: .touchUpInside)
+        btn3.setTitle("第四页", for: .normal)
+        btn3.layer.masksToBounds = true
+        btn3.layer.cornerRadius = 50
+        btn3.setTitleColor(UIColor.white, for: .normal)
+        btn3.backgroundColor = UIColor.red
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,11 +59,13 @@ class FirstVC: BaseVC {
     @objc func goAction() {
         let vc = SecondVC()
         startFrame = btn.frame
+        isNeedCustomAnimation = true
         vc.startFrame = btn.frame // 需要返回动画的时候添加
         self.navigationController?.pushViewController(vc, animated: true)
     }
     @objc func goAction2() {
         let vc = ThirdVC()
+        isNeedCustomAnimation = true
         startFrame = btn2.frame
         self.navigationController?.pushViewController(vc, animated: true)
         
@@ -66,9 +80,16 @@ class FirstVC: BaseVC {
 
     }
 
+    @objc func goAction3() {
+        let vc = FourVC()
+        isNeedCustomAnimation = false
+        let transitionPush = CATransitionPush(aType: kCATransitionPush, aSubtype: kCATransitionFromTop)
+        self.navigationController?.view.layer.add(transitionPush, forKey: kCATransition)
+        self.navigationController?.pushViewController(vc, animated: false)
+    }
 
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if operation == UINavigationControllerOperation.push {
+        if operation == UINavigationControllerOperation.push && isNeedCustomAnimation {
             let push = PointTransitionPush()
             push.startFrame = startFrame
             return push
