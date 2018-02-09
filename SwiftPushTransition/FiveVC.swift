@@ -22,6 +22,10 @@ class FiveVC: BaseVC {
         view.addSubview(newYearV)
 
     }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
