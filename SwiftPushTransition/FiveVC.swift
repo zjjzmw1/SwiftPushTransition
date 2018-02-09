@@ -14,12 +14,16 @@ class FiveVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.gray
+        
+        let bgImageV = UIImageView.init(frame: CGRect.init(x: 0, y: 64, width: self.view.frame.size.width, height: self.view.frame.size.height - 200))
+        view.addSubview(bgImageV)
+        bgImageV.contentMode = .scaleAspectFill
+        bgImageV.image = #imageLiteral(resourceName: "adBg")
         self.title = "第5页"
         // 下雪------------------------------animation
         Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(xiaxueAction), userInfo: nil, repeats: true)
         // 对联添加
-        duilianImageV = WaveImageV.init(frame: CGRect.init(x: 260, y: 300, width: 120, height: 270))
+        duilianImageV = WaveImageV.init(frame: CGRect.init(x: self.view.frame.size.width - 150, y: 300, width: 120, height: 270))
         duilianImageV.image = #imageLiteral(resourceName: "chun_lian")
         view.addSubview(duilianImageV)
         // 对联浮动------------------------------animation
@@ -67,10 +71,10 @@ class FiveVC: BaseVC {
 
     // 对联动画
     func duilianAction() {
-        duilianImageV.frame = CGRect.init(x: 260, y: 310, width: 120, height: 20)
+        duilianImageV.frame = CGRect.init(x: self.view.frame.size.width - 130, y: 310, width: 120, height: 20)
         duilianImageV.alpha = 0.0
         UIView.animate(withDuration: 1, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 10, options: .curveEaseInOut, animations: {
-            self.duilianImageV.frame = CGRect.init(x: 260, y: 310, width: 120, height: 270)
+            self.duilianImageV.frame = CGRect.init(x: self.view.frame.size.width - 130, y: 310, width: 120, height: 270)
             self.duilianImageV.alpha = 1.0
         }) { (isFinished) in
             
@@ -97,13 +101,13 @@ class FiveVC: BaseVC {
     /// 顶部2018摆动的动画
     func swingAction() {
         var left = 0
-        for _ in 0 ... 7 {
+        for i in 0 ... 5 {
             let timeD = 1.5 + Double(arc4random() % 2)
             let beginT = Double(arc4random() % 1)
-            let height = Int(100 + arc4random() % 80)
-            left += Int((30 + arc4random() % 20))
+            let height = Int(20 + arc4random() % 20)
+            left += Int((50 + arc4random() % 20))
             let imageV = UIImageView.init(frame: CGRect.init(x: left, y: 60, width: 5, height: height))
-            imageV.backgroundColor = UIColor.red
+            imageV.backgroundColor = UIColor.yellow
             self.view.addSubview(imageV)
             let middleV = Double.pi/(Double(Int(arc4random()) % 10) + 15)
             let ani = baidongAction(fromValue: -Double.pi/(Double((arc4random()) % 10) + 20), toValue: middleV, timeD: timeD, beginTime: beginT)
@@ -115,12 +119,42 @@ class FiveVC: BaseVC {
             imageV.addSubview(imgV)
             
             // 2018 需要飘动的多
-            let left2 = left + Int(arc4random() % 10) + 10
-            let imageV2 = UIImageView.init(frame: CGRect.init(x: left2, y: 60, width: 20, height: height))
-            imageV2.backgroundColor = UIColor.blue
+            let left2 = left - Int(arc4random() % 8) + 15
+            var imageH = 100
+            var imageW = 40
+            var image = #imageLiteral(resourceName: "new_year_logo")
+            if i == 1 {
+                imageH = 80
+                imageW = 40
+                image = #imageLiteral(resourceName: "new_year_2")
+            }
+            if i == 2 {
+                imageH = 90
+                imageW = 50
+                image = #imageLiteral(resourceName: "new_year_0")
+            }
+            if i == 3 {
+                imageH = 80
+                imageW = 30
+                image = #imageLiteral(resourceName: "new_year_1")
+            }
+            if i == 4 {
+                imageH = 100
+                imageW = 40
+                image = #imageLiteral(resourceName: "new_year_8")
+            }
+            if i == 5 {
+                imageH = 100
+                imageW = 40
+                image = #imageLiteral(resourceName: "new_year_fu")
+            }
+            let imageV2 = UIImageView.init(frame: CGRect.init(x: left2, y: 60, width: imageW, height: imageH))
+            imageV2.image = image
+            imageV2.contentMode = .scaleToFill
             self.view.addSubview(imageV2)
             let ani2 = baidongAction(fromValue: -Double.pi/(Double((arc4random()) % 10) + 10), toValue: middleV, timeD: timeD, beginTime: beginT)
             imageV2.layer.add(ani2, forKey: "ani2")
+            
 
         }
     }
