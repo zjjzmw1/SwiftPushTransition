@@ -106,16 +106,16 @@ class FiveVC: BaseVC {
             let beginT = Double(arc4random() % 1)
             let height = Int(20 + arc4random() % 20)
             left += Int((50 + arc4random() % 20))
-            let imageV = UIImageView.init(frame: CGRect.init(x: left, y: 60, width: 5, height: height))
+            let imageV = UIImageView.init(frame: CGRect.init(x: left, y: 60, width: 2, height: height))
             imageV.backgroundColor = UIColor.yellow
             self.view.addSubview(imageV)
             let middleV = Double.pi/(Double(Int(arc4random()) % 10) + 15)
             let ani = baidongAction(fromValue: -Double.pi/(Double((arc4random()) % 10) + 20), toValue: middleV, timeD: timeD, beginTime: beginT)
             imageV.layer.add(ani, forKey: "ani")
-            let imgV = UIImageView.init(frame: CGRect.init(x: -2.5, y: imageV.frame.size.height - 5, width: imageV.frame.size.width * 2, height: 10))
+            let imgV = UIImageView.init(frame: CGRect.init(x: -1, y: imageV.frame.size.height - 2, width: imageV.frame.size.width * 2, height: 4))
             imgV.layer.masksToBounds = true
-            imgV.layer.cornerRadius = 5
-            imgV.backgroundColor = UIColor.red
+            imgV.layer.cornerRadius = 2
+            imgV.backgroundColor = UIColor.yellow
             imageV.addSubview(imgV)
             
             // 2018 需要飘动的多
@@ -211,7 +211,7 @@ class FiveVC: BaseVC {
             imageV.layer.masksToBounds = true
             imageV.layer.cornerRadius = 5
             self.view.addSubview(imageV)
-            let beginTime = CFTimeInterval(arc4random() % 10)/10.0
+            let beginTime = CFTimeInterval(arc4random() % 20)/10.0
             imageV.layer.add(self.startSpreadAnimation(beiginTime: beginTime), forKey: nil)
         }
     }
