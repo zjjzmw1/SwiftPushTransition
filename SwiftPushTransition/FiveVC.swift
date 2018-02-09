@@ -34,7 +34,6 @@ class FiveVC: BaseVC {
 
     /// 下雪动画
     @objc func xiaxueAction() {
-        
         if self.view.subviews.count > 500 {
             return
         }
@@ -54,7 +53,9 @@ class FiveVC: BaseVC {
         let endX = CGFloat(arc4random() % 400)
         let imageV = UIImageView.init(frame: CGRect.init(x: startX, y: startY, width: width, height: width))
         self.view.addSubview(imageV)
-        imageV.image = #imageLiteral(resourceName: "xh")
+        let index = Int(arc4random()%5) + 1 // 获取到 【1，5】 
+        let imageName = String.init(format: "snow_%d",index)
+        imageV.image =  UIImage.init(named: imageName)
         UIView.animate(withDuration: TimeInterval(speed), animations: {
             imageV.frame = CGRect.init(x: endX, y: UIScreen.main.bounds.size.height + 20, width: width, height: width)
             // 旋转
@@ -198,7 +199,6 @@ class FiveVC: BaseVC {
         groupAnimation.autoreverses = false //循环效果
         groupAnimation.repeatCount = MAXFLOAT
         groupAnimation.beginTime = beiginTime
-//        pulseLayer.add(groupAnimation, forKey: nil)
         return groupAnimation
     }
     
