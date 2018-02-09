@@ -17,12 +17,10 @@ class FiveVC: BaseVC {
         self.view.backgroundColor = UIColor.gray
         self.title = "第5页"
         // 下雪------------------------------animation
-//        Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { [weak self] (_) in
-//            self?.xiaxueAction()
         Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(xiaxueAction), userInfo: nil, repeats: true)
         // 对联添加
-        duilianImageV = WaveImageV.init(frame: CGRect.init(x: 260, y: 300, width: 60, height: 200))
-        duilianImageV.backgroundColor = UIColor.red
+        duilianImageV = WaveImageV.init(frame: CGRect.init(x: 260, y: 300, width: 120, height: 270))
+        duilianImageV.image = #imageLiteral(resourceName: "chun_lian")
         view.addSubview(duilianImageV)
         // 对联浮动------------------------------animation
         self.duilianAction()
@@ -68,35 +66,18 @@ class FiveVC: BaseVC {
 
     // 对联动画
     func duilianAction() {
-        self.duilianImageV.frame = CGRect.init(x: 260, y: 310, width: 60, height: 20)
+        duilianImageV.frame = CGRect.init(x: 260, y: 310, width: 120, height: 20)
+        duilianImageV.alpha = 0.0
         UIView.animate(withDuration: 1, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 10, options: .curveEaseInOut, animations: {
-            self.duilianImageV.frame = CGRect.init(x: 260, y: 310, width: 60, height: 200)
+            self.duilianImageV.frame = CGRect.init(x: 260, y: 310, width: 120, height: 270)
+            self.duilianImageV.alpha = 1.0
         }) { (isFinished) in
             
         }
-        
-        let pathAnimation = CAKeyframeAnimation.init(keyPath: "position")
-        pathAnimation.calculationMode = kCAAnimationPaced;
-        pathAnimation.fillMode = kCAFillModeForwards
-        pathAnimation.repeatCount = MAXFLOAT
-        pathAnimation.autoreverses = true
-        pathAnimation.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionLinear)
-        pathAnimation.duration = 5
-        let path = UIBezierPath.init(ovalIn: duilianImageV.frame.insetBy(dx: 55, dy: 55))
-        pathAnimation.path = path.cgPath
-        duilianImageV.layer.add(pathAnimation, forKey: "pathAnimation")
-
-//        // 放大、缩小动画
-//        let scaleX = CAKeyframeAnimation.init(keyPath: "transform.scale")
-//        scaleX.values = [(1.0), (1.1), (1.0)]
-//        scaleX.keyTimes = [(0.0), (0.5), (1.0)]
-//        scaleX.repeatCount = MAXFLOAT
-//        scaleX.autoreverses = true
-//        scaleX.duration = 4
-//        duilianImageV.layer.add(scaleX, forKey: "scaleX")
-        // 放大、缩小动画
+    
+        // 放大、缩小动画 --- 可以把他们俩写成 transform.scale 统一变化也是OK的。
         let scaleX = CAKeyframeAnimation.init(keyPath: "transform.scale.x")
-        scaleX.values = [(1.0), (1.11), (1.0)]
+        scaleX.values = [(1.0), (1.12), (1.0)]
         scaleX.keyTimes = [(0.0), (0.5), (1.0)]
         scaleX.repeatCount = MAXFLOAT
         scaleX.autoreverses = true
@@ -104,8 +85,8 @@ class FiveVC: BaseVC {
         duilianImageV.layer.add(scaleX, forKey: "scaleX")
         // 放大、缩小动画
         let scaleY = CAKeyframeAnimation.init(keyPath: "transform.scale.y")
-        scaleY.values = [(1.0), (1.16), (1.0)]
-        scaleY.keyTimes = [(0.0), (0.8), (1.0)]
+        scaleY.values = [(1.0), (1.18), (1.0)]
+        scaleY.keyTimes = [(0.0), (0.6), (1.0)]
         scaleY.repeatCount = MAXFLOAT
         scaleY.autoreverses = true
         scaleY.duration = 3
