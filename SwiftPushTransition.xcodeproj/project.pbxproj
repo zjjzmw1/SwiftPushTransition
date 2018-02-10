@@ -19,7 +19,6 @@
 		BDC312C2202A9A9800AAE6E7 /* PointTransitionPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312C1202A9A9800AAE6E7 /* PointTransitionPush.swift */; };
 		BDC312C4202A9ACA00AAE6E7 /* PointTransitionPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312C3202A9ACA00AAE6E7 /* PointTransitionPop.swift */; };
 		BDC312C9202AE58B00AAE6E7 /* ThirdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312C8202AE58B00AAE6E7 /* ThirdVC.swift */; };
-		BDC312CF202AF67800AAE6E7 /* swiftPushTransition.gif in Resources */ = {isa = PBXBuildFile; fileRef = BDC312CE202AF67800AAE6E7 /* swiftPushTransition.gif */; };
 		BDC312D2202BEB0300AAE6E7 /* CATransitionPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312D1202BEB0300AAE6E7 /* CATransitionPush.swift */; };
 		BDC312D4202BEC9500AAE6E7 /* FourVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312D3202BEC9500AAE6E7 /* FourVC.swift */; };
 		BDC312D6202BFA4B00AAE6E7 /* FiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312D5202BFA4B00AAE6E7 /* FiveVC.swift */; };
@@ -45,7 +44,6 @@
 		BDC312C1202A9A9800AAE6E7 /* PointTransitionPush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTransitionPush.swift; sourceTree = "<group>"; };
 		BDC312C3202A9ACA00AAE6E7 /* PointTransitionPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTransitionPop.swift; sourceTree = "<group>"; };
 		BDC312C8202AE58B00AAE6E7 /* ThirdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdVC.swift; sourceTree = "<group>"; };
-		BDC312CE202AF67800AAE6E7 /* swiftPushTransition.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = swiftPushTransition.gif; sourceTree = "<group>"; };
 		BDC312D1202BEB0300AAE6E7 /* CATransitionPush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATransitionPush.swift; sourceTree = "<group>"; };
 		BDC312D3202BEC9500AAE6E7 /* FourVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourVC.swift; sourceTree = "<group>"; };
 		BDC312D5202BFA4B00AAE6E7 /* FiveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveVC.swift; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 				BDC312D5202BFA4B00AAE6E7 /* FiveVC.swift */,
 				BD768959202D9E0300E93FC6 /* 过年动画-模仿支付宝 */,
 				BDC312D9202BFA9700AAE6E7 /* 工具 */,
-				BDC312CE202AF67800AAE6E7 /* swiftPushTransition.gif */,
 				BDC312C0202A9A5600AAE6E7 /* 自定义转场动画 */,
 				BDC312AF202A97AE00AAE6E7 /* Assets.xcassets */,
 				BDC312B4202A97AE00AAE6E7 /* Info.plist */,
@@ -219,7 +216,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDC312B0202A97AE00AAE6E7 /* Assets.xcassets in Resources */,
-				BDC312CF202AF67800AAE6E7 /* swiftPushTransition.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
