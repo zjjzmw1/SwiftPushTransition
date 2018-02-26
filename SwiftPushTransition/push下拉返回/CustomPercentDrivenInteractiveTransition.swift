@@ -16,6 +16,7 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
     var toView : UIView!
     let x_to : CGFloat = -100.0 ///toview起始x坐标
     let y_to : CGFloat = -100.0 ///toview起始y坐标
+    var shadowView: UIView = UIView.shadowView      // 阴影蒙层
 
     /// 自定义--是否是从上往下 默认false
     var popFromTop: Bool    =   false
@@ -40,6 +41,9 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
         self.formView = fromViewController.view
         self.toView = toViewController.view
         self.toView.frame = CGRect(x:x_to,y:y_to,width:self.toView.frame.width,height:self.toView.frame.height)
+        shadowView = UIView.shadowView // 初始化阴影
+        shadowView.alpha = 1.0
+        self.toView.addSubview(shadowView)
     }
     override func update(_ percentComplete: CGFloat) {
         if transitionContext == nil {
@@ -54,6 +58,7 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
             self.toView?.frame = CGRect(x:self.x_to+CGFloat(fabsf(Float(self.x_to*percentComplete))), y:0, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
         }
         transitionContext?.updateInteractiveTransition(percentComplete)
+        shadowView.alpha = 1.0 - percentComplete
     }
     func finishBy(cancelled: Bool) {
         if self.transitionContext == nil {
@@ -69,6 +74,7 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
                 } else if self.popFromLeft  { // 左右滑动
                     self.toView?.frame = CGRect(x:self.x_to, y:0, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
                 }
+                self.shadowView.alpha = 0.0
             }, completion: {completed in
                 self.transitionContext!.completeTransition(false)
                 self.transitionContext = nil
@@ -76,20 +82,22 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
                 self.formView = nil
             })
         } else { // 执行pop
+            self.toView.addSubview(shadowView)
             UIView.animate(withDuration: 0.2, animations: {
                 if self.formView.frame.origin.y > 0 { // 上下
                     self.formView?.frame = CGRect(x:0, y:(self.formView?.frame.height)!, width:(self.formView?.frame.width)! , height: (self.formView?.frame.height)!)
                 } else { // 左右
                     self.formView?.frame = CGRect(x:(self.formView?.frame.width)!, y:0, width:(self.formView?.frame.width)! , height: (self.formView?.frame.height)!)
                 }
-                
                 self.toView?.frame = CGRect(x:0, y:0, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
+                self.shadowView.alpha = 0.0
             }, completion: {completed in
                 self.transitionContext!.finishInteractiveTransition()
                 self.transitionContext!.completeTransition(true)
                 self.transitionContext = nil
                 self.toView = nil
                 self.formView = nil
+                self.shadowView.removeFromSuperview()
             })
         }
     }

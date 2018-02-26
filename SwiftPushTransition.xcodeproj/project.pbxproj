@@ -13,6 +13,7 @@
 		BD4DAE6F2043B158005586B1 /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DAE6E2043B158005586B1 /* TestVC.swift */; };
 		BD4DAE712043B2CA005586B1 /* UIViewController+interactivePopTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DAE702043B2CA005586B1 /* UIViewController+interactivePopTransition.swift */; };
 		BD4DAE732043B9BC005586B1 /* CustomPopAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DAE722043B9BC005586B1 /* CustomPopAnimation.swift */; };
+		BD4DAE752043F64A005586B1 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DAE742043F64A005586B1 /* UIViewExtensions.swift */; };
 		BD76894E202C41DF00E93FC6 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76894D202C41DF00E93FC6 /* WaveView.swift */; };
 		BD768950202C41FD00E93FC6 /* WaveImageV.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76894F202C41FD00E93FC6 /* WaveImageV.swift */; };
 		BD76895B202D9E1800E93FC6 /* NewYearAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76895A202D9E1800E93FC6 /* NewYearAdView.swift */; };
@@ -44,6 +45,7 @@
 		BD4DAE6E2043B158005586B1 /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
 		BD4DAE702043B2CA005586B1 /* UIViewController+interactivePopTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+interactivePopTransition.swift"; sourceTree = "<group>"; };
 		BD4DAE722043B9BC005586B1 /* CustomPopAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimation.swift; sourceTree = "<group>"; };
+		BD4DAE742043F64A005586B1 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		BD76894D202C41DF00E93FC6 /* WaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		BD76894F202C41FD00E93FC6 /* WaveImageV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveImageV.swift; sourceTree = "<group>"; };
 		BD76895A202D9E1800E93FC6 /* NewYearAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewYearAdView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				BD4DAE702043B2CA005586B1 /* UIViewController+interactivePopTransition.swift */,
 				BD4DAE682043A847005586B1 /* CustomPercentDrivenInteractiveTransition.swift */,
 				BD4DAE722043B9BC005586B1 /* CustomPopAnimation.swift */,
+				BD4DAE742043F64A005586B1 /* UIViewExtensions.swift */,
 			);
 			path = "push下拉返回";
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD4DAE752043F64A005586B1 /* UIViewExtensions.swift in Sources */,
 				BD4DAE662043A6EB005586B1 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				BDC312D6202BFA4B00AAE6E7 /* FiveVC.swift in Sources */,
 				BD4DAE692043A847005586B1 /* CustomPercentDrivenInteractiveTransition.swift in Sources */,
