@@ -102,7 +102,17 @@
 			path = "滑动返回";
 			sourceTree = "<group>";
 		};
-		BD4DAE672043A80B005586B1 /* push下拉返回 */ = {
+		BD4DAE672043A80B005586B1 /* 3.push下拉返回效果 */ = {
+			isa = PBXGroup;
+			children = (
+				BD4DAE592043A374005586B1 /* CustomPercentInteractiveVC.swift */,
+				BD4DAE6E2043B158005586B1 /* TestVC.swift */,
+				BD4DAE7E204410B3005586B1 /* push下拉返回SDK */,
+			);
+			path = "3.push下拉返回效果";
+			sourceTree = "<group>";
+		};
+		BD4DAE7E204410B3005586B1 /* push下拉返回SDK */ = {
 			isa = PBXGroup;
 			children = (
 				BD4DAE702043B2CA005586B1 /* UIViewController+interactivePopTransition.swift */,
@@ -110,15 +120,34 @@
 				BD4DAE722043B9BC005586B1 /* CustomPopAnimation.swift */,
 				BD4DAE7C20440F39005586B1 /* UIViewExtensionBg.swift */,
 			);
-			path = "push下拉返回";
+			path = "push下拉返回SDK";
 			sourceTree = "<group>";
 		};
-		BD768959202D9E0300E93FC6 /* 过年动画-模仿支付宝 */ = {
+		BD4DAE7F204410F9005586B1 /* 1.吸吮的转场动画（2种） */ = {
 			isa = PBXGroup;
 			children = (
+				BDC312BE202A983900AAE6E7 /* SecondVC.swift */,
+				BDC312C8202AE58B00AAE6E7 /* ThirdVC.swift */,
+			);
+			path = "1.吸吮的转场动画（2种）";
+			sourceTree = "<group>";
+		};
+		BD4DAE8020441138005586B1 /* 吸吮的转场 */ = {
+			isa = PBXGroup;
+			children = (
+				BDC312C1202A9A9800AAE6E7 /* PointTransitionPush.swift */,
+				BDC312C3202A9ACA00AAE6E7 /* PointTransitionPop.swift */,
+			);
+			path = "吸吮的转场";
+			sourceTree = "<group>";
+		};
+		BD768959202D9E0300E93FC6 /* 2.过年动画-模仿支付宝 */ = {
+			isa = PBXGroup;
+			children = (
+				BD4DAE7A20440ED4005586B1 /* NewYearAnimationVC.swift */,
 				BD76895A202D9E1800E93FC6 /* NewYearAdView.swift */,
 			);
-			path = "过年动画-模仿支付宝";
+			path = "2.过年动画-模仿支付宝";
 			sourceTree = "<group>";
 		};
 		BDC3129C202A97AE00AAE6E7 = {
@@ -145,13 +174,9 @@
 				BDC312A8202A97AE00AAE6E7 /* AppDelegate.swift */,
 				BDC312BA202A981B00AAE6E7 /* BaseVC.swift */,
 				BDC312BC202A982C00AAE6E7 /* FirstVC.swift */,
-				BDC312BE202A983900AAE6E7 /* SecondVC.swift */,
-				BDC312C8202AE58B00AAE6E7 /* ThirdVC.swift */,
-				BD4DAE7A20440ED4005586B1 /* NewYearAnimationVC.swift */,
-				BD4DAE592043A374005586B1 /* CustomPercentInteractiveVC.swift */,
-				BD4DAE6E2043B158005586B1 /* TestVC.swift */,
-				BD4DAE672043A80B005586B1 /* push下拉返回 */,
-				BD768959202D9E0300E93FC6 /* 过年动画-模仿支付宝 */,
+				BD4DAE7F204410F9005586B1 /* 1.吸吮的转场动画（2种） */,
+				BD768959202D9E0300E93FC6 /* 2.过年动画-模仿支付宝 */,
+				BD4DAE672043A80B005586B1 /* 3.push下拉返回效果 */,
 				BDC312D9202BFA9700AAE6E7 /* 工具 */,
 				BDC312C0202A9A5600AAE6E7 /* 自定义转场动画 */,
 				BDC312AF202A97AE00AAE6E7 /* Assets.xcassets */,
@@ -164,8 +189,7 @@
 		BDC312C0202A9A5600AAE6E7 /* 自定义转场动画 */ = {
 			isa = PBXGroup;
 			children = (
-				BDC312C1202A9A9800AAE6E7 /* PointTransitionPush.swift */,
-				BDC312C3202A9ACA00AAE6E7 /* PointTransitionPop.swift */,
+				BD4DAE8020441138005586B1 /* 吸吮的转场 */,
 				BDC312D0202BEACF00AAE6E7 /* push的动画方向修改 */,
 			);
 			path = "自定义转场动画";
