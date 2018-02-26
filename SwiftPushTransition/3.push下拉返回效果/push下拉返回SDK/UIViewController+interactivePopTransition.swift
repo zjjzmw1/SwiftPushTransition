@@ -80,30 +80,28 @@ extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate
     }
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if self.popFromTopWithScrollView { // 允许下拉
-            var top: CGFloat = 0.0
-            if #available(iOS 11.0, *) {
-                top = scrollView.adjustedContentInset.top
-            }
-            if scrollView.contentOffset.y + scrollView.contentInset.top + top > 0 { // 向上滑动
-                return
-            } else {
-                for gesture in scrollView.gestureRecognizers! {
-                    if gesture.isKind(of: UIPanGestureRecognizer.self) {
-                        self.handleGesture(gestureRecognizer: gesture as! UIPanGestureRecognizer)
-                    }
-                }
-            }
-        }
+        self.stopScrollViewAction(scrollView: scrollView)
     }
     /// 手指离开屏幕的方法（不管有没有惯性都执行）
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.stopScrollViewAction(scrollView: scrollView)
+    }
+    
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.stopScrollViewAction(scrollView: scrollView)
+    }
+    
+    /// 停止滚动的时候执行
+    func stopScrollViewAction(scrollView: UIScrollView) {
         if self.popFromTopWithScrollView { // 允许下拉
             var top: CGFloat = 0.0
             if #available(iOS 11.0, *) {
                 top = scrollView.adjustedContentInset.top
             }
             if scrollView.contentOffset.y + scrollView.contentInset.top + top > 0 { // 向上滑动
+                interactivePopTransition?.finishBy(cancelled: true)
+                interactionInProgress = false
+                self.interactivePopTransition = nil
                 return
             } else {
                 for gesture in scrollView.gestureRecognizers! {
