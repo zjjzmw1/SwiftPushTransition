@@ -28,6 +28,7 @@ class CustomPercentInteractiveVC: BaseVC {
         // 支持下拉返回 -- 第一步
         self.popFromTop = true
         self.popFromLeft = true
+        self.popFromTopWithScrollView = true
     }
     
     /// 初始化表格
@@ -37,7 +38,6 @@ class CustomPercentInteractiveVC: BaseVC {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
-        
     }
     
     @objc func goTestVC() {

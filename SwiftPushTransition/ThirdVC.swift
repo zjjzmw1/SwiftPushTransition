@@ -29,7 +29,7 @@ class ThirdVC: BaseVC {
         navigationController?.delegate = transitioner // 这句必不可少
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         didScrollCallback(scrollView)
     }
 
