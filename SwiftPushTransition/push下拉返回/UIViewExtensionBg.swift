@@ -1,9 +1,9 @@
 //
-//  UIViewExtensions.swift
-//  LazyTransitions
+//  UIViewExtensionBg.swift
+//  SwiftPushTransition
 //
-//  Created by Serghei Catraniuc on 12/26/16.
-//  Copyright © 2016 BeardWare. All rights reserved.
+//  Created by zhangmingwei on 2018/2/26.
+//  Copyright © 2018年 zhangmingwei. All rights reserved.
 //
 
 import Foundation

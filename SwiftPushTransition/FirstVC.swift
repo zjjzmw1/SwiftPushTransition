@@ -7,17 +7,13 @@
 //
 
 import UIKit
-import LazyTransitions
 
 class FirstVC: BaseVC {
     var btn: UIButton!
     var btn2: UIButton!
-    var btn3: UIButton!
     var btn4: UIButton!
     var btn5: UIButton!
     var startFrame = CGRect.init()
-    // 下拉返回的效果需要
-    fileprivate var transitioner = LazyTransitioner()
     /// 是否需要自定义动画
     var isNeedCustomAnimation   =   true
 
@@ -41,15 +37,6 @@ class FirstVC: BaseVC {
         btn2.layer.cornerRadius = 50
         btn2.setTitleColor(UIColor.white, for: .normal)
         btn2.backgroundColor = UIColor.red
-
-        btn3 = UIButton.init(frame: CGRect.init(x: 22, y: 320, width: 100, height: 100))
-        view.addSubview(btn3)
-        btn3.addTarget(self, action: #selector(goAction3), for: .touchUpInside)
-        btn3.setTitle("从下往上", for: .normal)
-        btn3.layer.masksToBounds = true
-        btn3.layer.cornerRadius = 50
-        btn3.setTitleColor(UIColor.white, for: .normal)
-        btn3.backgroundColor = UIColor.red
         
         btn4 = UIButton.init(frame: CGRect.init(x: 22, y: 420, width: 100, height: 100))
         view.addSubview(btn4)
@@ -75,11 +62,6 @@ class FirstVC: BaseVC {
         navigationController?.delegate = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("\(navigationController?.isNavigationBarHidden),,\(navigationController?.navigationBar.isTranslucent)")
-    }
-    
     @objc func goAction() {
         let vc = SecondVC()
         startFrame = btn.frame
@@ -93,17 +75,9 @@ class FirstVC: BaseVC {
         startFrame = btn2.frame
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
-    @objc func goAction3() {
-        let vc = FourVC()
-        isNeedCustomAnimation = false
-        let transitionPush = CATransitionPush(aType: kCATransitionPush, aSubtype: kCATransitionFromTop)
-        self.navigationController?.view.layer.add(transitionPush, forKey: kCATransition)
-        self.navigationController?.pushViewController(vc, animated: false)
-    }
     
     @objc func goAction4() {
-        let vc = FiveVC()
+        let vc = NewYearAnimationVC()
         isNeedCustomAnimation = false
         self.navigationController?.pushViewController(vc, animated: false)
     }

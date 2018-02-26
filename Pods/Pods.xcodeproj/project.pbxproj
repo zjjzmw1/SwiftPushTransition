@@ -7,99 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03FA76E20CEFC7938DB970E874502002 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		0CA6F1088B4ED07220EA08B0D106A3F3 /* StaticViewGestureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7EFB9E185FD29E604BE053B59DDBDB /* StaticViewGestureHandler.swift */; };
-		222FF2D4BB30DBDB4141900FD7404E51 /* ScrollableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B44B61B54B03374A61C86C166CDEA8 /* ScrollableProtocol.swift */; };
-		2912578994A168CD53881786ABC4BCEC /* Pods-SwiftPushTransition-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF32B5748117424519DA6F83EF374A /* Pods-SwiftPushTransition-dummy.m */; };
-		35C6AD2A1BD15573B2DF7084077BF0E1 /* TransitionerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5AA8D324D2365DBA5C75E36642424A /* TransitionerProtocols.swift */; };
-		39B6E4CCC73A93740D55798F2E593ABD /* TransitionAnimatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1846EC3DCEE7A28A3240673838276875 /* TransitionAnimatorType.swift */; };
-		3EAA29373B7B410D4608B4A3B6F939F5 /* UIScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097385C5E0609D5B4F9CCB168BB83336 /* UIScrollViewExtensions.swift */; };
-		41E61B849B247E9E0BF623C4BA17B93D /* TransitionGestureHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFB26390847E337A6B5B23933AF9E95 /* TransitionGestureHandlerType.swift */; };
-		46FB265B375B48CA20A452B0156F0DBE /* Pods-SwiftPushTransition-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 364FD03C46FEA0CBE9D4D87259B4728F /* Pods-SwiftPushTransition-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		478CDE9D4C14FCFCD4D7F7DF4D9DFE55 /* InteractiveTransitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5691E7BCE829BCFCEF64072E415ECB /* InteractiveTransitioner.swift */; };
-		484D1E40D22BDE9C8F7321255456671E /* LazyTransitions-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 20E2C874C150D49FCF0B9E79936DAF40 /* LazyTransitions-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5C4ECFE81F2B3F8D5D29EC1787406101 /* UIPanGestureRecognizerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDDCAF88E220036BE34B421AB67FEB4 /* UIPanGestureRecognizerExtensions.swift */; };
-		8EDF9CE647AD98E86DBDE7DE50D72DB3 /* PartialTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56817A1A92D4D9857F78B49DE9911109 /* PartialTransitionAnimator.swift */; };
-		99CC61652347BDEFBCEB93DC8FD754A2 /* TransitionCombinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E673E7042955752A177B09140B69B2C2 /* TransitionCombinator.swift */; };
-		A11DD254668F5215264614A2CB8A3580 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB552D3AF5B0AB26BA675E3CA315AB7 /* PopAnimator.swift */; };
-		B09167C0756F1B083E52F38FAF6E9673 /* LazyTransitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E346AA8FD79C6909D97E9927B756B496 /* LazyTransitioner.swift */; };
-		B1855EC4A485FAAA68BA76AE46914858 /* ScrollableGestureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF6FC28B656A1524855668830BC524A /* ScrollableGestureHandler.swift */; };
-		BF1278CC0FB7473FEFDEC6E6A38BB166 /* DismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A278EFFC6D314ED27BE95D4BB7031CD /* DismissAnimator.swift */; };
-		C220657ECD8BA357BAEC87880B973671 /* PartialTransitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1486170B5FCBE2300E64E4A8552624C /* PartialTransitioner.swift */; };
-		C320DB501E349F57F6E55AA030C361B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		D0C9E3343085B2452E78E3298D7D61DF /* LazyTransitions-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7242BCCF50AB6D3C6E9C7BF7D79360B4 /* LazyTransitions-dummy.m */; };
-		D2C6D19C233A2CF46FC00FF5FBD38315 /* OptionalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B21DB9F2AB4988548DC544300135B4 /* OptionalExtensions.swift */; };
-		EE90338DEBC53AB3999BE456F5FE3879 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF859306A02AE0D8B1E207E9C98316 /* UIViewExtensions.swift */; };
-		F7E2158169B35097EA4F795527C7BC18 /* TransitionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD13967667182679EB818404E8D4A802 /* TransitionInteractor.swift */; };
-		FA167EE30E31FDC1274935994CE0E730 /* TransitionProgressCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAAF59FBE4508FC5A7929E4B73C20D2 /* TransitionProgressCalculator.swift */; };
+		0333491DAC566E7C37F81BDAE480738C /* Pods-SwiftPushTransition-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF32B5748117424519DA6F83EF374A /* Pods-SwiftPushTransition-dummy.m */; };
+		79F29020620A3B38AF9401CA8E9949E3 /* Pods-SwiftPushTransition-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 364FD03C46FEA0CBE9D4D87259B4728F /* Pods-SwiftPushTransition-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		90AF67AD7FC0463FEBC1903E444634E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		4CC071A6AFFF5DD5759D0D9B79FF4783 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 10FBEA566AB5B1ED5C9D49C757FCB894;
-			remoteInfo = LazyTransitions;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		02A1523A66868CDC2159951D73AF0759 /* Pods_SwiftPushTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwiftPushTransition.framework; path = "Pods-SwiftPushTransition.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		097385C5E0609D5B4F9CCB168BB83336 /* UIScrollViewExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIScrollViewExtensions.swift; path = LazyTransitions/UIScrollViewExtensions.swift; sourceTree = "<group>"; };
-		0DB1F0B7BEC5A31D4BFEBF94607F2A36 /* LazyTransitions-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LazyTransitions-prefix.pch"; sourceTree = "<group>"; };
-		0EAAF59FBE4508FC5A7929E4B73C20D2 /* TransitionProgressCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionProgressCalculator.swift; path = LazyTransitions/TransitionProgressCalculator.swift; sourceTree = "<group>"; };
-		12FF859306A02AE0D8B1E207E9C98316 /* UIViewExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = LazyTransitions/UIViewExtensions.swift; sourceTree = "<group>"; };
-		1846EC3DCEE7A28A3240673838276875 /* TransitionAnimatorType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionAnimatorType.swift; path = LazyTransitions/TransitionAnimatorType.swift; sourceTree = "<group>"; };
-		1A5691E7BCE829BCFCEF64072E415ECB /* InteractiveTransitioner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InteractiveTransitioner.swift; path = LazyTransitions/InteractiveTransitioner.swift; sourceTree = "<group>"; };
-		20E2C874C150D49FCF0B9E79936DAF40 /* LazyTransitions-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LazyTransitions-umbrella.h"; sourceTree = "<group>"; };
 		364FD03C46FEA0CBE9D4D87259B4728F /* Pods-SwiftPushTransition-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftPushTransition-umbrella.h"; sourceTree = "<group>"; };
-		3FFB26390847E337A6B5B23933AF9E95 /* TransitionGestureHandlerType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionGestureHandlerType.swift; path = LazyTransitions/TransitionGestureHandlerType.swift; sourceTree = "<group>"; };
 		449D7EB59C3D2A2E4C235A06C637A31E /* Pods-SwiftPushTransition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftPushTransition.debug.xcconfig"; sourceTree = "<group>"; };
 		4CBF32B5748117424519DA6F83EF374A /* Pods-SwiftPushTransition-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftPushTransition-dummy.m"; sourceTree = "<group>"; };
-		56817A1A92D4D9857F78B49DE9911109 /* PartialTransitionAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PartialTransitionAnimator.swift; path = LazyTransitions/PartialTransitionAnimator.swift; sourceTree = "<group>"; };
-		5D5AA8D324D2365DBA5C75E36642424A /* TransitionerProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionerProtocols.swift; path = LazyTransitions/TransitionerProtocols.swift; sourceTree = "<group>"; };
 		6556B13F7D5E3BB08C6815523A1DC802 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		66B21DB9F2AB4988548DC544300135B4 /* OptionalExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OptionalExtensions.swift; path = LazyTransitions/OptionalExtensions.swift; sourceTree = "<group>"; };
-		7242BCCF50AB6D3C6E9C7BF7D79360B4 /* LazyTransitions-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LazyTransitions-dummy.m"; sourceTree = "<group>"; };
-		7A278EFFC6D314ED27BE95D4BB7031CD /* DismissAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DismissAnimator.swift; path = LazyTransitions/DismissAnimator.swift; sourceTree = "<group>"; };
 		7B8CFA58BDDEBA5BC3E290A3ED487FE3 /* Pods-SwiftPushTransition-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftPushTransition-acknowledgements.markdown"; sourceTree = "<group>"; };
-		7CDDCAF88E220036BE34B421AB67FEB4 /* UIPanGestureRecognizerExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIPanGestureRecognizerExtensions.swift; path = LazyTransitions/UIPanGestureRecognizerExtensions.swift; sourceTree = "<group>"; };
 		859C53DAC035C01466142073BFDF7DC4 /* Pods-SwiftPushTransition.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SwiftPushTransition.modulemap"; sourceTree = "<group>"; };
-		8CF2302B8E0B3E74D3BC2DC4B3C3ABA8 /* LazyTransitions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LazyTransitions.framework; path = LazyTransitions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A4B44B61B54B03374A61C86C166CDEA8 /* ScrollableProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScrollableProtocol.swift; path = LazyTransitions/ScrollableProtocol.swift; sourceTree = "<group>"; };
 		AC41D79DEB1F7F6187D3D3515A243541 /* Pods-SwiftPushTransition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftPushTransition.release.xcconfig"; sourceTree = "<group>"; };
-		B1966D233948F940E2C3CDDD860117FC /* LazyTransitions.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LazyTransitions.xcconfig; sourceTree = "<group>"; };
 		B959719AF898F63CF3765777A10BB77D /* Pods-SwiftPushTransition-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftPushTransition-acknowledgements.plist"; sourceTree = "<group>"; };
 		BFF26B1B90ACB28E5049B13D4FAC5BCB /* Pods-SwiftPushTransition-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftPushTransition-resources.sh"; sourceTree = "<group>"; };
-		CDF6FC28B656A1524855668830BC524A /* ScrollableGestureHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScrollableGestureHandler.swift; path = LazyTransitions/ScrollableGestureHandler.swift; sourceTree = "<group>"; };
-		D1486170B5FCBE2300E64E4A8552624C /* PartialTransitioner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PartialTransitioner.swift; path = LazyTransitions/PartialTransitioner.swift; sourceTree = "<group>"; };
-		DD13967667182679EB818404E8D4A802 /* TransitionInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionInteractor.swift; path = LazyTransitions/TransitionInteractor.swift; sourceTree = "<group>"; };
-		E346AA8FD79C6909D97E9927B756B496 /* LazyTransitioner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LazyTransitioner.swift; path = LazyTransitions/LazyTransitioner.swift; sourceTree = "<group>"; };
-		E673E7042955752A177B09140B69B2C2 /* TransitionCombinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionCombinator.swift; path = LazyTransitions/TransitionCombinator.swift; sourceTree = "<group>"; };
-		EB7EFB9E185FD29E604BE053B59DDBDB /* StaticViewGestureHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StaticViewGestureHandler.swift; path = LazyTransitions/StaticViewGestureHandler.swift; sourceTree = "<group>"; };
-		EFB552D3AF5B0AB26BA675E3CA315AB7 /* PopAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopAnimator.swift; path = LazyTransitions/PopAnimator.swift; sourceTree = "<group>"; };
 		F0D029DAD056A0ED2F565112E4EB407E /* Pods-SwiftPushTransition-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftPushTransition-frameworks.sh"; sourceTree = "<group>"; };
-		F58C717026B471A700333957FD8974DD /* LazyTransitions.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = LazyTransitions.modulemap; sourceTree = "<group>"; };
-		F5E6D984095F6C578763B52D38C0D23B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAD2CD920E72AB3BC32AD40CBBE04937 /* Pods_SwiftPushTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwiftPushTransition.framework; path = "Pods-SwiftPushTransition.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4091FD8BE3FF50332ACB514934356CEE /* Frameworks */ = {
+		B9E042DBB2AFAE75390FD911AE60FBAB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C320DB501E349F57F6E55AA030C361B7 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		40A228E3F0D55355A580623A3E7F90AE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				03FA76E20CEFC7938DB970E874502002 /* Foundation.framework in Frameworks */,
+				90AF67AD7FC0463FEBC1903E444634E7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,58 +66,20 @@
 			path = "Target Support Files/Pods-SwiftPushTransition";
 			sourceTree = "<group>";
 		};
-		628F7F4851469C0BAE1D2E07015C3AED /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A65E7D5D4A70BDCCAEA39E0F76EA355B /* LazyTransitions */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				628F7F4851469C0BAE1D2E07015C3AED /* Pods */,
-				BAE4A44EA2D8AEE86C2EA61DE070E787 /* Products */,
+				A5BF6BBD7B7E4BE8B60F3C1127BC9F71 /* Products */,
 				1F32B62B8AB9B95C28A6BAF33EBE3371 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		A65E7D5D4A70BDCCAEA39E0F76EA355B /* LazyTransitions */ = {
+		A5BF6BBD7B7E4BE8B60F3C1127BC9F71 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7A278EFFC6D314ED27BE95D4BB7031CD /* DismissAnimator.swift */,
-				1A5691E7BCE829BCFCEF64072E415ECB /* InteractiveTransitioner.swift */,
-				E346AA8FD79C6909D97E9927B756B496 /* LazyTransitioner.swift */,
-				66B21DB9F2AB4988548DC544300135B4 /* OptionalExtensions.swift */,
-				56817A1A92D4D9857F78B49DE9911109 /* PartialTransitionAnimator.swift */,
-				D1486170B5FCBE2300E64E4A8552624C /* PartialTransitioner.swift */,
-				EFB552D3AF5B0AB26BA675E3CA315AB7 /* PopAnimator.swift */,
-				CDF6FC28B656A1524855668830BC524A /* ScrollableGestureHandler.swift */,
-				A4B44B61B54B03374A61C86C166CDEA8 /* ScrollableProtocol.swift */,
-				EB7EFB9E185FD29E604BE053B59DDBDB /* StaticViewGestureHandler.swift */,
-				1846EC3DCEE7A28A3240673838276875 /* TransitionAnimatorType.swift */,
-				E673E7042955752A177B09140B69B2C2 /* TransitionCombinator.swift */,
-				5D5AA8D324D2365DBA5C75E36642424A /* TransitionerProtocols.swift */,
-				3FFB26390847E337A6B5B23933AF9E95 /* TransitionGestureHandlerType.swift */,
-				DD13967667182679EB818404E8D4A802 /* TransitionInteractor.swift */,
-				0EAAF59FBE4508FC5A7929E4B73C20D2 /* TransitionProgressCalculator.swift */,
-				7CDDCAF88E220036BE34B421AB67FEB4 /* UIPanGestureRecognizerExtensions.swift */,
-				097385C5E0609D5B4F9CCB168BB83336 /* UIScrollViewExtensions.swift */,
-				12FF859306A02AE0D8B1E207E9C98316 /* UIViewExtensions.swift */,
-				FB2BF920495CCFD91BA252E0CD691CE6 /* Support Files */,
-			);
-			name = LazyTransitions;
-			path = LazyTransitions;
-			sourceTree = "<group>";
-		};
-		BAE4A44EA2D8AEE86C2EA61DE070E787 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8CF2302B8E0B3E74D3BC2DC4B3C3ABA8 /* LazyTransitions.framework */,
-				02A1523A66868CDC2159951D73AF0759 /* Pods_SwiftPushTransition.framework */,
+				FAD2CD920E72AB3BC32AD40CBBE04937 /* Pods_SwiftPushTransition.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -204,75 +100,35 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		FB2BF920495CCFD91BA252E0CD691CE6 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F5E6D984095F6C578763B52D38C0D23B /* Info.plist */,
-				F58C717026B471A700333957FD8974DD /* LazyTransitions.modulemap */,
-				B1966D233948F940E2C3CDDD860117FC /* LazyTransitions.xcconfig */,
-				7242BCCF50AB6D3C6E9C7BF7D79360B4 /* LazyTransitions-dummy.m */,
-				0DB1F0B7BEC5A31D4BFEBF94607F2A36 /* LazyTransitions-prefix.pch */,
-				20E2C874C150D49FCF0B9E79936DAF40 /* LazyTransitions-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/LazyTransitions";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		836FF8A6D3E680896268CFAB0286162F /* Headers */ = {
+		28C698804A0E3F379572D32A9738666E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				484D1E40D22BDE9C8F7321255456671E /* LazyTransitions-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AB864CA3437920CB94C3B12F68C62F94 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				46FB265B375B48CA20A452B0156F0DBE /* Pods-SwiftPushTransition-umbrella.h in Headers */,
+				79F29020620A3B38AF9401CA8E9949E3 /* Pods-SwiftPushTransition-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		10FBEA566AB5B1ED5C9D49C757FCB894 /* LazyTransitions */ = {
+		6536250D681A4CB1562BD290C11B04C9 /* Pods-SwiftPushTransition */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 700BADD0A24A28B574FDA33B831066DA /* Build configuration list for PBXNativeTarget "LazyTransitions" */;
+			buildConfigurationList = 7D6FBC89264653275858EE2AFAA30990 /* Build configuration list for PBXNativeTarget "Pods-SwiftPushTransition" */;
 			buildPhases = (
-				FC13306235E42EBFA350EBA28F5DF33E /* Sources */,
-				40A228E3F0D55355A580623A3E7F90AE /* Frameworks */,
-				836FF8A6D3E680896268CFAB0286162F /* Headers */,
+				09F82987148BE68608079939A365B30B /* Sources */,
+				B9E042DBB2AFAE75390FD911AE60FBAB /* Frameworks */,
+				28C698804A0E3F379572D32A9738666E /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			name = LazyTransitions;
-			productName = LazyTransitions;
-			productReference = 8CF2302B8E0B3E74D3BC2DC4B3C3ABA8 /* LazyTransitions.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		F97608E35940D92E5510E66C1883F3DE /* Pods-SwiftPushTransition */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 035F675B9680727A18A12377AB4BF4EA /* Build configuration list for PBXNativeTarget "Pods-SwiftPushTransition" */;
-			buildPhases = (
-				1A323925474EA7B0036BBD3D0E4BEFB8 /* Sources */,
-				4091FD8BE3FF50332ACB514934356CEE /* Frameworks */,
-				AB864CA3437920CB94C3B12F68C62F94 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				87C5C06A0B866D5099D68F972F291563 /* PBXTargetDependency */,
 			);
 			name = "Pods-SwiftPushTransition";
 			productName = "Pods-SwiftPushTransition";
-			productReference = 02A1523A66868CDC2159951D73AF0759 /* Pods_SwiftPushTransition.framework */;
+			productReference = FAD2CD920E72AB3BC32AD40CBBE04937 /* Pods_SwiftPushTransition.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -292,99 +148,28 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = BAE4A44EA2D8AEE86C2EA61DE070E787 /* Products */;
+			productRefGroup = A5BF6BBD7B7E4BE8B60F3C1127BC9F71 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				10FBEA566AB5B1ED5C9D49C757FCB894 /* LazyTransitions */,
-				F97608E35940D92E5510E66C1883F3DE /* Pods-SwiftPushTransition */,
+				6536250D681A4CB1562BD290C11B04C9 /* Pods-SwiftPushTransition */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1A323925474EA7B0036BBD3D0E4BEFB8 /* Sources */ = {
+		09F82987148BE68608079939A365B30B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2912578994A168CD53881786ABC4BCEC /* Pods-SwiftPushTransition-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FC13306235E42EBFA350EBA28F5DF33E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF1278CC0FB7473FEFDEC6E6A38BB166 /* DismissAnimator.swift in Sources */,
-				478CDE9D4C14FCFCD4D7F7DF4D9DFE55 /* InteractiveTransitioner.swift in Sources */,
-				B09167C0756F1B083E52F38FAF6E9673 /* LazyTransitioner.swift in Sources */,
-				D0C9E3343085B2452E78E3298D7D61DF /* LazyTransitions-dummy.m in Sources */,
-				D2C6D19C233A2CF46FC00FF5FBD38315 /* OptionalExtensions.swift in Sources */,
-				8EDF9CE647AD98E86DBDE7DE50D72DB3 /* PartialTransitionAnimator.swift in Sources */,
-				C220657ECD8BA357BAEC87880B973671 /* PartialTransitioner.swift in Sources */,
-				A11DD254668F5215264614A2CB8A3580 /* PopAnimator.swift in Sources */,
-				B1855EC4A485FAAA68BA76AE46914858 /* ScrollableGestureHandler.swift in Sources */,
-				222FF2D4BB30DBDB4141900FD7404E51 /* ScrollableProtocol.swift in Sources */,
-				0CA6F1088B4ED07220EA08B0D106A3F3 /* StaticViewGestureHandler.swift in Sources */,
-				39B6E4CCC73A93740D55798F2E593ABD /* TransitionAnimatorType.swift in Sources */,
-				99CC61652347BDEFBCEB93DC8FD754A2 /* TransitionCombinator.swift in Sources */,
-				35C6AD2A1BD15573B2DF7084077BF0E1 /* TransitionerProtocols.swift in Sources */,
-				41E61B849B247E9E0BF623C4BA17B93D /* TransitionGestureHandlerType.swift in Sources */,
-				F7E2158169B35097EA4F795527C7BC18 /* TransitionInteractor.swift in Sources */,
-				FA167EE30E31FDC1274935994CE0E730 /* TransitionProgressCalculator.swift in Sources */,
-				5C4ECFE81F2B3F8D5D29EC1787406101 /* UIPanGestureRecognizerExtensions.swift in Sources */,
-				3EAA29373B7B410D4608B4A3B6F939F5 /* UIScrollViewExtensions.swift in Sources */,
-				EE90338DEBC53AB3999BE456F5FE3879 /* UIViewExtensions.swift in Sources */,
+				0333491DAC566E7C37F81BDAE480738C /* Pods-SwiftPushTransition-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		87C5C06A0B866D5099D68F972F291563 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = LazyTransitions;
-			target = 10FBEA566AB5B1ED5C9D49C757FCB894 /* LazyTransitions */;
-			targetProxy = 4CC071A6AFFF5DD5759D0D9B79FF4783 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		6D3BAD88CE5C3B6BEC4F0D77E2AED045 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC41D79DEB1F7F6187D3D3515A243541 /* Pods-SwiftPushTransition.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-SwiftPushTransition/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SwiftPushTransition/Pods-SwiftPushTransition.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SwiftPushTransition;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		B1E5E1E5D14F3387C80E3C71D1B11398 /* Debug */ = {
+		49C11C368B2A4CE8E8BC4B5946B572D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 449D7EB59C3D2A2E4C235A06C637A31E /* Pods-SwiftPushTransition.debug.xcconfig */;
 			buildSettings = {
@@ -410,8 +195,6 @@
 				PRODUCT_NAME = Pods_SwiftPushTransition;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -473,69 +256,6 @@
 			};
 			name = Release;
 		};
-		B803F7C25E600BC0F7DE4B4A8E45EE90 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B1966D233948F940E2C3CDDD860117FC /* LazyTransitions.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/LazyTransitions/LazyTransitions-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/LazyTransitions/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/LazyTransitions/LazyTransitions.modulemap";
-				PRODUCT_NAME = LazyTransitions;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		C3114B411B6F7BE92124AC4D5ADEFEC3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B1966D233948F940E2C3CDDD860117FC /* LazyTransitions.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/LazyTransitions/LazyTransitions-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/LazyTransitions/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/LazyTransitions/LazyTransitions.modulemap";
-				PRODUCT_NAME = LazyTransitions;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		E4B68EE12B21C47CB798D9B1ECA6D7A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -596,18 +316,42 @@
 			};
 			name = Debug;
 		};
+		EC2D9716D7719D8FD423B11379253B87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC41D79DEB1F7F6187D3D3515A243541 /* Pods-SwiftPushTransition.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftPushTransition/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftPushTransition/Pods-SwiftPushTransition.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SwiftPushTransition;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		035F675B9680727A18A12377AB4BF4EA /* Build configuration list for PBXNativeTarget "Pods-SwiftPushTransition" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B1E5E1E5D14F3387C80E3C71D1B11398 /* Debug */,
-				6D3BAD88CE5C3B6BEC4F0D77E2AED045 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -617,11 +361,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		700BADD0A24A28B574FDA33B831066DA /* Build configuration list for PBXNativeTarget "LazyTransitions" */ = {
+		7D6FBC89264653275858EE2AFAA30990 /* Build configuration list for PBXNativeTarget "Pods-SwiftPushTransition" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C3114B411B6F7BE92124AC4D5ADEFEC3 /* Debug */,
-				B803F7C25E600BC0F7DE4B4A8E45EE90 /* Release */,
+				49C11C368B2A4CE8E8BC4B5946B572D0 /* Debug */,
+				EC2D9716D7719D8FD423B11379253B87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

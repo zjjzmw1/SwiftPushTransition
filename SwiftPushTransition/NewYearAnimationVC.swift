@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FiveVC: BaseVC {
+class NewYearAnimationVC: BaseVC {
 
     /// 过年动画的view
     /// 过年广告动画
