@@ -96,7 +96,7 @@ class FirstVC: BaseVC {
     }
     
     
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    override func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if operation == UINavigationControllerOperation.push && isNeedCustomAnimation {
             let push = PointTransitionPush()
             push.startFrame = startFrame

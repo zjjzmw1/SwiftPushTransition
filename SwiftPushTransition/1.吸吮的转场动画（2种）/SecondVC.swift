@@ -28,7 +28,7 @@ class SecondVC: BaseVC{
             navigationController?.delegate = self
         }
     
-        func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    override func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
             if operation == UINavigationControllerOperation.pop {
                 let pop = PointTransitionPop()
                 pop.startFrame = startFrame

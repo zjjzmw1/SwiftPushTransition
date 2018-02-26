@@ -16,8 +16,7 @@ private var kPopFromTop                         = "kPopFromTop"
 private var kPopFromTopWithScrollView           = "kPopFromTopWithScrollView"   // 包含滚动视频
 private var kPopFromLeft                        = "kPopFromLeft"
 
-/// 相关类需要继承： UINavigationControllerDelegate
-extension UIViewController: UIScrollViewDelegate {
+extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate {
     /// 通用的手势
     var myGesture: UIPanGestureRecognizer {
         get {
@@ -167,5 +166,19 @@ extension UIViewController: UIScrollViewDelegate {
             self.interactivePopTransition = nil
             print("取消了。。。。。。")
         }
+    }
+    
+    /// 支持下拉返回 -- 第二步 （这两个代理方法必须要有）（可以考虑放到父类）
+    public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        if interactivePopTransition != nil {
+            return interactivePopTransition
+        }
+        return nil
+    }
+    public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if operation == UINavigationControllerOperation.pop {
+            return CustomPopAnimation()
+        }
+        return nil
     }
 }

@@ -44,20 +44,6 @@ class CustomPercentInteractiveVC: BaseVC {
         let vc = TestVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    /// 支持下拉返回 -- 第二步 （这两个代理方法必须要有）（可以考虑放到父类）
-    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        if interactivePopTransition != nil {
-            return interactivePopTransition
-        }
-        return nil
-    }
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-       if operation == UINavigationControllerOperation.pop {
-            return CustomPopAnimation()
-        }
-        return nil
-    }
 }
 
 extension CustomPercentInteractiveVC: UITableViewDelegate, UITableViewDataSource {
@@ -66,7 +52,7 @@ extension CustomPercentInteractiveVC: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         cell.textLabel?.text = String.init(format: "第%d行",indexPath.row)
         return cell
     }
