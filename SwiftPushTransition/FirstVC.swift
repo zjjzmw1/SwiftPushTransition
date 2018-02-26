@@ -62,6 +62,7 @@ class FirstVC: BaseVC {
         navigationController?.delegate = self
     }
     
+    // 吸吮效果1
     @objc func goAction() {
         let vc = SecondVC()
         startFrame = btn.frame
@@ -69,19 +70,20 @@ class FirstVC: BaseVC {
         vc.startFrame = btn.frame // 需要返回动画的时候添加
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    // 吸吮效果2
     @objc func goAction2() {
         let vc = ThirdVC()
         isNeedCustomAnimation = true
         startFrame = btn2.frame
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
+    // 过年动画
     @objc func goAction4() {
         let vc = NewYearAnimationVC()
         isNeedCustomAnimation = false
         self.navigationController?.pushViewController(vc, animated: false)
     }
-    
+    // 下拉返回的效果
     @objc func goAction5() {
         let vc = CustomPercentInteractiveVC()
         // 正常的push
@@ -92,7 +94,6 @@ class FirstVC: BaseVC {
         let transitionPush = CATransitionPush(aType: kCATransitionPush, aSubtype: kCATransitionFromTop)
         self.navigationController?.view.layer.add(transitionPush, forKey: kCATransition)
         self.navigationController?.pushViewController(vc, animated: false)
-
     }
     
     
