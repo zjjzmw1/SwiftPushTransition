@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		BD4DAE5A2043A374005586B1 /* CustomPercentInteractiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DAE592043A374005586B1 /* CustomPercentInteractiveVC.swift */; };
 		BD4DAE662043A6EB005586B1 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4DAE642043A6EB005586B1 /* UINavigationController+FDFullscreenPopGesture.m */; };
+		BD4DAE692043A847005586B1 /* CustomPercentDrivenInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DAE682043A847005586B1 /* CustomPercentDrivenInteractiveTransition.swift */; };
+		BD4DAE6F2043B158005586B1 /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DAE6E2043B158005586B1 /* TestVC.swift */; };
+		BD4DAE712043B2CA005586B1 /* UIViewController+interactivePopTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DAE702043B2CA005586B1 /* UIViewController+interactivePopTransition.swift */; };
+		BD4DAE732043B9BC005586B1 /* CustomPopAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DAE722043B9BC005586B1 /* CustomPopAnimation.swift */; };
 		BD76894E202C41DF00E93FC6 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76894D202C41DF00E93FC6 /* WaveView.swift */; };
 		BD768950202C41FD00E93FC6 /* WaveImageV.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76894F202C41FD00E93FC6 /* WaveImageV.swift */; };
 		BD76895B202D9E1800E93FC6 /* NewYearAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76895A202D9E1800E93FC6 /* NewYearAdView.swift */; };
@@ -36,6 +40,10 @@
 		BD4DAE5D2043A4B3005586B1 /* SwiftPushTransition-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftPushTransition-Bridging-Header.h"; sourceTree = "<group>"; };
 		BD4DAE642043A6EB005586B1 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 		BD4DAE652043A6EB005586B1 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
+		BD4DAE682043A847005586B1 /* CustomPercentDrivenInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPercentDrivenInteractiveTransition.swift; sourceTree = "<group>"; };
+		BD4DAE6E2043B158005586B1 /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
+		BD4DAE702043B2CA005586B1 /* UIViewController+interactivePopTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+interactivePopTransition.swift"; sourceTree = "<group>"; };
+		BD4DAE722043B9BC005586B1 /* CustomPopAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimation.swift; sourceTree = "<group>"; };
 		BD76894D202C41DF00E93FC6 /* WaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		BD76894F202C41FD00E93FC6 /* WaveImageV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveImageV.swift; sourceTree = "<group>"; };
 		BD76895A202D9E1800E93FC6 /* NewYearAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewYearAdView.swift; sourceTree = "<group>"; };
@@ -94,6 +102,16 @@
 			path = "滑动返回";
 			sourceTree = "<group>";
 		};
+		BD4DAE672043A80B005586B1 /* push下拉返回 */ = {
+			isa = PBXGroup;
+			children = (
+				BD4DAE702043B2CA005586B1 /* UIViewController+interactivePopTransition.swift */,
+				BD4DAE682043A847005586B1 /* CustomPercentDrivenInteractiveTransition.swift */,
+				BD4DAE722043B9BC005586B1 /* CustomPopAnimation.swift */,
+			);
+			path = "push下拉返回";
+			sourceTree = "<group>";
+		};
 		BD768959202D9E0300E93FC6 /* 过年动画-模仿支付宝 */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +149,8 @@
 				BDC312D3202BEC9500AAE6E7 /* FourVC.swift */,
 				BDC312D5202BFA4B00AAE6E7 /* FiveVC.swift */,
 				BD4DAE592043A374005586B1 /* CustomPercentInteractiveVC.swift */,
+				BD4DAE6E2043B158005586B1 /* TestVC.swift */,
+				BD4DAE672043A80B005586B1 /* push下拉返回 */,
 				BD768959202D9E0300E93FC6 /* 过年动画-模仿支付宝 */,
 				BDC312D9202BFA9700AAE6E7 /* 工具 */,
 				BDC312C0202A9A5600AAE6E7 /* 自定义转场动画 */,
@@ -301,6 +321,7 @@
 			files = (
 				BD4DAE662043A6EB005586B1 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				BDC312D6202BFA4B00AAE6E7 /* FiveVC.swift in Sources */,
+				BD4DAE692043A847005586B1 /* CustomPercentDrivenInteractiveTransition.swift in Sources */,
 				BDC312D2202BEB0300AAE6E7 /* CATransitionPush.swift in Sources */,
 				BDC312BF202A983900AAE6E7 /* SecondVC.swift in Sources */,
 				BDC312BD202A982C00AAE6E7 /* FirstVC.swift in Sources */,
@@ -309,11 +330,14 @@
 				BDC312C9202AE58B00AAE6E7 /* ThirdVC.swift in Sources */,
 				BD76895B202D9E1800E93FC6 /* NewYearAdView.swift in Sources */,
 				BD768950202C41FD00E93FC6 /* WaveImageV.swift in Sources */,
+				BD4DAE712043B2CA005586B1 /* UIViewController+interactivePopTransition.swift in Sources */,
 				BD76894E202C41DF00E93FC6 /* WaveView.swift in Sources */,
+				BD4DAE6F2043B158005586B1 /* TestVC.swift in Sources */,
 				BD76895D202D9F5900E93FC6 /* UIImageView+IOSUtil.swift in Sources */,
 				BDC312C2202A9A9800AAE6E7 /* PointTransitionPush.swift in Sources */,
 				BD4DAE5A2043A374005586B1 /* CustomPercentInteractiveVC.swift in Sources */,
 				BDC312BB202A981B00AAE6E7 /* BaseVC.swift in Sources */,
+				BD4DAE732043B9BC005586B1 /* CustomPopAnimation.swift in Sources */,
 				BDC312D8202BFA9100AAE6E7 /* UIImage+Extension.swift in Sources */,
 				BDC312A9202A97AE00AAE6E7 /* AppDelegate.swift in Sources */,
 			);

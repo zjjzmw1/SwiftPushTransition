@@ -24,19 +24,19 @@ class FirstVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.green
-        self.title = "第一页"
+        self.title = "首页"
 
         btn = UIButton.init(frame: CGRect.init(x: 22, y: 100, width: 100, height: 100))
         view.addSubview(btn)
         btn.addTarget(self, action: #selector(goAction), for: .touchUpInside)
-        btn.setTitle("第二页", for: .normal)
+        btn.setTitle("吸吮1", for: .normal)
         btn.setTitleColor(UIColor.white, for: .normal)
         btn.backgroundColor = UIColor.red
         
         btn2 = UIButton.init(frame: CGRect.init(x: 22, y: 220, width: 100, height: 100))
         view.addSubview(btn2)
         btn2.addTarget(self, action: #selector(goAction2), for: .touchUpInside)
-        btn2.setTitle("第三页", for: .normal)
+        btn2.setTitle("吸吮2", for: .normal)
         btn2.layer.masksToBounds = true
         btn2.layer.cornerRadius = 50
         btn2.setTitleColor(UIColor.white, for: .normal)
@@ -45,7 +45,7 @@ class FirstVC: BaseVC {
         btn3 = UIButton.init(frame: CGRect.init(x: 22, y: 320, width: 100, height: 100))
         view.addSubview(btn3)
         btn3.addTarget(self, action: #selector(goAction3), for: .touchUpInside)
-        btn3.setTitle("第四页", for: .normal)
+        btn3.setTitle("从下往上", for: .normal)
         btn3.layer.masksToBounds = true
         btn3.layer.cornerRadius = 50
         btn3.setTitleColor(UIColor.white, for: .normal)
@@ -54,7 +54,7 @@ class FirstVC: BaseVC {
         btn4 = UIButton.init(frame: CGRect.init(x: 22, y: 420, width: 100, height: 100))
         view.addSubview(btn4)
         btn4.addTarget(self, action: #selector(goAction4), for: .touchUpInside)
-        btn4.setTitle("第5页", for: .normal)
+        btn4.setTitle("过年动画", for: .normal)
         btn4.layer.masksToBounds = true
         btn4.layer.cornerRadius = 50
         btn4.setTitleColor(UIColor.white, for: .normal)
@@ -63,7 +63,7 @@ class FirstVC: BaseVC {
         btn5 = UIButton.init(frame: CGRect.init(x: 222, y: 100, width: 100, height: 100))
         view.addSubview(btn5)
         btn5.addTarget(self, action: #selector(goAction5), for: .touchUpInside)
-        btn5.setTitle("第6页", for: .normal)
+        btn5.setTitle("下拉返回", for: .normal)
         btn5.layer.masksToBounds = true
         btn5.layer.cornerRadius = 50
         btn5.setTitleColor(UIColor.white, for: .normal)
@@ -105,8 +105,15 @@ class FirstVC: BaseVC {
     
     @objc func goAction5() {
         let vc = CustomPercentInteractiveVC()
+        // 正常的push
+//        isNeedCustomAnimation = false
+//        self.navigationController?.pushViewController(vc, animated: true)
+        // 从下到上的push
         isNeedCustomAnimation = false
-        self.navigationController?.pushViewController(vc, animated: true)
+        let transitionPush = CATransitionPush(aType: kCATransitionPush, aSubtype: kCATransitionFromTop)
+        self.navigationController?.view.layer.add(transitionPush, forKey: kCATransition)
+        self.navigationController?.pushViewController(vc, animated: false)
+
     }
 
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
