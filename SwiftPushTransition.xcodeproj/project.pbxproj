@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD4DAE5A2043A374005586B1 /* CustomPercentInteractiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DAE592043A374005586B1 /* CustomPercentInteractiveVC.swift */; };
+		BD4DAE662043A6EB005586B1 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4DAE642043A6EB005586B1 /* UINavigationController+FDFullscreenPopGesture.m */; };
 		BD76894E202C41DF00E93FC6 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76894D202C41DF00E93FC6 /* WaveView.swift */; };
 		BD768950202C41FD00E93FC6 /* WaveImageV.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76894F202C41FD00E93FC6 /* WaveImageV.swift */; };
 		BD76895B202D9E1800E93FC6 /* NewYearAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76895A202D9E1800E93FC6 /* NewYearAdView.swift */; };
@@ -30,6 +32,10 @@
 		359DEC4899A3DCA457DF7A6F /* Pods_SwiftPushTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftPushTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E113BA7770220DC874F6643 /* Pods-SwiftPushTransition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftPushTransition.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftPushTransition/Pods-SwiftPushTransition.debug.xcconfig"; sourceTree = "<group>"; };
 		9A9240B0BBC18FB6FDF9B76D /* Pods-SwiftPushTransition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftPushTransition.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftPushTransition/Pods-SwiftPushTransition.release.xcconfig"; sourceTree = "<group>"; };
+		BD4DAE592043A374005586B1 /* CustomPercentInteractiveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPercentInteractiveVC.swift; sourceTree = "<group>"; };
+		BD4DAE5D2043A4B3005586B1 /* SwiftPushTransition-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftPushTransition-Bridging-Header.h"; sourceTree = "<group>"; };
+		BD4DAE642043A6EB005586B1 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		BD4DAE652043A6EB005586B1 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		BD76894D202C41DF00E93FC6 /* WaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		BD76894F202C41FD00E93FC6 /* WaveImageV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveImageV.swift; sourceTree = "<group>"; };
 		BD76895A202D9E1800E93FC6 /* NewYearAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewYearAdView.swift; sourceTree = "<group>"; };
@@ -79,6 +85,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BD4DAE632043A6D5005586B1 /* 滑动返回 */ = {
+			isa = PBXGroup;
+			children = (
+				BD4DAE652043A6EB005586B1 /* UINavigationController+FDFullscreenPopGesture.h */,
+				BD4DAE642043A6EB005586B1 /* UINavigationController+FDFullscreenPopGesture.m */,
+			);
+			path = "滑动返回";
+			sourceTree = "<group>";
+		};
 		BD768959202D9E0300E93FC6 /* 过年动画-模仿支付宝 */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,11 +130,13 @@
 				BDC312C8202AE58B00AAE6E7 /* ThirdVC.swift */,
 				BDC312D3202BEC9500AAE6E7 /* FourVC.swift */,
 				BDC312D5202BFA4B00AAE6E7 /* FiveVC.swift */,
+				BD4DAE592043A374005586B1 /* CustomPercentInteractiveVC.swift */,
 				BD768959202D9E0300E93FC6 /* 过年动画-模仿支付宝 */,
 				BDC312D9202BFA9700AAE6E7 /* 工具 */,
 				BDC312C0202A9A5600AAE6E7 /* 自定义转场动画 */,
 				BDC312AF202A97AE00AAE6E7 /* Assets.xcassets */,
 				BDC312B4202A97AE00AAE6E7 /* Info.plist */,
+				BD4DAE5D2043A4B3005586B1 /* SwiftPushTransition-Bridging-Header.h */,
 			);
 			path = SwiftPushTransition;
 			sourceTree = "<group>";
@@ -145,6 +162,7 @@
 		BDC312D9202BFA9700AAE6E7 /* 工具 */ = {
 			isa = PBXGroup;
 			children = (
+				BD4DAE632043A6D5005586B1 /* 滑动返回 */,
 				BD76894D202C41DF00E93FC6 /* WaveView.swift */,
 				BD76894F202C41FD00E93FC6 /* WaveImageV.swift */,
 				BDC312D7202BFA9100AAE6E7 /* UIImage+Extension.swift */,
@@ -188,6 +206,7 @@
 				TargetAttributes = {
 					BDC312A4202A97AE00AAE6E7 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -280,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD4DAE662043A6EB005586B1 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				BDC312D6202BFA4B00AAE6E7 /* FiveVC.swift in Sources */,
 				BDC312D2202BEB0300AAE6E7 /* CATransitionPush.swift in Sources */,
 				BDC312BF202A983900AAE6E7 /* SecondVC.swift in Sources */,
@@ -292,6 +312,7 @@
 				BD76894E202C41DF00E93FC6 /* WaveView.swift in Sources */,
 				BD76895D202D9F5900E93FC6 /* UIImageView+IOSUtil.swift in Sources */,
 				BDC312C2202A9A9800AAE6E7 /* PointTransitionPush.swift in Sources */,
+				BD4DAE5A2043A374005586B1 /* CustomPercentInteractiveVC.swift in Sources */,
 				BDC312BB202A981B00AAE6E7 /* BaseVC.swift in Sources */,
 				BDC312D8202BFA9100AAE6E7 /* UIImage+Extension.swift in Sources */,
 				BDC312A9202A97AE00AAE6E7 /* AppDelegate.swift in Sources */,
@@ -414,13 +435,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7A99V6896N;
+				DEVELOPMENT_TEAM = W5J4296433;
 				INFOPLIST_FILE = SwiftPushTransition/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ios.SwiftPushTransition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftPushTransition/SwiftPushTransition-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -432,13 +456,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7A99V6896N;
+				DEVELOPMENT_TEAM = W5J4296433;
 				INFOPLIST_FILE = SwiftPushTransition/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ios.SwiftPushTransition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftPushTransition/SwiftPushTransition-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

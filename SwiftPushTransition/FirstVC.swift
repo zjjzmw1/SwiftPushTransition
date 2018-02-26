@@ -14,6 +14,7 @@ class FirstVC: BaseVC {
     var btn2: UIButton!
     var btn3: UIButton!
     var btn4: UIButton!
+    var btn5: UIButton!
     var startFrame = CGRect.init()
     // 下拉返回的效果需要
     fileprivate var transitioner = LazyTransitioner()
@@ -25,14 +26,14 @@ class FirstVC: BaseVC {
         self.view.backgroundColor = UIColor.green
         self.title = "第一页"
 
-        btn = UIButton.init(frame: CGRect.init(x: 100, y: 100, width: 100, height: 100))
+        btn = UIButton.init(frame: CGRect.init(x: 22, y: 100, width: 100, height: 100))
         view.addSubview(btn)
         btn.addTarget(self, action: #selector(goAction), for: .touchUpInside)
         btn.setTitle("第二页", for: .normal)
         btn.setTitleColor(UIColor.white, for: .normal)
         btn.backgroundColor = UIColor.red
         
-        btn2 = UIButton.init(frame: CGRect.init(x: 100, y: 220, width: 100, height: 100))
+        btn2 = UIButton.init(frame: CGRect.init(x: 22, y: 220, width: 100, height: 100))
         view.addSubview(btn2)
         btn2.addTarget(self, action: #selector(goAction2), for: .touchUpInside)
         btn2.setTitle("第三页", for: .normal)
@@ -41,7 +42,7 @@ class FirstVC: BaseVC {
         btn2.setTitleColor(UIColor.white, for: .normal)
         btn2.backgroundColor = UIColor.red
 
-        btn3 = UIButton.init(frame: CGRect.init(x: 100, y: 320, width: 100, height: 100))
+        btn3 = UIButton.init(frame: CGRect.init(x: 22, y: 320, width: 100, height: 100))
         view.addSubview(btn3)
         btn3.addTarget(self, action: #selector(goAction3), for: .touchUpInside)
         btn3.setTitle("第四页", for: .normal)
@@ -50,7 +51,7 @@ class FirstVC: BaseVC {
         btn3.setTitleColor(UIColor.white, for: .normal)
         btn3.backgroundColor = UIColor.red
         
-        btn4 = UIButton.init(frame: CGRect.init(x: 100, y: 420, width: 100, height: 100))
+        btn4 = UIButton.init(frame: CGRect.init(x: 22, y: 420, width: 100, height: 100))
         view.addSubview(btn4)
         btn4.addTarget(self, action: #selector(goAction4), for: .touchUpInside)
         btn4.setTitle("第5页", for: .normal)
@@ -58,6 +59,15 @@ class FirstVC: BaseVC {
         btn4.layer.cornerRadius = 50
         btn4.setTitleColor(UIColor.white, for: .normal)
         btn4.backgroundColor = UIColor.red
+        
+        btn5 = UIButton.init(frame: CGRect.init(x: 222, y: 100, width: 100, height: 100))
+        view.addSubview(btn5)
+        btn5.addTarget(self, action: #selector(goAction5), for: .touchUpInside)
+        btn5.setTitle("第6页", for: .normal)
+        btn5.layer.masksToBounds = true
+        btn5.layer.cornerRadius = 50
+        btn5.setTitleColor(UIColor.white, for: .normal)
+        btn5.backgroundColor = UIColor.red
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,6 +101,12 @@ class FirstVC: BaseVC {
         let vc = FiveVC()
         isNeedCustomAnimation = false
         self.navigationController?.pushViewController(vc, animated: false)
+    }
+    
+    @objc func goAction5() {
+        let vc = CustomPercentInteractiveVC()
+        isNeedCustomAnimation = false
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
