@@ -61,11 +61,15 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
             return
         }
         if cancelled { // 取消返回
+            self.transitionContext!.cancelInteractiveTransition()
             UIView.animate(withDuration: 0.2, animations: {
                 self.formView?.frame = CGRect(x:0, y:0, width:(self.formView?.frame.width)! , height: (self.formView?.frame.height)!)
-                self.toView?.frame = CGRect(x:self.x_to, y:self.y_to, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
+                if self.popFromTop { // 上下滑动
+                    self.toView?.frame = CGRect(x:0, y:self.y_to, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
+                } else if self.popFromLeft  { // 左右滑动
+                    self.toView?.frame = CGRect(x:self.x_to, y:0, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
+                }
             }, completion: {completed in
-                self.transitionContext!.cancelInteractiveTransition()
                 self.transitionContext!.completeTransition(false)
                 self.transitionContext = nil
                 self.toView = nil

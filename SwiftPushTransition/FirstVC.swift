@@ -75,6 +75,11 @@ class FirstVC: BaseVC {
         navigationController?.delegate = self
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("\(navigationController?.isNavigationBarHidden),,\(navigationController?.navigationBar.isTranslucent)")
+    }
+    
     @objc func goAction() {
         let vc = SecondVC()
         startFrame = btn.frame
@@ -115,7 +120,8 @@ class FirstVC: BaseVC {
         self.navigationController?.pushViewController(vc, animated: false)
 
     }
-
+    
+    
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if operation == UINavigationControllerOperation.push && isNeedCustomAnimation {
             let push = PointTransitionPush()
