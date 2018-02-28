@@ -80,6 +80,7 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
         }
         transitionContext?.updateInteractiveTransition(percentComplete)
         shadowView.alpha = 1.0 - percentComplete
+        blurView.alpha = 1.0
     }
     func finishBy(cancelled: Bool) {
         if self.transitionContext == nil {
@@ -99,6 +100,7 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
                     self.toView?.frame = CGRect(x:0, y:0, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
                 }
                 self.shadowView.alpha = 0.0
+                self.blurView.alpha = 0.0
             }, completion: {completed in
                 self.transitionContext!.completeTransition(false)
                 self.transitionContext = nil
@@ -106,11 +108,6 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
                 self.formView = nil
             })
         } else { // 执行pop
-            if self.popFromAll { // 毛玻璃
-                self.toView.addSubview(blurView)
-            } else {
-                self.toView.addSubview(shadowView)
-            }
             UIView.animate(withDuration: 0.2, animations: {
                 if self.popFromAll {
                     self.formView?.frame = self.popStartFrame
@@ -123,6 +120,7 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
                 }
                 self.toView?.frame = CGRect(x:0, y:0, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
                 self.shadowView.alpha = 0.0
+                self.blurView.alpha = 0.0
             }, completion: {completed in
                 self.transitionContext!.finishInteractiveTransition()
                 self.transitionContext!.completeTransition(true)
@@ -131,6 +129,7 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
                 self.formView = nil
                 self.shadowView.removeFromSuperview()
                 self.blurView.removeFromSuperview()
+                
             })
         }
     }
