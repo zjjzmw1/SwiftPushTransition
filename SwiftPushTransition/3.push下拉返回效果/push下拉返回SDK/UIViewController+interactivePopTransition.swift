@@ -15,6 +15,8 @@ private var kInteractivePopTransition           = "kInteractivePopTransition"
 private var kPopFromTop                         = "kPopFromTop"
 private var kPopFromTopWithScrollView           = "kPopFromTopWithScrollView"   // 包含滚动视频
 private var kPopFromLeft                        = "kPopFromLeft"
+private var kPopFromAll                         = "kPopFromAll" // 类似APP Store 的转场动画效果从四周整体缩小
+private var kPopStartFrame                      = "kPopStartFrame" // 类似APP Store 的转场动画效果从四周整体缩小--返回到哪里
 
 extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate {
 
@@ -79,6 +81,30 @@ extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate
         }
     }
     
+    /// 类似APP Store 的转场动画效果从四周整体缩小
+    var popFromAll: Bool {
+        set {
+            objc_setAssociatedObject(self, &kPopFromAll, newValue, .OBJC_ASSOCIATION_ASSIGN)
+            if newValue {
+                let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(handleGesture(gestureRecognizer:)))
+                self.view.addGestureRecognizer(gesture)
+                self.navigationController?.delegate = self
+            }
+        }
+        get {
+            return objc_getAssociatedObject(self, &kPopFromAll) as? Bool ?? false
+        }
+    }
+    /// 类似APP Store 的转场动画效果从四周整体缩小--返回到哪里
+    var popStartFrame: CGRect? {
+        set {
+            objc_setAssociatedObject(self, &kPopStartFrame, newValue, .OBJC_ASSOCIATION_RETAIN) // 用assign就崩溃。。。。。
+        }
+        get {
+            return (objc_getAssociatedObject(self, &kPopStartFrame) as? CGRect) ?? CGRect()
+        }
+    }
+    
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.stopScrollViewAction(scrollView: scrollView)
     }
@@ -124,6 +150,7 @@ extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate
             if pro > progress && pro > 0.01 && !(interactivePopTransition!.popFromTop) { // 避免左右滑动的时候，突然变成上下滑动
                 interactivePopTransition?.popFromLeft = self.popFromLeft
                 interactivePopTransition?.popFromTop = false
+                interactivePopTransition?.popFromAll = false
                 progress = pro
             }
         }
@@ -132,8 +159,17 @@ extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate
             if pro > progress && pro > 0.01 && !(interactivePopTransition!.popFromLeft) { // 避免上下滑动的时候，突然变成左右滑动
                 interactivePopTransition?.popFromTop = (self.popFromTop || self.popFromTopWithScrollView)
                 interactivePopTransition?.popFromLeft = false
+                interactivePopTransition?.popFromAll = false
                 progress = pro
             }
+        }
+        if self.popFromAll { // App Store的转场动画效果（从四周缩小）
+            interactivePopTransition?.popFromAll = true
+            interactivePopTransition?.popFromLeft = false
+            interactivePopTransition?.popFromTop = false
+            let proX = gestureRecognizer.translation(in: gestureRecognizer.view?.superview).x / self.view.bounds.size.width
+            let proY = gestureRecognizer.translation(in: gestureRecognizer.view?.superview).y / self.view.bounds.size.height
+            progress = (proX > proY ? proX : proY)
         }
         progress = min(1.0, max(0.0, progress))
         if gestureRecognizer.state == UIGestureRecognizerState.began { // 开始滑动
@@ -142,16 +178,16 @@ extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate
             }
             self.navigationController?.delegate = self
             self.interactivePopTransition = CustomPercentDrivenInteractiveTransition()
+            self.interactivePopTransition?.popStartFrame = self.popStartFrame ?? CGRect()
             interactionInProgress = true
             self.navigationController?.popViewController(animated: true)
         } else if gestureRecognizer.state == UIGestureRecognizerState.changed { // 正在滑动
             if interactivePopTransition?.transitionContext == nil && !interactionInProgress {
                 self.navigationController?.delegate = self
                 self.interactivePopTransition = CustomPercentDrivenInteractiveTransition()
+                self.interactivePopTransition?.popStartFrame = self.popStartFrame ?? CGRect()
                 interactionInProgress = true
                 self.navigationController?.popViewController(animated: true)
-            } else {
-                print("pro======\(progress)")
             }
             interactivePopTransition?.update(progress)
 

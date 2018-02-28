@@ -29,6 +29,7 @@
 		BDC312C9202AE58B00AAE6E7 /* ThirdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312C8202AE58B00AAE6E7 /* ThirdVC.swift */; };
 		BDC312D2202BEB0300AAE6E7 /* CATransitionPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312D1202BEB0300AAE6E7 /* CATransitionPush.swift */; };
 		BDC312D8202BFA9100AAE6E7 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312D7202BFA9100AAE6E7 /* UIImage+Extension.swift */; };
+		BDF793D3204560E4009282EB /* AppStoreAnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF793D2204560E4009282EB /* AppStoreAnimationVC.swift */; };
 		D737D563D9F7A226CB7BF350 /* Pods_SwiftPushTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359DEC4899A3DCA457DF7A6F /* Pods_SwiftPushTransition.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		BDC312C8202AE58B00AAE6E7 /* ThirdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdVC.swift; sourceTree = "<group>"; };
 		BDC312D1202BEB0300AAE6E7 /* CATransitionPush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATransitionPush.swift; sourceTree = "<group>"; };
 		BDC312D7202BFA9100AAE6E7 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		BDF793D2204560E4009282EB /* AppStoreAnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreAnimationVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				BDC312A8202A97AE00AAE6E7 /* AppDelegate.swift */,
 				BDC312BA202A981B00AAE6E7 /* BaseVC.swift */,
 				BDC312BC202A982C00AAE6E7 /* FirstVC.swift */,
+				BDF793D1204560BE009282EB /* appstore转场动画 */,
 				BD4DAE7F204410F9005586B1 /* 1.吸吮的转场动画（2种） */,
 				BD768959202D9E0300E93FC6 /* 2.过年动画-模仿支付宝 */,
 				BD4DAE672043A80B005586B1 /* 3.push下拉返回效果 */,
@@ -213,6 +216,14 @@
 				BD76895C202D9F5900E93FC6 /* UIImageView+IOSUtil.swift */,
 			);
 			path = "工具";
+			sourceTree = "<group>";
+		};
+		BDF793D1204560BE009282EB /* appstore转场动画 */ = {
+			isa = PBXGroup;
+			children = (
+				BDF793D2204560E4009282EB /* AppStoreAnimationVC.swift */,
+			);
+			path = "appstore转场动画";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,6 +369,7 @@
 				BD4DAE6F2043B158005586B1 /* TestVC.swift in Sources */,
 				BD76895D202D9F5900E93FC6 /* UIImageView+IOSUtil.swift in Sources */,
 				BDC312C2202A9A9800AAE6E7 /* PointTransitionPush.swift in Sources */,
+				BDF793D3204560E4009282EB /* AppStoreAnimationVC.swift in Sources */,
 				BD4DAE5A2043A374005586B1 /* CustomPercentInteractiveVC.swift in Sources */,
 				BD4DAE7D20440F39005586B1 /* UIViewExtensionBg.swift in Sources */,
 				BDC312BB202A981B00AAE6E7 /* BaseVC.swift in Sources */,

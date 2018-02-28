@@ -22,6 +22,11 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
     var popFromTop: Bool    =   false
     /// 自定义--是否是从左往右 默认false
     var popFromLeft: Bool   =   false
+    /// 自定义呢--模仿App Store的转场动画 默认 false
+    var popFromAll: Bool    =   false
+    /// 开始动画的frame （模仿App Store的转场动画的时候需要）
+    var popStartFrame = CGRect.init(x: 0, y: 0, width: 0, height: 0)
+    
     /// 以下----自定义交互控制器
     override func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
@@ -56,6 +61,11 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
         } else if self.popFromLeft  { // 左右滑动
             self.formView?.frame = CGRect(x:(self.formView?.frame.width)!*percentComplete, y:0, width:(self.formView?.frame.width)! , height: (self.formView?.frame.height)!)
             self.toView?.frame = CGRect(x:self.x_to+CGFloat(fabsf(Float(self.x_to*percentComplete))), y:0, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
+        } else if self.popFromAll { // 模仿App Store的转场动画
+            let left = (self.formView?.frame.width)!*percentComplete * 0.3
+            let top = (self.formView?.frame.height)!*percentComplete * 0.3
+            self.formView?.frame = CGRect(x:left, y:top, width:UIScreen.main.bounds.size.width - left*2 , height: UIScreen.main.bounds.size.height - top*2)
+            self.toView?.frame = CGRect(x:0, y:0, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
         }
         transitionContext?.updateInteractiveTransition(percentComplete)
         shadowView.alpha = 1.0 - percentComplete
@@ -73,6 +83,9 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
                     self.toView?.frame = CGRect(x:0, y:self.y_to, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
                 } else if self.popFromLeft  { // 左右滑动
                     self.toView?.frame = CGRect(x:self.x_to, y:0, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
+                } else if self.popFromAll { // 模仿App Store的转场动画
+                    self.formView?.frame = CGRect(x:0, y:0, width:UIScreen.main.bounds.size.width , height: UIScreen.main.bounds.size.height)
+                    self.toView?.frame = CGRect(x:0, y:0, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
                 }
                 self.shadowView.alpha = 0.0
             }, completion: {completed in
@@ -84,10 +97,14 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
         } else { // 执行pop
             self.toView.addSubview(shadowView)
             UIView.animate(withDuration: 0.2, animations: {
-                if self.formView.frame.origin.y > 0 { // 上下
-                    self.formView?.frame = CGRect(x:0, y:(self.formView?.frame.height)!, width:(self.formView?.frame.width)! , height: (self.formView?.frame.height)!)
-                } else { // 左右
-                    self.formView?.frame = CGRect(x:(self.formView?.frame.width)!, y:0, width:(self.formView?.frame.width)! , height: (self.formView?.frame.height)!)
+                if self.popFromAll {
+                    self.formView?.frame = self.popStartFrame
+                } else {
+                    if self.formView.frame.origin.y > 0 { // 上下
+                        self.formView?.frame = CGRect(x:0, y:(self.formView?.frame.height)!, width:(self.formView?.frame.width)! , height: (self.formView?.frame.height)!)
+                    } else { // 左右
+                        self.formView?.frame = CGRect(x:(self.formView?.frame.width)!, y:0, width:(self.formView?.frame.width)! , height: (self.formView?.frame.height)!)
+                    }
                 }
                 self.toView?.frame = CGRect(x:0, y:0, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
                 self.shadowView.alpha = 0.0

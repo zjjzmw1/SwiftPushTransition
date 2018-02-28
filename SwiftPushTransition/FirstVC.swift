@@ -13,6 +13,9 @@ class FirstVC: BaseVC {
     var btn2: UIButton!
     var btn4: UIButton!
     var btn5: UIButton!
+    /// APPStore转场动画
+    var appStoreAnimationBtn: UIButton!
+    
     var startFrame = CGRect.init()
     /// 是否需要自定义动画
     var isNeedCustomAnimation   =   true
@@ -38,7 +41,7 @@ class FirstVC: BaseVC {
         btn2.setTitleColor(UIColor.white, for: .normal)
         btn2.backgroundColor = UIColor.red
         
-        btn4 = UIButton.init(frame: CGRect.init(x: 22, y: 420, width: 100, height: 100))
+        btn4 = UIButton.init(frame: CGRect.init(x: 22, y: 333, width: 100, height: 100))
         view.addSubview(btn4)
         btn4.addTarget(self, action: #selector(goAction4), for: .touchUpInside)
         btn4.setTitle("过年动画", for: .normal)
@@ -55,6 +58,16 @@ class FirstVC: BaseVC {
         btn5.layer.cornerRadius = 50
         btn5.setTitleColor(UIColor.white, for: .normal)
         btn5.backgroundColor = UIColor.red
+        
+        appStoreAnimationBtn = UIButton.init(frame: CGRect.init(x: 222, y: 232, width: 150, height: 150))
+        view.addSubview(appStoreAnimationBtn)
+        appStoreAnimationBtn.addTarget(self, action: #selector(appStoreAnimationAction), for: .touchUpInside)
+        appStoreAnimationBtn.setTitle("appstore转场", for: .normal)
+        appStoreAnimationBtn.layer.masksToBounds = true
+        appStoreAnimationBtn.layer.cornerRadius = 5
+        appStoreAnimationBtn.setTitleColor(UIColor.white, for: .normal)
+        appStoreAnimationBtn.backgroundColor = UIColor.red
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,7 +99,7 @@ class FirstVC: BaseVC {
     // 下拉返回的效果
     @objc func goAction5() {
         let vc = CustomPercentInteractiveVC()
-        // 正常的push
+        // 正常的push 也可以
 //        isNeedCustomAnimation = false
 //        self.navigationController?.pushViewController(vc, animated: true)
         // 从下到上的push
@@ -96,6 +109,14 @@ class FirstVC: BaseVC {
         self.navigationController?.pushViewController(vc, animated: false)
     }
     
+    /// APPStore转场动画
+    @objc func appStoreAnimationAction() {
+        let vc = AppStoreAnimationVC()
+        // 从下到上的push
+        isNeedCustomAnimation = true
+        vc.popStartFrame = appStoreAnimationBtn.frame // 必须的pop回到进来的view的位置
+        self.navigationController?.pushViewController(vc, animated: false)
+    }
     
     override func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if operation == UINavigationControllerOperation.push && isNeedCustomAnimation {
