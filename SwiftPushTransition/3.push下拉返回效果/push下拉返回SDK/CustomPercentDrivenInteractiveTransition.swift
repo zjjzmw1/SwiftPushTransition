@@ -17,6 +17,7 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
     let x_to : CGFloat = -100.0 ///toview起始x坐标
     let y_to : CGFloat = -100.0 ///toview起始y坐标
     var shadowView: UIView = UIView.shadowView      // 阴影蒙层
+    var blurView: UIView = UIView.blurView          // 毛玻璃蒙层
 
     /// 自定义--是否是从上往下 默认false
     var popFromTop: Bool    =   false
@@ -49,6 +50,8 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
         self.formView.clipsToBounds = true
         self.toView.clipsToBounds = false
         self.toView.frame = CGRect(x:x_to,y:y_to,width:self.toView.frame.width,height:self.toView.frame.height)
+        blurView = UIView.blurView // 毛玻璃
+        self.toView.addSubview(blurView)
         shadowView = UIView.shadowView // 初始化阴影
         shadowView.alpha = 1.0
         self.toView.addSubview(shadowView)
@@ -58,13 +61,18 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
             ///预防rootviewcontroller触发
             return
         }
+        shadowView.isHidden = false
+        blurView.isHidden = false
         if self.popFromTop { // 上下滑动
+            blurView.isHidden = true
             self.formView?.frame = CGRect(x:0, y:(self.formView?.frame.height)!*percentComplete, width:(self.formView?.frame.width)! , height: (self.formView?.frame.height)!)
             self.toView?.frame = CGRect(x:0, y:self.y_to+CGFloat(fabsf(Float(self.y_to*percentComplete))), width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
         } else if self.popFromLeft  { // 左右滑动
+            blurView.isHidden = true
             self.formView?.frame = CGRect(x:(self.formView?.frame.width)!*percentComplete, y:0, width:(self.formView?.frame.width)! , height: (self.formView?.frame.height)!)
             self.toView?.frame = CGRect(x:self.x_to+CGFloat(fabsf(Float(self.x_to*percentComplete))), y:0, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
         } else if self.popFromAll { // 模仿App Store的转场动画
+            shadowView.isHidden = true
             let left = (self.formView?.frame.width)!*percentComplete * 0.3
             let top = (self.formView?.frame.height)!*percentComplete * 0.3
             self.formView?.frame = CGRect(x:left, y:top, width:UIScreen.main.bounds.size.width - left*2 , height: UIScreen.main.bounds.size.height - top*2)
@@ -98,7 +106,11 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
                 self.formView = nil
             })
         } else { // 执行pop
-            self.toView.addSubview(shadowView)
+            if self.popFromAll { // 毛玻璃
+                self.toView.addSubview(blurView)
+            } else {
+                self.toView.addSubview(shadowView)
+            }
             UIView.animate(withDuration: 0.2, animations: {
                 if self.popFromAll {
                     self.formView?.frame = self.popStartFrame
@@ -118,6 +130,7 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
                 self.toView = nil
                 self.formView = nil
                 self.shadowView.removeFromSuperview()
+                self.blurView.removeFromSuperview()
             })
         }
     }
