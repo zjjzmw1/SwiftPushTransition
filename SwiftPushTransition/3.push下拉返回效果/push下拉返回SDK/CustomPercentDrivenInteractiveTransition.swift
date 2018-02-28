@@ -45,6 +45,9 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
         
         self.formView = fromViewController.view
         self.toView = toViewController.view
+        // 超出的部分不显示
+        self.formView.clipsToBounds = true
+        self.toView.clipsToBounds = false
         self.toView.frame = CGRect(x:x_to,y:y_to,width:self.toView.frame.width,height:self.toView.frame.height)
         shadowView = UIView.shadowView // 初始化阴影
         shadowView.alpha = 1.0

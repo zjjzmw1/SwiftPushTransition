@@ -119,7 +119,7 @@ extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate
     
     /// 停止滚动的时候执行
     func stopScrollViewAction(scrollView: UIScrollView) {
-        if self.popFromTopWithScrollView { // 允许下拉
+        if self.popFromTopWithScrollView || self.popFromAll { // 允许下拉
             var top: CGFloat = 0.0
             if #available(iOS 11.0, *) {
                 top = scrollView.adjustedContentInset.top
@@ -169,7 +169,10 @@ extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate
             interactivePopTransition?.popFromTop = false
             let proX = gestureRecognizer.translation(in: gestureRecognizer.view?.superview).x / self.view.bounds.size.width
             let proY = gestureRecognizer.translation(in: gestureRecognizer.view?.superview).y / self.view.bounds.size.height
-            progress = (proX > proY ? proX : proY)
+            let pro = (proX > proY ? proX : proY)
+            if pro > progress && pro > 0.01 {
+                progress = pro
+            }
         }
         progress = min(1.0, max(0.0, progress))
         if gestureRecognizer.state == UIGestureRecognizerState.began { // 开始滑动
