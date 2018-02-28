@@ -77,6 +77,16 @@ class FirstVC: BaseVC {
         appStoreAnimationBtn.setTitleColor(UIColor.white, for: .normal)
         appStoreAnimationBtn.backgroundColor = UIColor.red
         
+        // 模仿youTube的转场动画
+        let youTubeBtn = UIButton.init(frame: CGRect.init(x: 222, y: 400, width: 100, height: 30))
+        view.addSubview(youTubeBtn)
+        youTubeBtn.addTarget(self, action: #selector(youTubeAction), for: .touchUpInside)
+        youTubeBtn.setTitle("youTube效果", for: .normal)
+        youTubeBtn.layer.masksToBounds = true
+        youTubeBtn.layer.cornerRadius = 3
+        youTubeBtn.setTitleColor(UIColor.white, for: .normal)
+        youTubeBtn.backgroundColor = UIColor.red
+        youTubeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         
         // 底部的label
         let bottomLabel = UILabel.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height - 80, width: UIScreen.main.bounds.width, height: 80))
@@ -154,6 +164,11 @@ class FirstVC: BaseVC {
     /// APPStore转场动画
     @objc func appStoreAnimationAction1(btn: UIButton) {
         btn.scaleAnimationSpring(scale: 1.0)
+    }
+    
+    /// 模仿youTube的转场动画
+    @objc func youTubeAction() {
+        self.navigationController?.pushViewController(YouTubeListVC(), animated: true)
     }
     
     override func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
