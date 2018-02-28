@@ -190,12 +190,22 @@ extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate
                 self.navigationController?.popViewController(animated: true)
             }
             interactivePopTransition?.update(progress)
-
+            // 特殊情况
+            if self.popFromAll { // App Store的转场动画效果（从四周缩小）
+                if progress >= 0.18 {
+                    interactivePopTransition?.finishBy(cancelled: false)
+                    interactionInProgress = false
+                    self.interactivePopTransition = nil
+                }
+            }
         } else if gestureRecognizer.state == UIGestureRecognizerState.ended || gestureRecognizer.state == UIGestureRecognizerState.cancelled { // 结束
-            interactivePopTransition?.finishBy(cancelled: progress < 0.4)
+            if self.popFromAll { // App Store的转场动画效果（从四周缩小）
+                interactivePopTransition?.finishBy(cancelled: progress < 0.18)
+            } else {
+                interactivePopTransition?.finishBy(cancelled: progress < 0.4)
+            }
             interactionInProgress = false
             self.interactivePopTransition = nil
-            print("取消了。。。。。。")
         }
     }
     
