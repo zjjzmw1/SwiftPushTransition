@@ -25,10 +25,6 @@ class CustomPercentInteractiveVC: BaseVC {
         btn.addTarget(self, action: #selector(goTestVC), for: .touchUpInside)
         self.view.addSubview(btn)
         
-        // 支持下拉返回 --- 这三句就可以实现下拉返回了，很方便。
-        self.popFromTop = true // 下拉返回开关
-        self.popFromLeft = true // 同时需要右滑返回的时候需要
-        self.popFromTopWithScrollView = true    // 有滚动view的时候需要
     }
     
     /// 初始化表格

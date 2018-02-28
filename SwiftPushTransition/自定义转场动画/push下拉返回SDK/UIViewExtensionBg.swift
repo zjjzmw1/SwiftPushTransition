@@ -28,4 +28,13 @@ extension UIView {
         effectView.frame = frame
         return effectView
     }
+    
+    /// 动画放大, 缩小 view scale ： 1 为本身大小
+    func scaleAnimationSpring(scale: CGFloat) {
+        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 20, options: .curveEaseInOut, animations: {
+            self.transform = CGAffineTransform.init(scaleX: scale, y: scale)
+        }, completion: { (finish) in
+            
+        })
+    }
 }

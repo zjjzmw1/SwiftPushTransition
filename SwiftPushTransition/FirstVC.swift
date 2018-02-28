@@ -124,6 +124,10 @@ class FirstVC: BaseVC {
         let transitionPush = CATransitionPush(aType: kCATransitionPush, aSubtype: kCATransitionFromTop)
         self.navigationController?.view.layer.add(transitionPush, forKey: kCATransition)
         self.navigationController?.pushViewController(vc, animated: false)
+        // 支持下拉返回 --- 这三句就可以实现下拉返回了，很方便。
+        vc.popFromTop = true // 下拉返回开关
+        vc.popFromLeft = true // 同时需要右滑返回的时候需要
+        vc.popFromTopWithScrollView = true    // 有滚动view的时候需要
     }
     
     /// APPStore转场动画
@@ -145,20 +149,11 @@ class FirstVC: BaseVC {
     }
     /// APPStore转场动画
     @objc func appStoreAnimationAction0(btn: UIButton) {
-        // 缩放动画
-        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 20, options: .curveEaseInOut, animations: {
-            btn.transform = CGAffineTransform.init(scaleX: 0.9, y: 0.9)
-        }, completion: { (finish) in
-            
-        })
+        btn.scaleAnimationSpring(scale: 0.9)
     }
     /// APPStore转场动画
     @objc func appStoreAnimationAction1(btn: UIButton) {
-        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 20, options: .curveEaseInOut, animations: {
-            btn.transform = CGAffineTransform.init(scaleX: 1, y: 1)
-        }, completion: { (finish) in
-            
-        })
+        btn.scaleAnimationSpring(scale: 1.0)
     }
     
     override func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
