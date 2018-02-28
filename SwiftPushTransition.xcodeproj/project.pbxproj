@@ -111,7 +111,6 @@
 			children = (
 				BD4DAE592043A374005586B1 /* CustomPercentInteractiveVC.swift */,
 				BD4DAE6E2043B158005586B1 /* TestVC.swift */,
-				BD4DAE7E204410B3005586B1 /* push下拉返回SDK */,
 			);
 			path = "3.push下拉返回效果";
 			sourceTree = "<group>";
@@ -194,6 +193,7 @@
 		BDC312C0202A9A5600AAE6E7 /* 自定义转场动画 */ = {
 			isa = PBXGroup;
 			children = (
+				BD4DAE7E204410B3005586B1 /* push下拉返回SDK */,
 				BDF793D420463D36009282EB /* 放大zoomIn转场(appstore效果) */,
 				BD4DAE8020441138005586B1 /* 吸吮的转场 */,
 				BDC312D0202BEACF00AAE6E7 /* push的动画方向修改 */,
