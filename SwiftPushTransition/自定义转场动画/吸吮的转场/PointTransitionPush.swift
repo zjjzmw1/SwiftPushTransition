@@ -14,7 +14,7 @@ class PointTransitionPush: NSObject, UIViewControllerAnimatedTransitioning {
     
     // MARK: 动画时间
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.8
+        return 0.6
     }
     // MARK: 动画核心方法
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
