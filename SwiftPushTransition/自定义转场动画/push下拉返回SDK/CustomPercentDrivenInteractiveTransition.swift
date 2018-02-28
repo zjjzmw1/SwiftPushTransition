@@ -110,7 +110,10 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
         } else { // 执行pop
             UIView.animate(withDuration: 0.2, animations: {
                 if self.popFromAll {
-                    self.formView?.frame = self.popStartFrame
+                    let scaleX = self.popStartFrame.size.width * 0.05
+                    let scaleY = self.popStartFrame.size.height * 0.05
+                    let startF = CGRect.init(x: self.popStartFrame.origin.x - scaleX, y: self.popStartFrame.origin.y - scaleY, width: self.popStartFrame.size.width + scaleX*2, height: self.popStartFrame.size.height + scaleY*2)
+                    self.formView?.frame = startF
                 } else {
                     if self.formView.frame.origin.y > 0 { // 上下
                         self.formView?.frame = CGRect(x:0, y:(self.formView?.frame.height)!, width:(self.formView?.frame.width)! , height: (self.formView?.frame.height)!)

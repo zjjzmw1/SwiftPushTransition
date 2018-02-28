@@ -28,10 +28,7 @@ class ZoomInTransitionPush: NSObject, UIViewControllerAnimatedTransitioning {
             contentV.addSubview(toVC.view)
             let originToFrame = toVC.view.frame
             
-            
             let maskStartBP = UIBezierPath.init(rect: startFrame)
-            // 中间过渡的UIBezierPath
-//            let maskMiddleBP = UIBezierPath.init(rect: originToFrame)
             // 最终的UIBezierPath
             let maskFinalBP = UIBezierPath.init(rect: originToFrame)
             // 创建一个CAShapeLayer负责展示圆形的遮盖
@@ -44,7 +41,7 @@ class ZoomInTransitionPush: NSObject, UIViewControllerAnimatedTransitioning {
             animation1.fromValue = maskStartBP.cgPath
             animation1.toValue = maskFinalBP.cgPath
             animation1.duration = self.transitionDuration(using: transitionContext)/1.1
-            animation1.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseInEaseOut)
+            animation1.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseOut)
             
             let animation2 = CAKeyframeAnimation.init(keyPath: "transform.scale")
             animation2.beginTime = animation1.duration

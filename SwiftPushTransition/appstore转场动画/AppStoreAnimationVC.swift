@@ -19,10 +19,6 @@ class AppStoreAnimationVC: BaseVC {
 
         self.initAllTableV()
         
-        let btn = UIButton.init(frame: CGRect.init(x: 10, y: 80, width: 100, height: 100))
-        btn.backgroundColor = UIColor.green
-        btn.addTarget(self, action: #selector(goTestVC), for: .touchUpInside)
-        self.view.addSubview(btn)
     }
     
     /// 初始化表格
@@ -32,11 +28,6 @@ class AppStoreAnimationVC: BaseVC {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
-    }
-    
-    @objc func goTestVC() {
-        let vc = TestVC()
-        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -129,21 +129,24 @@ class FirstVC: BaseVC {
     /// APPStore转场动画
     @objc func appStoreAnimationAction(btn: UIButton) {
         // 缩放动画
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 10, options: .curveEaseInOut, animations: {
-            btn.transform = CGAffineTransform.init(scaleX: 1, y: 1)
-        }, completion: { (finish) in
-        })
-        let vc = AppStoreAnimationVC()
-        customAnimationType = .zoomInPush
-        startFrame = appStoreAnimationBtn.frame
-        vc.popFromAll = true // appstore的转场动画
-        vc.popStartFrame = appStoreAnimationBtn.frame // 必须的pop回到进来的view的位置
-        self.navigationController?.pushViewController(vc, animated: true)
+        // 延迟0.2后执行
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.milliseconds(Int(0.2 * 1000))) { [weak self] in
+            let vc = AppStoreAnimationVC()
+            self!.customAnimationType = .zoomInPush
+            self!.startFrame = btn.frame
+            vc.popFromAll = true // appstore的转场动画
+            vc.popStartFrame = btn.frame // 必须的pop回到进来的view的位置
+            self!.navigationController?.pushViewController(vc, animated: true)
+            // 延迟0.5后执行
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.milliseconds(Int(0.5 * 1000))) {
+                btn.transform = CGAffineTransform.init(scaleX: 1, y: 1)
+            }
+        }
     }
     /// APPStore转场动画
     @objc func appStoreAnimationAction0(btn: UIButton) {
         // 缩放动画
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 10, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 20, options: .curveEaseInOut, animations: {
             btn.transform = CGAffineTransform.init(scaleX: 0.9, y: 0.9)
         }, completion: { (finish) in
             
@@ -151,8 +154,7 @@ class FirstVC: BaseVC {
     }
     /// APPStore转场动画
     @objc func appStoreAnimationAction1(btn: UIButton) {
-        // 缩放动画
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 10, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 20, options: .curveEaseInOut, animations: {
             btn.transform = CGAffineTransform.init(scaleX: 1, y: 1)
         }, completion: { (finish) in
             
