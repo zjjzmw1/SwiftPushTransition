@@ -68,13 +68,23 @@ class FirstVC: BaseVC {
         
         appStoreAnimationBtn = UIButton.init(frame: CGRect.init(x: 222, y: 232, width: 150, height: 150))
         view.addSubview(appStoreAnimationBtn)
-        appStoreAnimationBtn.addTarget(self, action: #selector(appStoreAnimationAction), for: .touchUpInside)
+        appStoreAnimationBtn.addTarget(self, action: #selector(appStoreAnimationAction(btn:)), for: .touchUpInside)
+        appStoreAnimationBtn.addTarget(self, action: #selector(appStoreAnimationAction0(btn:)), for: .touchDown)
+        appStoreAnimationBtn.addTarget(self, action: #selector(appStoreAnimationAction1(btn:)), for: .touchUpOutside)
         appStoreAnimationBtn.setTitle("appstore转场", for: .normal)
         appStoreAnimationBtn.layer.masksToBounds = true
         appStoreAnimationBtn.layer.cornerRadius = 5
         appStoreAnimationBtn.setTitleColor(UIColor.white, for: .normal)
         appStoreAnimationBtn.backgroundColor = UIColor.red
         
+        
+        // 底部的label
+        let bottomLabel = UILabel.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height - 80, width: UIScreen.main.bounds.width, height: 80))
+        view.addSubview(bottomLabel)
+        bottomLabel.textColor = UIColor.black
+        bottomLabel.backgroundColor = UIColor.red
+        bottomLabel.numberOfLines = 0
+        bottomLabel.text = "这是测试文章这是测试文章这是测试文章这是测试文章这是测试文章这是测试文章这是测试文章这是测试文章这是测试文章这是测试文章这是测试文章这是测试文章这是测试文章这是测试文章这是v测试文章这是测试文章这是测试文章这是测试文章v"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -117,13 +127,36 @@ class FirstVC: BaseVC {
     }
     
     /// APPStore转场动画
-    @objc func appStoreAnimationAction() {
+    @objc func appStoreAnimationAction(btn: UIButton) {
+        // 缩放动画
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 10, options: .curveEaseInOut, animations: {
+            btn.transform = CGAffineTransform.init(scaleX: 1, y: 1)
+        }, completion: { (finish) in
+        })
         let vc = AppStoreAnimationVC()
         customAnimationType = .zoomInPush
         startFrame = appStoreAnimationBtn.frame
         vc.popFromAll = true // appstore的转场动画
         vc.popStartFrame = appStoreAnimationBtn.frame // 必须的pop回到进来的view的位置
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    /// APPStore转场动画
+    @objc func appStoreAnimationAction0(btn: UIButton) {
+        // 缩放动画
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 10, options: .curveEaseInOut, animations: {
+            btn.transform = CGAffineTransform.init(scaleX: 0.9, y: 0.9)
+        }, completion: { (finish) in
+            
+        })
+    }
+    /// APPStore转场动画
+    @objc func appStoreAnimationAction1(btn: UIButton) {
+        // 缩放动画
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 10, options: .curveEaseInOut, animations: {
+            btn.transform = CGAffineTransform.init(scaleX: 1, y: 1)
+        }, completion: { (finish) in
+            
+        })
     }
     
     override func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
