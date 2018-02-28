@@ -17,7 +17,7 @@ private var kPopFromTopWithScrollView           = "kPopFromTopWithScrollView"   
 private var kPopFromLeft                        = "kPopFromLeft"
 private var kPopFromAll                         = "kPopFromAll" // 类似APP Store 的转场动画效果从四周整体缩小
 private var kPopStartFrame                      = "kPopStartFrame" // 类似APP Store 的转场动画效果从四周整体缩小--返回到哪里
-
+private var kIsAtTop                            = "kIsAtTop"        // 是否已经在顶部了。
 extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate {
 
     /// 自定义--用于指示交互是否在进行中。 默认 false
@@ -27,6 +27,15 @@ extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate
         }
         get {
             return objc_getAssociatedObject(self, &kInteractionInProgress) as? Bool ?? false
+        }
+    }
+    /// 自定义--是否已经滚动在顶部了。 默认 true
+    var isAtTop: Bool {
+        set {
+            objc_setAssociatedObject(self, &kIsAtTop, newValue, .OBJC_ASSOCIATION_ASSIGN)
+        }
+        get {
+            return objc_getAssociatedObject(self, &kIsAtTop) as? Bool ?? true
         }
     }
     /// 自定义--交互控制器
@@ -110,10 +119,12 @@ extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate
     }
     /// 手指离开屏幕的方法（不管有没有惯性都执行）
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.isAtTop = true
         self.stopScrollViewAction(scrollView: scrollView)
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.isAtTop = true
         self.stopScrollViewAction(scrollView: scrollView)
     }
     
@@ -124,7 +135,8 @@ extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate
             if #available(iOS 11.0, *) {
                 top = scrollView.adjustedContentInset.top
             }
-            if scrollView.contentOffset.y + scrollView.contentInset.top + top > 0 { // 向上滑动
+            if scrollView.contentOffset.y + scrollView.contentInset.top + top > 0 || !self.isAtTop { // 还没滚动到顶部的时候
+                self.isAtTop = false
                 interactivePopTransition?.finishBy(cancelled: true)
                 interactionInProgress = false
                 self.interactivePopTransition = nil
