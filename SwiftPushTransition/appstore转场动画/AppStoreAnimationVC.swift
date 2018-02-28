@@ -15,8 +15,6 @@ class AppStoreAnimationVC: BaseVC {
         self.title = "模仿app store"
         self.view.backgroundColor = UIColor.yellow
     
-        // appstore的转场动画，这一句就OK
-        self.popFromAll = true
     }
 
 

@@ -30,6 +30,7 @@
 		BDC312D2202BEB0300AAE6E7 /* CATransitionPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312D1202BEB0300AAE6E7 /* CATransitionPush.swift */; };
 		BDC312D8202BFA9100AAE6E7 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312D7202BFA9100AAE6E7 /* UIImage+Extension.swift */; };
 		BDF793D3204560E4009282EB /* AppStoreAnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF793D2204560E4009282EB /* AppStoreAnimationVC.swift */; };
+		BDF793D620463D6B009282EB /* ZoomInTransitionPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF793D520463D6B009282EB /* ZoomInTransitionPush.swift */; };
 		D737D563D9F7A226CB7BF350 /* Pods_SwiftPushTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359DEC4899A3DCA457DF7A6F /* Pods_SwiftPushTransition.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		BDC312D1202BEB0300AAE6E7 /* CATransitionPush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATransitionPush.swift; sourceTree = "<group>"; };
 		BDC312D7202BFA9100AAE6E7 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		BDF793D2204560E4009282EB /* AppStoreAnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreAnimationVC.swift; sourceTree = "<group>"; };
+		BDF793D520463D6B009282EB /* ZoomInTransitionPush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomInTransitionPush.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 		BDC312C0202A9A5600AAE6E7 /* 自定义转场动画 */ = {
 			isa = PBXGroup;
 			children = (
+				BDF793D420463D36009282EB /* 放大zoomIn转场(appstore效果) */,
 				BD4DAE8020441138005586B1 /* 吸吮的转场 */,
 				BDC312D0202BEACF00AAE6E7 /* push的动画方向修改 */,
 			);
@@ -224,6 +227,14 @@
 				BDF793D2204560E4009282EB /* AppStoreAnimationVC.swift */,
 			);
 			path = "appstore转场动画";
+			sourceTree = "<group>";
+		};
+		BDF793D420463D36009282EB /* 放大zoomIn转场(appstore效果) */ = {
+			isa = PBXGroup;
+			children = (
+				BDF793D520463D6B009282EB /* ZoomInTransitionPush.swift */,
+			);
+			path = "放大zoomIn转场(appstore效果)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDF793D620463D6B009282EB /* ZoomInTransitionPush.swift in Sources */,
 				BD4DAE662043A6EB005586B1 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				BD4DAE692043A847005586B1 /* CustomPercentDrivenInteractiveTransition.swift in Sources */,
 				BDC312D2202BEB0300AAE6E7 /* CATransitionPush.swift in Sources */,

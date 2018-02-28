@@ -8,6 +8,13 @@
 
 import UIKit
 
+// 进入下个页面的转场动画类型
+enum ToNextPageAnimationType {
+    case none           // 无动画
+    case pointPush      // 吸吮动画
+    case zoomInPush     // 放大动画
+}
+
 class FirstVC: BaseVC {
     var btn: UIButton!
     var btn2: UIButton!
@@ -18,7 +25,7 @@ class FirstVC: BaseVC {
     
     var startFrame = CGRect.init()
     /// 是否需要自定义动画
-    var isNeedCustomAnimation   =   true
+    var customAnimationType: ToNextPageAnimationType = .none
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,21 +86,21 @@ class FirstVC: BaseVC {
     @objc func goAction() {
         let vc = SecondVC()
         startFrame = btn.frame
-        isNeedCustomAnimation = true
+        customAnimationType = .pointPush
         vc.startFrame = btn.frame // 需要返回动画的时候添加
         self.navigationController?.pushViewController(vc, animated: true)
     }
     // 吸吮效果2
     @objc func goAction2() {
         let vc = ThirdVC()
-        isNeedCustomAnimation = true
+        customAnimationType = .pointPush
         startFrame = btn2.frame
         self.navigationController?.pushViewController(vc, animated: true)
     }
     // 过年动画
     @objc func goAction4() {
         let vc = NewYearAnimationVC()
-        isNeedCustomAnimation = false
+        customAnimationType = .none
         self.navigationController?.pushViewController(vc, animated: false)
     }
     // 下拉返回的效果
@@ -103,7 +110,7 @@ class FirstVC: BaseVC {
 //        isNeedCustomAnimation = false
 //        self.navigationController?.pushViewController(vc, animated: true)
         // 从下到上的push
-        isNeedCustomAnimation = false
+        customAnimationType = .none
         let transitionPush = CATransitionPush(aType: kCATransitionPush, aSubtype: kCATransitionFromTop)
         self.navigationController?.view.layer.add(transitionPush, forKey: kCATransition)
         self.navigationController?.pushViewController(vc, animated: false)
@@ -112,17 +119,24 @@ class FirstVC: BaseVC {
     /// APPStore转场动画
     @objc func appStoreAnimationAction() {
         let vc = AppStoreAnimationVC()
-        // 从下到上的push
-        isNeedCustomAnimation = true
+        customAnimationType = .zoomInPush
+        startFrame = appStoreAnimationBtn.frame
+        vc.popFromAll = true // appstore的转场动画
         vc.popStartFrame = appStoreAnimationBtn.frame // 必须的pop回到进来的view的位置
-        self.navigationController?.pushViewController(vc, animated: false)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if operation == UINavigationControllerOperation.push && isNeedCustomAnimation {
-            let push = PointTransitionPush()
-            push.startFrame = startFrame
-            return push
+        if operation == UINavigationControllerOperation.push {
+            if customAnimationType == .pointPush { // 吸吮动画
+                let push = PointTransitionPush()
+                push.startFrame = startFrame
+                return push
+            } else if customAnimationType == .zoomInPush { // 放大动画
+                let push = ZoomInTransitionPush()
+                push.startFrame = startFrame
+                return push
+            }
         }
         return nil
     }
