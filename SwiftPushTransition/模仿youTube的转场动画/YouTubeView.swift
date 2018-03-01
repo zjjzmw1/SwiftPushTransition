@@ -59,8 +59,16 @@ class YouTubeView: UIView {
     /// 底部的view -------- 在这上面添加自己的view
     var bottomView: UIView!
     
+    /// 统一的弹出YouTube !!!!!!!!!!!!!!!!!!
+    class func showYouTube(startFrame: CGRect) {
+        // 先添加youtube
+        let youtubeView = YouTubeView.shareYouTubeV
+        UIApplication.shared.keyWindow?.addSubview(youtubeView)
+        youtubeView.showYouTuBeAnimationAction(startFrame: startFrame)
+    }
+    
     /// 展示youtube的页面
-    func showYouTuBeAnimationAction(startFrame: CGRect) {
+    private func showYouTuBeAnimationAction(startFrame: CGRect) {
         if startFrame != CGRect() { // 有初始位置的话
             self.frame = startFrame
             UIView.animate(withDuration: 0.3, animations: {
@@ -75,7 +83,8 @@ class YouTubeView: UIView {
             })
         }
     }
-    override init(frame: CGRect) {
+    
+   private override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clear
         topPlayerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: kYoutubeScreenWidth, height: kYoutubeScreenWidth * 0.66))
@@ -97,7 +106,7 @@ class YouTubeView: UIView {
     }
     
     /// 自定义-- 以下是自定义交互器 上下手势 / 左右手势
-    @objc func playerHandleGesture(gestureRecognizer: UIPanGestureRecognizer) {
+    @objc private func playerHandleGesture(gestureRecognizer: UIPanGestureRecognizer) {
         var progress: CGFloat = 0.0
         var isLeftRightSlide = false // 默认不是左右滑动
         let proY = gestureRecognizer.translation(in: gestureRecognizer.view?.superview).y / kYoutubeScreenHeight
@@ -195,7 +204,7 @@ class YouTubeView: UIView {
     }
     
     /// 放大当前View
-    func toBigAction() {
+    private func toBigAction() {
         UIView.animate(withDuration: 0.2, animations: {
             self.frame = CGRect(x:0, y:0, width:kYoutubeScreenWidth , height: kYoutubeScreenHeight)
             self.topPlayerView.frame = CGRect.init(x: 0, y: 0, width: kYoutubeScreenWidth, height: kYoutubeScreenWidth*0.66)
@@ -208,7 +217,7 @@ class YouTubeView: UIView {
         })
     }
     /// 缩小当前View
-    func toSmallAction() {
+    private func toSmallAction() {
         UIView.animate(withDuration: 0.2, animations: {
             self.frame = CGRect(x:kYoutubeScreenWidth - kYouTuBeMinWidth - kYouTuBeSpacingRight, y:kYoutubeScreenHeight - kYouTuBeMinHeight - kYouTuBeSpacingBottom , width:kYouTuBeMinWidth , height: kYouTuBeMinHeight)
             self.topPlayerView.frame = CGRect.init(x: 0, y: 0, width: kYouTuBeMinWidth, height: kYouTuBeMinHeight)
