@@ -168,6 +168,7 @@ class FirstVC: BaseVC {
     
     /// 模仿youTube的转场动画
     @objc func youTubeAction() {
+        customAnimationType = .none
         self.navigationController?.pushViewController(YouTubeListVC(), animated: true)
     }
     
