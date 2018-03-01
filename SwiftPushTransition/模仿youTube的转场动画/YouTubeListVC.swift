@@ -57,10 +57,14 @@ extension YouTubeListVC: UITableViewDelegate, UITableViewDataSource {
         // 获取cell的frame
         let rectInTable = tableView.rectForRow(at: indexPath)
         let cellRectInView = tableView.convert(rectInTable, from: tableView.superview!)
-        let vc = YouTubeDetailVC()
-        self.customAnimationType = .zoomInPush
-        self.startFrame = cellRectInView
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = YouTubeDetailVC()
+//        self.customAnimationType = .zoomInPush
+//        self.startFrame = cellRectInView
+//        self.navigationController?.pushViewController(vc, animated: true)
+        
+        let youtubeV = YouTubeView.init(frame: self.view.frame)
+        UIApplication.shared.keyWindow?.addSubview(youtubeV)
+        
     }
     
     override func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
