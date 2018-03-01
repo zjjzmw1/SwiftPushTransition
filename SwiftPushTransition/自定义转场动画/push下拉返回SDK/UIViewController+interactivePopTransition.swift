@@ -18,6 +18,8 @@ private var kPopFromLeft                        = "kPopFromLeft"
 private var kPopFromAll                         = "kPopFromAll" // 类似APP Store 的转场动画效果从四周整体缩小
 private var kPopStartFrame                      = "kPopStartFrame" // 类似APP Store 的转场动画效果从四周整体缩小--返回到哪里
 private var kIsAtTop                            = "kIsAtTop"        // 是否已经在顶部了。
+private var kPopLikeYouTube                     = "kPopLikeYouTube" // 类似youtube的效果
+
 extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate {
 
     /// 自定义--用于指示交互是否在进行中。 默认 false
@@ -104,6 +106,20 @@ extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate
             return objc_getAssociatedObject(self, &kPopFromAll) as? Bool ?? false
         }
     }
+    /// 类似YouTube 的转场动画效果 缩小到右下角
+    var popLikeYouTube: Bool {
+        set {
+            objc_setAssociatedObject(self, &kPopLikeYouTube, newValue, .OBJC_ASSOCIATION_ASSIGN)
+            if newValue {
+                let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(handleGesture(gestureRecognizer:)))
+                self.view.addGestureRecognizer(gesture)
+                self.navigationController?.delegate = self
+            }
+        }
+        get {
+            return objc_getAssociatedObject(self, &kPopLikeYouTube) as? Bool ?? false
+        }
+    }
     /// 类似APP Store 的转场动画效果从四周整体缩小--返回到哪里
     var popStartFrame: CGRect? {
         set {
@@ -186,6 +202,16 @@ extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate
                 progress = pro
             }
         }
+        if self.popLikeYouTube { // 允许下拉 (youtube的效果)
+            let pro = gestureRecognizer.translation(in: gestureRecognizer.view?.superview).y / self.view.bounds.size.height
+            if pro > progress && pro > 0.01 && !(interactivePopTransition!.popFromLeft) { // 避免上下滑动的时候，突然变成左右滑动
+                interactivePopTransition?.popLikeYouTuBe = true
+                interactivePopTransition?.popFromLeft = false
+                interactivePopTransition?.popFromAll = false
+                interactivePopTransition?.popFromTop = false
+                progress = pro
+            }
+        }
         progress = min(1.0, max(0.0, progress))
         if gestureRecognizer.state == UIGestureRecognizerState.began { // 开始滑动
             if interactionInProgress == true {
@@ -217,8 +243,10 @@ extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate
             } else {
                 interactivePopTransition?.finishBy(cancelled: progress < 0.4)
             }
-            interactionInProgress = false
-            self.interactivePopTransition = nil
+            if !self.popLikeYouTube {
+                interactionInProgress = false
+                self.interactivePopTransition = nil
+            }
         }
     }
     

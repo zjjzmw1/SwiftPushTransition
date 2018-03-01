@@ -11,13 +11,20 @@ import UIKit
 class YouTubeListVC: BaseVC {
 
     var tableView: UITableView!
+    var startFrame = CGRect.init()
+    /// 是否需要自定义动画
+    var customAnimationType: ToNextPageAnimationType = .none
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "模仿YouTube转场动画"
         self.view.backgroundColor = UIColor.yellow
         
         self.initAllTableV()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.delegate = self // 否则转场动画不执行。
     }
     
     /// 初始化表格
@@ -47,9 +54,24 @@ extension YouTubeListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        // 获取cell的frame
+        let rectInTable = tableView.rectForRow(at: indexPath)
+        let cellRectInView = tableView.convert(rectInTable, from: tableView.superview!)
         let vc = YouTubeDetailVC()
+        self.customAnimationType = .zoomInPush
+        self.startFrame = cellRectInView
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    override func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if operation == UINavigationControllerOperation.push {
+            if customAnimationType == .zoomInPush { // 放大动画
+                let push = ZoomInTransitionPush()
+                push.startFrame = startFrame
+                return push
+            }
+        }
+        return nil
     }
     
     

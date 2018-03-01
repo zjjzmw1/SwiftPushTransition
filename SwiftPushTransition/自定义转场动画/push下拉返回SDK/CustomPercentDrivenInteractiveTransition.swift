@@ -25,9 +25,14 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
     var popFromLeft: Bool   =   false
     /// 自定义呢--模仿App Store的转场动画 默认 false
     var popFromAll: Bool    =   false
+    /// 自定义呢--模仿YouTuBe的转场动画 默认 false
+    var popLikeYouTuBe: Bool    =   false
+    /// youtube最小的宽度
+    let youTuBeMinWidth: CGFloat    =   (UIScreen.main.bounds.width - 60) / 2.0
+    /// youtube最小的高度
+    let youTuBeMinHeight: CGFloat    = ((UIScreen.main.bounds.width - 60) / 2.0) * 0.66
     /// 开始动画的frame （模仿App Store的转场动画的时候需要）
     var popStartFrame = CGRect.init(x: 0, y: 0, width: 0, height: 0)
-    
     /// 以下----自定义交互控制器
     override func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
@@ -67,6 +72,13 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
             blurView.isHidden = true
             self.formView?.frame = CGRect(x:0, y:(self.formView?.frame.height)!*percentComplete, width:(self.formView?.frame.width)! , height: (self.formView?.frame.height)!)
             self.toView?.frame = CGRect(x:0, y:self.y_to+CGFloat(fabsf(Float(self.y_to*percentComplete))), width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
+        } else if self.popLikeYouTuBe { // 上下滑动(youtube效果)
+            var w = UIScreen.main.bounds.width * (1-percentComplete)
+            if w < youTuBeMinWidth { // 设置宽度的最小值
+                w = youTuBeMinWidth
+            }
+            self.formView?.frame = CGRect(x:UIScreen.main.bounds.width - w - 10, y:(self.formView?.frame.height)!*percentComplete, width:w , height: (self.formView?.frame.height)!)
+            self.toView?.frame = CGRect(x:0, y: 0, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
         } else if self.popFromLeft  { // 左右滑动
             blurView.isHidden = true
             self.formView?.frame = CGRect(x:(self.formView?.frame.width)!*percentComplete, y:0, width:(self.formView?.frame.width)! , height: (self.formView?.frame.height)!)
@@ -93,6 +105,9 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
                 self.formView?.frame = CGRect(x:0, y:0, width:(self.formView?.frame.width)! , height: (self.formView?.frame.height)!)
                 if self.popFromTop { // 上下滑动
                     self.toView?.frame = CGRect(x:0, y:self.y_to, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
+                } else if self.popLikeYouTuBe { // 上下滑动(youtube效果)
+                    self.formView?.frame = CGRect(x:0, y:0, width:UIScreen.main.bounds.size.width , height: UIScreen.main.bounds.size.height)
+                    self.toView?.frame = CGRect(x:0, y:0, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
                 } else if self.popFromLeft  { // 左右滑动
                     self.toView?.frame = CGRect(x:self.x_to, y:0, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
                 } else if self.popFromAll { // 模仿App Store的转场动画
@@ -114,6 +129,8 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
                     let scaleY = self.popStartFrame.size.height * 0.05
                     let startF = CGRect.init(x: self.popStartFrame.origin.x - scaleX, y: self.popStartFrame.origin.y - scaleY, width: self.popStartFrame.size.width + scaleX*2, height: self.popStartFrame.size.height + scaleY*2)
                     self.formView?.frame = startF
+                } else if (self.popLikeYouTuBe) { // youtube的效果 (top 有tabbar的时候，再减去tabbar的高度)
+                    self.formView?.frame = CGRect(x:UIScreen.main.bounds.width - self.youTuBeMinWidth - 10, y:UIScreen.main.bounds.height - self.youTuBeMinHeight - 10, width:self.youTuBeMinWidth , height: self.youTuBeMinHeight)
                 } else {
                     if self.formView.frame.origin.y > 0 { // 上下
                         self.formView?.frame = CGRect(x:0, y:(self.formView?.frame.height)!, width:(self.formView?.frame.width)! , height: (self.formView?.frame.height)!)
@@ -128,8 +145,8 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
                 self.transitionContext!.finishInteractiveTransition()
                 self.transitionContext!.completeTransition(true)
                 self.transitionContext = nil
-                self.toView = nil
                 self.formView = nil
+                self.toView = nil
                 self.shadowView.removeFromSuperview()
                 self.blurView.removeFromSuperview()
                 
