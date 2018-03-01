@@ -70,17 +70,28 @@ class YouTubeView: UIView {
     /// 自定义-- 以下是自定义交互器 上下手势 / 左右手势
     @objc func playerHandleGesture(gestureRecognizer: UIPanGestureRecognizer) {
         var progress: CGFloat = 0.0
+        var isLeftRightSlide = false // 默认不是左右滑动
         let proY = gestureRecognizer.translation(in: gestureRecognizer.view?.superview).y / kYoutubeScreenHeight
         let proX = gestureRecognizer.translation(in: gestureRecognizer.view?.superview).x / kYoutubeScreenWidth
         if self.isCurrentPlayerSmall {
             if fabs(proX) > fabs(proY) && fabs(proX) > 0.01 {
-                print("左右滑动删除。。。。")
+                isLeftRightSlide = true
             }
         }
         progress = min(1.0, proY)
         if gestureRecognizer.state == UIGestureRecognizerState.began { // 开始滑动
 
         } else if gestureRecognizer.state == UIGestureRecognizerState.changed { // 正在滑动
+            
+            if isLeftRightSlide && self.isCurrentPlayerSmall && self.frame.origin.y == kYoutubeScreenHeight - kYouTuBeMinHeight - kYouTuBeSpacingBottom {
+                // 准备删除视图
+                topPlayerView.alpha = 1 - fabs(proX)*2
+                
+                self.frame = CGRect(x:kYoutubeScreenWidth - kYouTuBeMinWidth - kYouTuBeSpacingRight + kYouTuBeMinWidth*proX, y:kYoutubeScreenHeight - kYouTuBeMinHeight - kYouTuBeSpacingBottom , width:kYouTuBeMinWidth , height: kYouTuBeMinHeight)
+                self.topPlayerView.frame = CGRect.init(x: 0, y: 0, width: kYouTuBeMinWidth, height: kYouTuBeMinHeight)
+                return
+            }
+            topPlayerView.alpha = 1.0
             var w = kYoutubeScreenWidth * (1-progress)
             if self.isCurrentPlayerSmall { // 当前是小窗口的话
                 w = kYouTuBeMinWidth - kYoutubeScreenWidth*progress
@@ -142,8 +153,20 @@ class YouTubeView: UIView {
                 }, completion: {completed in
                     self.isCurrentPlayerSmall = false
                     self.bottomView.alpha = 1
+                    self.topPlayerView.alpha = 1
                 })
             } else { // 变成小窗口
+                if isLeftRightSlide && self.isCurrentPlayerSmall && self.frame.origin.y == kYoutubeScreenHeight - kYouTuBeMinHeight - kYouTuBeSpacingBottom { // 准备删除视图
+                    if fabs(proX) > 0.3 { /// 移除
+                        UIView.animate(withDuration: 0.2, animations: {
+                            self.frame = CGRect(x:kYoutubeScreenWidth - kYouTuBeMinWidth - kYouTuBeSpacingRight + kYouTuBeMinWidth*proX, y:kYoutubeScreenHeight - kYouTuBeMinHeight - kYouTuBeSpacingBottom , width:kYouTuBeMinWidth , height: kYouTuBeMinHeight)
+                            self.topPlayerView.alpha = 0.0
+                        }, completion: { (finish) in
+                            self.removeFromSuperview()
+                        })
+                        return
+                    }
+                }
                 UIView.animate(withDuration: 0.2, animations: {
                     self.frame = CGRect(x:kYoutubeScreenWidth - kYouTuBeMinWidth - kYouTuBeSpacingRight, y:kYoutubeScreenHeight - kYouTuBeMinHeight - kYouTuBeSpacingBottom , width:kYouTuBeMinWidth , height: kYouTuBeMinHeight)
                     self.topPlayerView.frame = CGRect.init(x: 0, y: 0, width: kYouTuBeMinWidth, height: kYouTuBeMinHeight)
@@ -152,11 +175,9 @@ class YouTubeView: UIView {
                 }, completion: {completed in
                     self.isCurrentPlayerSmall = true
                     self.bottomView.alpha = 0
+                    self.topPlayerView.alpha = 1
                 })
             }
         }
     }
-
-    
-
 }
