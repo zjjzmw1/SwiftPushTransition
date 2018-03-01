@@ -62,8 +62,7 @@ extension YouTubeListVC: UITableViewDelegate, UITableViewDataSource {
 //        self.startFrame = cellRectInView
 //        self.navigationController?.pushViewController(vc, animated: true)
         
-        let youtubeV = YouTubeView.init(frame: self.view.frame)
-        UIApplication.shared.keyWindow?.addSubview(youtubeV)
+        UIApplication.shared.keyWindow?.addSubview(YouTubeView.shareYouTubeV)
         
     }
     

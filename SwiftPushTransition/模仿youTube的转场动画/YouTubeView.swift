@@ -36,9 +36,22 @@ let kYouTuBeSpacingRight: CGFloat = 10.0
 let kYouTuBeSpacingBottom: CGFloat = 10.0 + kYoutube_tabbar_height
 
 class YouTubeView: UIView {
-
-    /// 单利
-//    let shareYouTubeView: YouTubeDetailView
+    
+    /// 获取全局的youtubeView
+    static var shareYouTubeV: YouTubeView {
+        get {
+            if let arr = UIApplication.shared.keyWindow?.subviews {
+                for v in arr {
+                    if let v = v as? YouTubeView {
+                        v.toBigAction()
+                        return v
+                    }
+                }
+            }
+            return YouTubeView(frame: UIApplication.shared.keyWindow!.frame)
+        }
+    }
+    
     /// 顶部播放视频的view
     var topPlayerView: UIView!
     /// 视频控件当前是小窗口吗
@@ -46,6 +59,10 @@ class YouTubeView: UIView {
     /// 底部的view -------- 在这上面添加自己的view
     var bottomView: UIView!
     
+    /// 展示youtube的页面
+    class func showYouTuBeAction() {
+        
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clear
@@ -80,7 +97,7 @@ class YouTubeView: UIView {
         }
         progress = min(1.0, proY)
         if gestureRecognizer.state == UIGestureRecognizerState.began { // 开始滑动
-
+            
         } else if gestureRecognizer.state == UIGestureRecognizerState.changed { // 正在滑动
             
             if isLeftRightSlide && self.isCurrentPlayerSmall && self.frame.origin.y == kYoutubeScreenHeight - kYouTuBeMinHeight - kYouTuBeSpacingBottom {
@@ -145,16 +162,8 @@ class YouTubeView: UIView {
             }
         } else if gestureRecognizer.state == UIGestureRecognizerState.ended || gestureRecognizer.state == UIGestureRecognizerState.cancelled {
             if (self.isCurrentPlayerSmall && progress < -0.41) || (!self.isCurrentPlayerSmall && progress < 0.18)  { // 变成大窗口
-                UIView.animate(withDuration: 0.2, animations: {
-                    self.frame = CGRect(x:0, y:0, width:kYoutubeScreenWidth , height: kYoutubeScreenWidth*0.66)
-                    self.topPlayerView.frame = CGRect.init(x: 0, y: 0, width: kYoutubeScreenWidth, height: kYoutubeScreenWidth*0.66)
-                    // 更新底部view的位置
-                    self.bottomView.frame =  CGRect.init(x: 0, y: self.topPlayerView.frame.origin.y + self.topPlayerView.frame.height, width: self.topPlayerView.frame.width, height: kYoutubeScreenHeight - self.topPlayerView.frame.origin.y - self.topPlayerView.frame.height)
-                }, completion: {completed in
-                    self.isCurrentPlayerSmall = false
-                    self.bottomView.alpha = 1
-                    self.topPlayerView.alpha = 1
-                })
+                // 放大当前View
+                self.toBigAction()
             } else { // 变成小窗口
                 if isLeftRightSlide && self.isCurrentPlayerSmall && self.frame.origin.y == kYoutubeScreenHeight - kYouTuBeMinHeight - kYouTuBeSpacingBottom { // 准备删除视图
                     if fabs(proX) > 0.3 { /// 移除
@@ -167,17 +176,37 @@ class YouTubeView: UIView {
                         return
                     }
                 }
-                UIView.animate(withDuration: 0.2, animations: {
-                    self.frame = CGRect(x:kYoutubeScreenWidth - kYouTuBeMinWidth - kYouTuBeSpacingRight, y:kYoutubeScreenHeight - kYouTuBeMinHeight - kYouTuBeSpacingBottom , width:kYouTuBeMinWidth , height: kYouTuBeMinHeight)
-                    self.topPlayerView.frame = CGRect.init(x: 0, y: 0, width: kYouTuBeMinWidth, height: kYouTuBeMinHeight)
-                    // 更新底部view的位置
-                    self.bottomView.frame =  CGRect.init(x: 0, y: self.topPlayerView.frame.origin.y + self.topPlayerView.frame.height, width: self.topPlayerView.frame.width, height: kYoutubeScreenHeight - self.topPlayerView.frame.origin.y - self.topPlayerView.frame.height)
-                }, completion: {completed in
-                    self.isCurrentPlayerSmall = true
-                    self.bottomView.alpha = 0
-                    self.topPlayerView.alpha = 1
-                })
+                // 缩小当前View
+                self.toSmallAction()
             }
         }
     }
+    
+    /// 放大当前View
+    func toBigAction() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.frame = CGRect(x:0, y:0, width:kYoutubeScreenWidth , height: kYoutubeScreenWidth*0.66)
+            self.topPlayerView.frame = CGRect.init(x: 0, y: 0, width: kYoutubeScreenWidth, height: kYoutubeScreenWidth*0.66)
+            // 更新底部view的位置
+            self.bottomView.frame =  CGRect.init(x: 0, y: self.topPlayerView.frame.origin.y + self.topPlayerView.frame.height, width: self.topPlayerView.frame.width, height: kYoutubeScreenHeight - self.topPlayerView.frame.origin.y - self.topPlayerView.frame.height)
+        }, completion: {completed in
+            self.isCurrentPlayerSmall = false
+            self.bottomView.alpha = 1
+            self.topPlayerView.alpha = 1
+        })
+    }
+    /// 缩小当前View
+    func toSmallAction() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.frame = CGRect(x:kYoutubeScreenWidth - kYouTuBeMinWidth - kYouTuBeSpacingRight, y:kYoutubeScreenHeight - kYouTuBeMinHeight - kYouTuBeSpacingBottom , width:kYouTuBeMinWidth , height: kYouTuBeMinHeight)
+            self.topPlayerView.frame = CGRect.init(x: 0, y: 0, width: kYouTuBeMinWidth, height: kYouTuBeMinHeight)
+            // 更新底部view的位置
+            self.bottomView.frame =  CGRect.init(x: 0, y: self.topPlayerView.frame.origin.y + self.topPlayerView.frame.height, width: self.topPlayerView.frame.width, height: kYoutubeScreenHeight - self.topPlayerView.frame.origin.y - self.topPlayerView.frame.height)
+        }, completion: {completed in
+            self.isCurrentPlayerSmall = true
+            self.bottomView.alpha = 0
+            self.topPlayerView.alpha = 1
+        })
+    }
+    
 }
