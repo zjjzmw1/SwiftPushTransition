@@ -60,8 +60,20 @@ class YouTubeView: UIView {
     var bottomView: UIView!
     
     /// 展示youtube的页面
-    class func showYouTuBeAction() {
-        
+    func showYouTuBeAnimationAction(startFrame: CGRect) {
+        if startFrame != CGRect() { // 有初始位置的话
+            self.frame = startFrame
+            UIView.animate(withDuration: 0.3, animations: {
+                self.frame = CGRect(x:0, y:0, width:kYoutubeScreenWidth , height: kYoutubeScreenHeight)
+                self.topPlayerView.frame = CGRect.init(x: 0, y: 0, width: kYoutubeScreenWidth, height: kYoutubeScreenWidth*0.66)
+                // 更新底部view的位置
+                self.bottomView.frame =  CGRect.init(x: 0, y: self.topPlayerView.frame.origin.y + self.topPlayerView.frame.height, width: self.topPlayerView.frame.width, height: kYoutubeScreenHeight - self.topPlayerView.frame.origin.y - self.topPlayerView.frame.height)
+            }, completion: {completed in
+                self.isCurrentPlayerSmall = false
+                self.bottomView.alpha = 1
+                self.topPlayerView.alpha = 1
+            })
+        }
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -185,7 +197,7 @@ class YouTubeView: UIView {
     /// 放大当前View
     func toBigAction() {
         UIView.animate(withDuration: 0.2, animations: {
-            self.frame = CGRect(x:0, y:0, width:kYoutubeScreenWidth , height: kYoutubeScreenWidth*0.66)
+            self.frame = CGRect(x:0, y:0, width:kYoutubeScreenWidth , height: kYoutubeScreenHeight)
             self.topPlayerView.frame = CGRect.init(x: 0, y: 0, width: kYoutubeScreenWidth, height: kYoutubeScreenWidth*0.66)
             // 更新底部view的位置
             self.bottomView.frame =  CGRect.init(x: 0, y: self.topPlayerView.frame.origin.y + self.topPlayerView.frame.height, width: self.topPlayerView.frame.width, height: kYoutubeScreenHeight - self.topPlayerView.frame.origin.y - self.topPlayerView.frame.height)
