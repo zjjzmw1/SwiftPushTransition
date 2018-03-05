@@ -37,8 +37,9 @@ class CustomPercentInteractiveVC: BaseVC {
     }
     
     @objc func goTestVC() {
-        let vc = TestVC()
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = TestVC()
+//        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

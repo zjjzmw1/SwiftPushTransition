@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class BaseVC: UIViewController,UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {

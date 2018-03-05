@@ -132,10 +132,10 @@ extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate
     /// 停止滚动的时候执行
     func stopScrollViewAction(scrollView: UIScrollView) {
         if self.popFromTopWithScrollView || self.popFromAll { // 允许下拉
-            var top: CGFloat = 0.0
-            if #available(iOS 11.0, *) {
-                top = scrollView.adjustedContentInset.top
-            }
+            let top: CGFloat = 0.0
+//            if #available(iOS 11.0, *) {
+//                top = scrollView.adjustedContentInset.top
+//            }
             if scrollView.contentOffset.y + scrollView.contentInset.top + top > 0 || !self.isAtTop { // 还没滚动到顶部的时候
                 self.isAtTop = false
                 interactivePopTransition?.finishBy(cancelled: true)
@@ -145,6 +145,7 @@ extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate
             } else {
                 for gesture in scrollView.gestureRecognizers! {
                     if gesture.isKind(of: UIPanGestureRecognizer.self) {
+                        scrollView.contentOffset = CGPoint.init(x: 0, y: 0)
                         self.handleGesture(gestureRecognizer: gesture as! UIPanGestureRecognizer)
                     }
                 }
@@ -231,8 +232,8 @@ extension UIViewController: UIScrollViewDelegate, UINavigationControllerDelegate
         return nil
     }
     public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if operation == UINavigationControllerOperation.pop {
-            return CustomPopAnimation()
+        if operation == UINavigationControllerOperation.pop && (self.popFromAll || self.popFromTop || self.popFromLeft || self.popFromTopWithScrollView){
+            return RightTransitionPop()
         }
         return nil
     }

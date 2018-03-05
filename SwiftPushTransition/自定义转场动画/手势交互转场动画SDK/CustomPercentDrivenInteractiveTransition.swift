@@ -14,8 +14,8 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
     var transitionContext : UIViewControllerContextTransitioning!
     var formView : UIView!
     var toView : UIView!
-    let x_to : CGFloat = -100.0 ///toview起始x坐标
-    let y_to : CGFloat = -100.0 ///toview起始y坐标
+    var x_to : CGFloat = 0.0 ///toview起始x坐标
+    var y_to : CGFloat = 0.0 ///toview起始y坐标
     var shadowView: UIView = UIView.shadowView      // 阴影蒙层
     var blurView: UIView = UIView.blurView          // 毛玻璃蒙层
 
@@ -35,8 +35,16 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
                 ///预防rootviewcontroller触发
                 return
         }
+        /// 导航栏是否隐藏
+        if toViewController.navigationController!.navigationBar.isHidden {
+            self.y_to = 0
+        } else {
+            self.y_to = NAVIGATIONBAR_HEIGHT
+        }
+        toViewController.view!.frame = CGRect(x:x_to,y:y_to,width:SCREEN_WIDTH,height:SCREEN_HEIGHT)
         self.transitionContext = transitionContext
         containerView.insertSubview((toViewController.view)!, belowSubview: (fromViewController.view)!)
+        
         /// 加点阴影
         fromViewController.view.layer.shadowOpacity = 0.8
         fromViewController.view.layer.shadowColor = UIColor.black.cgColor
@@ -48,7 +56,6 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
         // 超出的部分不显示
         self.formView.clipsToBounds = true
         self.toView.clipsToBounds = false
-        self.toView.frame = CGRect(x:x_to,y:y_to,width:self.toView.frame.width,height:self.toView.frame.height)
         blurView = UIView.blurView // 毛玻璃
         self.toView.addSubview(blurView)
         shadowView = UIView.shadowView // 初始化阴影
@@ -60,22 +67,33 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
             ///预防rootviewcontroller触发
             return
         }
+        guard let toViewController = transitionContext.viewController(forKey: .to) else {
+                ///预防rootviewcontroller触发
+                return
+        }
         shadowView.isHidden = false
         blurView.isHidden = false
+        /// 导航栏是否隐藏
+        if toViewController.navigationController!.navigationBar.isHidden {
+            self.y_to = 0
+        } else {
+            self.y_to = NAVIGATIONBAR_HEIGHT
+            toViewController.navigationController!.navigationBar.alpha = percentComplete + 0.3
+        }
         if self.popFromTop { // 上下滑动
             blurView.isHidden = true
             self.formView?.frame = CGRect(x:0, y:(self.formView?.frame.height)!*percentComplete, width:(self.formView?.frame.width)! , height: (self.formView?.frame.height)!)
-            self.toView?.frame = CGRect(x:0, y:self.y_to+CGFloat(fabsf(Float(self.y_to*percentComplete))), width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
+//            self.toView?.frame = CGRect(x:0, y:self.y_to+CGFloat(fabsf(Float(self.y_to*percentComplete))), width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
         } else if self.popFromLeft  { // 左右滑动
             blurView.isHidden = true
             self.formView?.frame = CGRect(x:(self.formView?.frame.width)!*percentComplete, y:0, width:(self.formView?.frame.width)! , height: (self.formView?.frame.height)!)
-            self.toView?.frame = CGRect(x:self.x_to+CGFloat(fabsf(Float(self.x_to*percentComplete))), y:0, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
+            self.toView?.frame = CGRect(x:self.x_to+CGFloat(fabsf(Float(self.x_to*percentComplete))), y:y_to, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
         } else if self.popFromAll { // 模仿App Store的转场动画
             shadowView.isHidden = true
             let left = (self.formView?.frame.width)!*percentComplete * 0.3
             let top = (self.formView?.frame.height)!*percentComplete * 0.3
             self.formView?.frame = CGRect(x:left, y:top, width:UIScreen.main.bounds.size.width - left*2 , height: UIScreen.main.bounds.size.height - top*2)
-            self.toView?.frame = CGRect(x:0, y:0, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
+            self.toView?.frame = CGRect(x:0, y:y_to, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
         }
         transitionContext?.updateInteractiveTransition(percentComplete)
         shadowView.alpha = 1.0 - percentComplete
@@ -93,13 +111,16 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
                 if self.popFromTop { // 上下滑动
                     self.toView?.frame = CGRect(x:0, y:self.y_to, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
                 } else if self.popFromLeft  { // 左右滑动
-                    self.toView?.frame = CGRect(x:self.x_to, y:0, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
+                    self.toView?.frame = CGRect(x:self.x_to, y:self.y_to, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
                 } else if self.popFromAll { // 模仿App Store的转场动画
                     self.formView?.frame = CGRect(x:0, y:0, width:UIScreen.main.bounds.size.width , height: UIScreen.main.bounds.size.height)
-                    self.toView?.frame = CGRect(x:0, y:0, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
+                    self.toView?.frame = CGRect(x:0, y:self.y_to, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
                 }
                 self.shadowView.alpha = 0.0
                 self.blurView.alpha = 0.0
+                if !(self.toView.next! as! UIViewController).navigationController!.navigationBar.isHidden {
+                    (self.toView.next! as! UIViewController).navigationController!.navigationBar.alpha = 1.0
+                }
             }, completion: {completed in
                 self.transitionContext!.completeTransition(false)
                 self.transitionContext = nil
@@ -120,9 +141,12 @@ class CustomPercentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransi
                         self.formView?.frame = CGRect(x:(self.formView?.frame.width)!, y:0, width:(self.formView?.frame.width)! , height: (self.formView?.frame.height)!)
                     }
                 }
-                self.toView?.frame = CGRect(x:0, y:0, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
+                self.toView?.frame = CGRect(x:self.x_to, y:self.y_to, width:(self.toView?.frame.width)! , height: (self.toView?.frame.height)!)
                 self.shadowView.alpha = 0.0
                 self.blurView.alpha = 0.0
+                if !(self.toView.next! as! UIViewController).navigationController!.navigationBar.isHidden {
+                    (self.toView.next! as! UIViewController).navigationController!.navigationBar.alpha = 1.0
+                }
             }, completion: {completed in
                 self.transitionContext!.finishInteractiveTransition()
                 self.transitionContext!.completeTransition(true)

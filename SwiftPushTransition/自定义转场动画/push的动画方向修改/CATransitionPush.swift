@@ -6,6 +6,15 @@
 //  Copyright © 2018年 zhangmingwei. All rights reserved.
 //
 
+/* 用法：
+ //        let transitionPush = CATransitionPush(aType: kCATransitionPush, aSubtype: kCATransitionFromTop)
+ //        self.navigationController?.view.layer.add(transitionPush, forKey: kCATransition)
+ //        self.navigationController?.pushViewController(vc, animated: false)
+
+ 
+ */
+
+
 import UIKit
 
 class CATransitionPush: CATransition {

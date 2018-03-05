@@ -10,12 +10,8 @@
 		BD4CD9F12047D904001BC3B1 /* YouTubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4CD9F02047D904001BC3B1 /* YouTubeView.swift */; };
 		BD4DAE5A2043A374005586B1 /* CustomPercentInteractiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DAE592043A374005586B1 /* CustomPercentInteractiveVC.swift */; };
 		BD4DAE662043A6EB005586B1 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4DAE642043A6EB005586B1 /* UINavigationController+FDFullscreenPopGesture.m */; };
-		BD4DAE692043A847005586B1 /* CustomPercentDrivenInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DAE682043A847005586B1 /* CustomPercentDrivenInteractiveTransition.swift */; };
 		BD4DAE6F2043B158005586B1 /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DAE6E2043B158005586B1 /* TestVC.swift */; };
-		BD4DAE712043B2CA005586B1 /* UIViewController+interactivePopTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DAE702043B2CA005586B1 /* UIViewController+interactivePopTransition.swift */; };
-		BD4DAE732043B9BC005586B1 /* CustomPopAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DAE722043B9BC005586B1 /* CustomPopAnimation.swift */; };
 		BD4DAE7B20440ED4005586B1 /* NewYearAnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DAE7A20440ED4005586B1 /* NewYearAnimationVC.swift */; };
-		BD4DAE7D20440F39005586B1 /* UIViewExtensionBg.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DAE7C20440F39005586B1 /* UIViewExtensionBg.swift */; };
 		BD76894E202C41DF00E93FC6 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76894D202C41DF00E93FC6 /* WaveView.swift */; };
 		BD768950202C41FD00E93FC6 /* WaveImageV.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76894F202C41FD00E93FC6 /* WaveImageV.swift */; };
 		BD76895B202D9E1800E93FC6 /* NewYearAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76895A202D9E1800E93FC6 /* NewYearAdView.swift */; };
@@ -25,15 +21,19 @@
 		BDC312BB202A981B00AAE6E7 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312BA202A981B00AAE6E7 /* BaseVC.swift */; };
 		BDC312BD202A982C00AAE6E7 /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312BC202A982C00AAE6E7 /* FirstVC.swift */; };
 		BDC312BF202A983900AAE6E7 /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312BE202A983900AAE6E7 /* SecondVC.swift */; };
-		BDC312C2202A9A9800AAE6E7 /* PointTransitionPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312C1202A9A9800AAE6E7 /* PointTransitionPush.swift */; };
-		BDC312C4202A9ACA00AAE6E7 /* PointTransitionPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312C3202A9ACA00AAE6E7 /* PointTransitionPop.swift */; };
 		BDC312C9202AE58B00AAE6E7 /* ThirdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312C8202AE58B00AAE6E7 /* ThirdVC.swift */; };
-		BDC312D2202BEB0300AAE6E7 /* CATransitionPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312D1202BEB0300AAE6E7 /* CATransitionPush.swift */; };
 		BDC312D8202BFA9100AAE6E7 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC312D7202BFA9100AAE6E7 /* UIImage+Extension.swift */; };
+		BDE5CB3B204D3FE1009999A4 /* PointTransitionPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE5CB2D204D3FE1009999A4 /* PointTransitionPush.swift */; };
+		BDE5CB3C204D3FE1009999A4 /* PointTransitionPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE5CB2E204D3FE1009999A4 /* PointTransitionPop.swift */; };
+		BDE5CB3D204D3FE1009999A4 /* ZoomInTransitionPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE5CB30204D3FE1009999A4 /* ZoomInTransitionPush.swift */; };
+		BDE5CB3E204D3FE1009999A4 /* YouTubeTransitionPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE5CB32204D3FE1009999A4 /* YouTubeTransitionPush.swift */; };
+		BDE5CB3F204D3FE1009999A4 /* CATransitionPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE5CB34204D3FE1009999A4 /* CATransitionPush.swift */; };
+		BDE5CB40204D3FE1009999A4 /* RightTransitionPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE5CB36204D3FE1009999A4 /* RightTransitionPop.swift */; };
+		BDE5CB41204D3FE1009999A4 /* CustomPercentDrivenInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE5CB38204D3FE1009999A4 /* CustomPercentDrivenInteractiveTransition.swift */; };
+		BDE5CB42204D3FE1009999A4 /* UIViewController+interactivePopTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE5CB39204D3FE1009999A4 /* UIViewController+interactivePopTransition.swift */; };
+		BDE5CB43204D3FE1009999A4 /* UIViewExtensionBg.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE5CB3A204D3FE1009999A4 /* UIViewExtensionBg.swift */; };
 		BDF793D3204560E4009282EB /* AppStoreAnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF793D2204560E4009282EB /* AppStoreAnimationVC.swift */; };
-		BDF793D620463D6B009282EB /* ZoomInTransitionPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF793D520463D6B009282EB /* ZoomInTransitionPush.swift */; };
 		BDF793DA2046BEB6009282EB /* YouTubeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF793D92046BEB6009282EB /* YouTubeListVC.swift */; };
-		BDF793DF20479264009282EB /* YouTubeTransitionPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF793DE20479264009282EB /* YouTubeTransitionPush.swift */; };
 		D737D563D9F7A226CB7BF350 /* Pods_SwiftPushTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359DEC4899A3DCA457DF7A6F /* Pods_SwiftPushTransition.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,12 +46,8 @@
 		BD4DAE5D2043A4B3005586B1 /* SwiftPushTransition-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftPushTransition-Bridging-Header.h"; sourceTree = "<group>"; };
 		BD4DAE642043A6EB005586B1 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 		BD4DAE652043A6EB005586B1 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
-		BD4DAE682043A847005586B1 /* CustomPercentDrivenInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPercentDrivenInteractiveTransition.swift; sourceTree = "<group>"; };
 		BD4DAE6E2043B158005586B1 /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
-		BD4DAE702043B2CA005586B1 /* UIViewController+interactivePopTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+interactivePopTransition.swift"; sourceTree = "<group>"; };
-		BD4DAE722043B9BC005586B1 /* CustomPopAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimation.swift; sourceTree = "<group>"; };
 		BD4DAE7A20440ED4005586B1 /* NewYearAnimationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewYearAnimationVC.swift; sourceTree = "<group>"; };
-		BD4DAE7C20440F39005586B1 /* UIViewExtensionBg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensionBg.swift; sourceTree = "<group>"; };
 		BD76894D202C41DF00E93FC6 /* WaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		BD76894F202C41FD00E93FC6 /* WaveImageV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveImageV.swift; sourceTree = "<group>"; };
 		BD76895A202D9E1800E93FC6 /* NewYearAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewYearAdView.swift; sourceTree = "<group>"; };
@@ -63,15 +59,19 @@
 		BDC312BA202A981B00AAE6E7 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		BDC312BC202A982C00AAE6E7 /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
 		BDC312BE202A983900AAE6E7 /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
-		BDC312C1202A9A9800AAE6E7 /* PointTransitionPush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTransitionPush.swift; sourceTree = "<group>"; };
-		BDC312C3202A9ACA00AAE6E7 /* PointTransitionPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTransitionPop.swift; sourceTree = "<group>"; };
 		BDC312C8202AE58B00AAE6E7 /* ThirdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdVC.swift; sourceTree = "<group>"; };
-		BDC312D1202BEB0300AAE6E7 /* CATransitionPush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATransitionPush.swift; sourceTree = "<group>"; };
 		BDC312D7202BFA9100AAE6E7 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		BDE5CB2D204D3FE1009999A4 /* PointTransitionPush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointTransitionPush.swift; sourceTree = "<group>"; };
+		BDE5CB2E204D3FE1009999A4 /* PointTransitionPop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointTransitionPop.swift; sourceTree = "<group>"; };
+		BDE5CB30204D3FE1009999A4 /* ZoomInTransitionPush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomInTransitionPush.swift; sourceTree = "<group>"; };
+		BDE5CB32204D3FE1009999A4 /* YouTubeTransitionPush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubeTransitionPush.swift; sourceTree = "<group>"; };
+		BDE5CB34204D3FE1009999A4 /* CATransitionPush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CATransitionPush.swift; sourceTree = "<group>"; };
+		BDE5CB36204D3FE1009999A4 /* RightTransitionPop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightTransitionPop.swift; sourceTree = "<group>"; };
+		BDE5CB38204D3FE1009999A4 /* CustomPercentDrivenInteractiveTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPercentDrivenInteractiveTransition.swift; sourceTree = "<group>"; };
+		BDE5CB39204D3FE1009999A4 /* UIViewController+interactivePopTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+interactivePopTransition.swift"; sourceTree = "<group>"; };
+		BDE5CB3A204D3FE1009999A4 /* UIViewExtensionBg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensionBg.swift; sourceTree = "<group>"; };
 		BDF793D2204560E4009282EB /* AppStoreAnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreAnimationVC.swift; sourceTree = "<group>"; };
-		BDF793D520463D6B009282EB /* ZoomInTransitionPush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomInTransitionPush.swift; sourceTree = "<group>"; };
 		BDF793D92046BEB6009282EB /* YouTubeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeListVC.swift; sourceTree = "<group>"; };
-		BDF793DE20479264009282EB /* YouTubeTransitionPush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeTransitionPush.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,17 +121,6 @@
 			path = "3.push下拉返回效果";
 			sourceTree = "<group>";
 		};
-		BD4DAE7E204410B3005586B1 /* push下拉返回SDK */ = {
-			isa = PBXGroup;
-			children = (
-				BD4DAE702043B2CA005586B1 /* UIViewController+interactivePopTransition.swift */,
-				BD4DAE682043A847005586B1 /* CustomPercentDrivenInteractiveTransition.swift */,
-				BD4DAE722043B9BC005586B1 /* CustomPopAnimation.swift */,
-				BD4DAE7C20440F39005586B1 /* UIViewExtensionBg.swift */,
-			);
-			path = "push下拉返回SDK";
-			sourceTree = "<group>";
-		};
 		BD4DAE7F204410F9005586B1 /* 1.吸吮的转场动画（2种） */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,15 +128,6 @@
 				BDC312C8202AE58B00AAE6E7 /* ThirdVC.swift */,
 			);
 			path = "1.吸吮的转场动画（2种）";
-			sourceTree = "<group>";
-		};
-		BD4DAE8020441138005586B1 /* 吸吮的转场 */ = {
-			isa = PBXGroup;
-			children = (
-				BDC312C1202A9A9800AAE6E7 /* PointTransitionPush.swift */,
-				BDC312C3202A9ACA00AAE6E7 /* PointTransitionPop.swift */,
-			);
-			path = "吸吮的转场";
 			sourceTree = "<group>";
 		};
 		BD768959202D9E0300E93FC6 /* 2.过年动画-模仿支付宝 */ = {
@@ -183,38 +163,18 @@
 				BDC312A8202A97AE00AAE6E7 /* AppDelegate.swift */,
 				BDC312BA202A981B00AAE6E7 /* BaseVC.swift */,
 				BDC312BC202A982C00AAE6E7 /* FirstVC.swift */,
+				BDE5CB2B204D3FE1009999A4 /* 自定义转场动画 */,
 				BDF793D82046BE84009282EB /* 模仿youTube的转场动画 */,
 				BDF793D1204560BE009282EB /* appstore转场动画 */,
 				BD4DAE7F204410F9005586B1 /* 1.吸吮的转场动画（2种） */,
 				BD768959202D9E0300E93FC6 /* 2.过年动画-模仿支付宝 */,
 				BD4DAE672043A80B005586B1 /* 3.push下拉返回效果 */,
 				BDC312D9202BFA9700AAE6E7 /* 工具 */,
-				BDC312C0202A9A5600AAE6E7 /* 自定义转场动画 */,
 				BDC312AF202A97AE00AAE6E7 /* Assets.xcassets */,
 				BDC312B4202A97AE00AAE6E7 /* Info.plist */,
 				BD4DAE5D2043A4B3005586B1 /* SwiftPushTransition-Bridging-Header.h */,
 			);
 			path = SwiftPushTransition;
-			sourceTree = "<group>";
-		};
-		BDC312C0202A9A5600AAE6E7 /* 自定义转场动画 */ = {
-			isa = PBXGroup;
-			children = (
-				BDF793DD2047923A009282EB /* youtube转场 */,
-				BD4DAE7E204410B3005586B1 /* push下拉返回SDK */,
-				BDF793D420463D36009282EB /* 放大zoomIn转场(appstore效果) */,
-				BD4DAE8020441138005586B1 /* 吸吮的转场 */,
-				BDC312D0202BEACF00AAE6E7 /* push的动画方向修改 */,
-			);
-			path = "自定义转场动画";
-			sourceTree = "<group>";
-		};
-		BDC312D0202BEACF00AAE6E7 /* push的动画方向修改 */ = {
-			isa = PBXGroup;
-			children = (
-				BDC312D1202BEB0300AAE6E7 /* CATransitionPush.swift */,
-			);
-			path = "push的动画方向修改";
 			sourceTree = "<group>";
 		};
 		BDC312D9202BFA9700AAE6E7 /* 工具 */ = {
@@ -229,20 +189,76 @@
 			path = "工具";
 			sourceTree = "<group>";
 		};
+		BDE5CB2B204D3FE1009999A4 /* 自定义转场动画 */ = {
+			isa = PBXGroup;
+			children = (
+				BDE5CB35204D3FE1009999A4 /* 右滑返回 */,
+				BDE5CB37204D3FE1009999A4 /* 手势交互转场动画SDK */,
+				BDE5CB2C204D3FE1009999A4 /* 吸吮转场 */,
+				BDE5CB2F204D3FE1009999A4 /* 放大zoomIn转场(appstore效果) */,
+				BDE5CB31204D3FE1009999A4 /* youtube转场 */,
+				BDE5CB33204D3FE1009999A4 /* push的动画方向修改 */,
+			);
+			path = "自定义转场动画";
+			sourceTree = "<group>";
+		};
+		BDE5CB2C204D3FE1009999A4 /* 吸吮转场 */ = {
+			isa = PBXGroup;
+			children = (
+				BDE5CB2D204D3FE1009999A4 /* PointTransitionPush.swift */,
+				BDE5CB2E204D3FE1009999A4 /* PointTransitionPop.swift */,
+			);
+			path = "吸吮转场";
+			sourceTree = "<group>";
+		};
+		BDE5CB2F204D3FE1009999A4 /* 放大zoomIn转场(appstore效果) */ = {
+			isa = PBXGroup;
+			children = (
+				BDE5CB30204D3FE1009999A4 /* ZoomInTransitionPush.swift */,
+			);
+			path = "放大zoomIn转场(appstore效果)";
+			sourceTree = "<group>";
+		};
+		BDE5CB31204D3FE1009999A4 /* youtube转场 */ = {
+			isa = PBXGroup;
+			children = (
+				BDE5CB32204D3FE1009999A4 /* YouTubeTransitionPush.swift */,
+			);
+			path = "youtube转场";
+			sourceTree = "<group>";
+		};
+		BDE5CB33204D3FE1009999A4 /* push的动画方向修改 */ = {
+			isa = PBXGroup;
+			children = (
+				BDE5CB34204D3FE1009999A4 /* CATransitionPush.swift */,
+			);
+			path = "push的动画方向修改";
+			sourceTree = "<group>";
+		};
+		BDE5CB35204D3FE1009999A4 /* 右滑返回 */ = {
+			isa = PBXGroup;
+			children = (
+				BDE5CB36204D3FE1009999A4 /* RightTransitionPop.swift */,
+			);
+			path = "右滑返回";
+			sourceTree = "<group>";
+		};
+		BDE5CB37204D3FE1009999A4 /* 手势交互转场动画SDK */ = {
+			isa = PBXGroup;
+			children = (
+				BDE5CB38204D3FE1009999A4 /* CustomPercentDrivenInteractiveTransition.swift */,
+				BDE5CB39204D3FE1009999A4 /* UIViewController+interactivePopTransition.swift */,
+				BDE5CB3A204D3FE1009999A4 /* UIViewExtensionBg.swift */,
+			);
+			path = "手势交互转场动画SDK";
+			sourceTree = "<group>";
+		};
 		BDF793D1204560BE009282EB /* appstore转场动画 */ = {
 			isa = PBXGroup;
 			children = (
 				BDF793D2204560E4009282EB /* AppStoreAnimationVC.swift */,
 			);
 			path = "appstore转场动画";
-			sourceTree = "<group>";
-		};
-		BDF793D420463D36009282EB /* 放大zoomIn转场(appstore效果) */ = {
-			isa = PBXGroup;
-			children = (
-				BDF793D520463D6B009282EB /* ZoomInTransitionPush.swift */,
-			);
-			path = "放大zoomIn转场(appstore效果)";
 			sourceTree = "<group>";
 		};
 		BDF793D82046BE84009282EB /* 模仿youTube的转场动画 */ = {
@@ -252,14 +268,6 @@
 				BD4CD9F02047D904001BC3B1 /* YouTubeView.swift */,
 			);
 			path = "模仿youTube的转场动画";
-			sourceTree = "<group>";
-		};
-		BDF793DD2047923A009282EB /* youtube转场 */ = {
-			isa = PBXGroup;
-			children = (
-				BDF793DE20479264009282EB /* YouTubeTransitionPush.swift */,
-			);
-			path = "youtube转场";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,30 +398,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDF793D620463D6B009282EB /* ZoomInTransitionPush.swift in Sources */,
+				BDE5CB3C204D3FE1009999A4 /* PointTransitionPop.swift in Sources */,
 				BD4DAE662043A6EB005586B1 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
-				BD4DAE692043A847005586B1 /* CustomPercentDrivenInteractiveTransition.swift in Sources */,
-				BDC312D2202BEB0300AAE6E7 /* CATransitionPush.swift in Sources */,
-				BDF793DF20479264009282EB /* YouTubeTransitionPush.swift in Sources */,
+				BDE5CB3F204D3FE1009999A4 /* CATransitionPush.swift in Sources */,
+				BDE5CB43204D3FE1009999A4 /* UIViewExtensionBg.swift in Sources */,
 				BD4DAE7B20440ED4005586B1 /* NewYearAnimationVC.swift in Sources */,
 				BDC312BF202A983900AAE6E7 /* SecondVC.swift in Sources */,
+				BDE5CB3B204D3FE1009999A4 /* PointTransitionPush.swift in Sources */,
 				BDC312BD202A982C00AAE6E7 /* FirstVC.swift in Sources */,
-				BDC312C4202A9ACA00AAE6E7 /* PointTransitionPop.swift in Sources */,
 				BDF793DA2046BEB6009282EB /* YouTubeListVC.swift in Sources */,
 				BDC312C9202AE58B00AAE6E7 /* ThirdVC.swift in Sources */,
+				BDE5CB3D204D3FE1009999A4 /* ZoomInTransitionPush.swift in Sources */,
 				BD76895B202D9E1800E93FC6 /* NewYearAdView.swift in Sources */,
 				BD768950202C41FD00E93FC6 /* WaveImageV.swift in Sources */,
-				BD4DAE712043B2CA005586B1 /* UIViewController+interactivePopTransition.swift in Sources */,
+				BDE5CB3E204D3FE1009999A4 /* YouTubeTransitionPush.swift in Sources */,
 				BD76894E202C41DF00E93FC6 /* WaveView.swift in Sources */,
+				BDE5CB42204D3FE1009999A4 /* UIViewController+interactivePopTransition.swift in Sources */,
+				BDE5CB41204D3FE1009999A4 /* CustomPercentDrivenInteractiveTransition.swift in Sources */,
+				BDE5CB40204D3FE1009999A4 /* RightTransitionPop.swift in Sources */,
 				BD4DAE6F2043B158005586B1 /* TestVC.swift in Sources */,
 				BD76895D202D9F5900E93FC6 /* UIImageView+IOSUtil.swift in Sources */,
-				BDC312C2202A9A9800AAE6E7 /* PointTransitionPush.swift in Sources */,
 				BDF793D3204560E4009282EB /* AppStoreAnimationVC.swift in Sources */,
 				BD4DAE5A2043A374005586B1 /* CustomPercentInteractiveVC.swift in Sources */,
-				BD4DAE7D20440F39005586B1 /* UIViewExtensionBg.swift in Sources */,
 				BDC312BB202A981B00AAE6E7 /* BaseVC.swift in Sources */,
 				BD4CD9F12047D904001BC3B1 /* YouTubeView.swift in Sources */,
-				BD4DAE732043B9BC005586B1 /* CustomPopAnimation.swift in Sources */,
 				BDC312D8202BFA9100AAE6E7 /* UIImage+Extension.swift in Sources */,
 				BDC312A9202A97AE00AAE6E7 /* AppDelegate.swift in Sources */,
 			);
